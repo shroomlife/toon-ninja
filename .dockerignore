@@ -1,56 +1,20 @@
-# Dependencies
-node_modules/
-.bun/
+/node_modules
+/.nuxt
+/.output
+/.vscode
 
-# Build outputs
-.nuxt/
-.output/
-dist/
-.cache/
-
-# Environment
-.env
-.env.local
-.env.*.local
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+/.dockerignore
 .DS_Store
 
-# Logs
-logs/
-*.log
-npm-debug.log*
-bun-debug.log*
+/.editorconfig
+/.env*
 
-# Testing
-coverage/
-.nyc_output/
+/.gitignore
 
-# Source maps (don't need in production)
-*.map
+/Dockerfile
+/eslint.config*
 
-# Git
-.git/
-.gitignore
+/nuxt.config*
+/README.md
 
-# Documentation
-docs/
-.github/
-
-# Development-only files
-.copilotrc
-eslint.config.mjs
-tsconfig.json
-nuxt.config.ts
-
-# Misc
-.prettierrc
-.editorconfig
-README.md
-LICENSE
-renovate.json
+/tsconfig.json
