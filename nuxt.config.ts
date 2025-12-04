@@ -22,14 +22,21 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       meta: [
-        { name: 'description', content: 'TOON Viewer - Edit and preview TOON files with Monaco Editor' },
         { name: 'theme-color', content: '#000000' }
+      ],
+      link: [
+        { rel: 'canonical', href: 'https://toon.ninja' }
       ]
     }
   },
 
   // === Styling ===
   css: ['~/assets/css/main.css'],
+
+  // === Site URL for Sitemap & SEO ===
+  site: {
+    url: 'https://toon.ninja'
+  },
 
   // === Runtime Config ===
   runtimeConfig: {
@@ -48,8 +55,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-12-04',
   nitro: {
     prerender: {
-      crawlLinks: false,
-      routes: ['/']
+      crawlLinks: true,
+      routes: ['/', '/about', '/convert', '/token-optimization', '/features', '/compare']
     }
   },
 

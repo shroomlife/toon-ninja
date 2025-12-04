@@ -1,0 +1,26 @@
+# TOON NINJA
+
+> Free online editor for TOON (Token-Oriented Object Notation). Convert JSON to TOON and reduce LLM token costs by 30-60%.
+
+## What is TOON NINJA?
+TOON NINJA is a web-based editor and converter for the TOON data format. It helps developers reduce token usage in LLM applications by converting JSON to the more efficient TOON format.
+
+## Features
+- Monaco editor with TOON syntax highlighting
+- JSON to TOON conversion (bidirectional)
+- Live syntax validation
+- Diff comparison view
+- Batch editing
+- No signup required
+
+## Pages
+- /: Main editor
+- /about: Learn about TOON format
+- /convert: JSON to TOON converter
+- /token-optimization: Reduce LLM costs
+- /features: Editor features
+- /compare: TOON vs JSON comparison
+
+## Links
+- Documentation: https://toonformat.dev
+- Specification: https://github.com/toon-format/spec

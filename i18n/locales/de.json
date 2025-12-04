@@ -1,10 +1,173 @@
 {
   "app": {
-    "title": "TOON Viewer & Editor"
+    "title": "TOON Ninja"
   },
   "nav": {
-    "viewer": "Viewer & Editor",
-    "about": "Über TOON"
+    "viewer": "Editor",
+    "about": "Über TOON",
+    "convert": "Konvertieren",
+    "tokenOptimization": "Token sparen",
+    "features": "Features",
+    "compare": "TOON vs JSON"
+  },
+  "seo": {
+    "home": {
+      "title": "TOON NINJA – Kostenloser Online TOON-Editor & JSON-Konverter",
+      "description": "TOON NINJA ist ein kostenloser Online-Editor für das TOON-Format. Konvertiere JSON zu TOON, spare 30-60% LLM-Token-Kosten, validiere und formatiere mit Live-Vorschau."
+    },
+    "about": {
+      "title": "Über TOON Format – Token-Oriented Object Notation",
+      "description": "Erfahre mehr über TOON, ein kompaktes Datenformat das 30-60% Tokens gegenüber JSON spart. Perfekt für LLM-Anwendungen und KI-Prompts."
+    },
+    "convert": {
+      "title": "JSON zu TOON Konverter – TOON NINJA",
+      "description": "Konvertiere JSON sofort ins TOON-Format mit TOON NINJA. Reduziere deine LLM-Token um 30-60%. Kostenloser Online-Konverter, keine Anmeldung."
+    },
+    "tokenOptimization": {
+      "title": "LLM Token-Kosten senken – TOON NINJA",
+      "description": "Spare 30-60% bei OpenAI und Anthropic API-Kosten. TOON NINJA konvertiert dein JSON ins token-effiziente TOON-Format für ChatGPT, Claude und andere LLMs."
+    },
+    "features": {
+      "title": "TOON NINJA Features – Editor, Validator, Konverter",
+      "description": "TOON NINJA Features: Monaco-Editor mit Syntax-Highlighting, JSON-zu-TOON-Konvertierung, Live-Validierung, Diff-Vergleich und Stapelbearbeitung. Kostenlos, keine Anmeldung."
+    },
+    "compare": {
+      "title": "TOON vs JSON – Formatvergleich für KI-Anwendungen",
+      "description": "TOON vs JSON im Vergleich: Token-Effizienz, Lesbarkeit, Anwendungsfälle. Erfahre warum TOON 30-60% Tokens bei LLM-Anwendungen spart und JSON-kompatibel bleibt."
+    }
+  },
+  "pages": {
+    "convert": {
+      "hero": {
+        "title": "JSON zu TOON Konverter",
+        "subtitle": "Füge dein JSON ein, erhalte kompaktes TOON. Weniger Tokens, gleiche Daten."
+      },
+      "howItWorks": {
+        "title": "So funktioniert's",
+        "step1": {
+          "title": "JSON einfügen",
+          "description": "Füge deine JSON-Daten in den Editor ein."
+        },
+        "step2": {
+          "title": "Konvertieren",
+          "description": "Klick auf Konvertieren – sofortige Umwandlung."
+        },
+        "step3": {
+          "title": "TOON kopieren",
+          "description": "Kopiere die kompakte TOON-Ausgabe."
+        }
+      },
+      "benefits": {
+        "title": "Warum konvertieren?",
+        "tokenReduction": "Token-Reduktion für LLMs",
+        "smallerPayload": "Kleinere Datenmenge",
+        "humanReadable": "Menschenlesbares Format",
+        "jsonCompatible": "JSON-kompatibles Datenmodell"
+      },
+      "cta": "Konverter öffnen"
+    },
+    "tokenOptimization": {
+      "hero": {
+        "title": "LLM Token-Kosten senken",
+        "subtitle": "Strukturierte Daten in Prompts fressen Tokens. Tokens kosten Geld. Kontextfenster füllen sich schnell. Es gibt einen besseren Weg."
+      },
+      "problem": {
+        "title": "Das JSON-Problem",
+        "description": "JSON ist ausführlich. Anführungszeichen, Klammern, Doppelpunkte – alles verbraucht Tokens ohne Bedeutung hinzuzufügen. Jeder API-Aufruf kostet mehr als nötig."
+      },
+      "solution": {
+        "title": "Die Lösung",
+        "description": "TOON NINJA konvertiert dein JSON ins TOON-Format – gleiche Daten, 30-60% weniger Tokens. Kein Datenverlust, volle Kompatibilität.",
+        "learnMore": "Mehr über das TOON-Format erfahren"
+      },
+      "savings": {
+        "title": "Echtes Spar-Beispiel",
+        "description": "Wenn du 100€/Monat für OpenAI ausgibst und 30% davon strukturierte Daten sind, spart dir der Wechsel zu TOON 12-18€/Monat. Skaliere das auf deine tatsächliche Nutzung.",
+        "monthly": "Monatliche API-Kosten",
+        "structuredData": "Strukturierte Daten",
+        "savings": "Potenzielle Ersparnis"
+      },
+      "cta": {
+        "primary": "Jetzt konvertieren",
+        "secondary": "Über TOON lernen"
+      }
+    },
+    "features": {
+      "hero": {
+        "title": "TOON NINJA Features",
+        "subtitle": "Ein vollständiger Online-Editor für das TOON-Format. Alles was du brauchst, nichts Überflüssiges."
+      },
+      "list": {
+        "monaco": {
+          "title": "Monaco Editor",
+          "description": "VS Codes Editor mit TOON Syntax-Highlighting."
+        },
+        "conversion": {
+          "title": "JSON ↔ TOON",
+          "description": "Konvertiere zwischen Formaten mit einem Klick."
+        },
+        "validation": {
+          "title": "Live-Validierung",
+          "description": "Sofortiges Fehler-Feedback beim Tippen."
+        },
+        "diff": {
+          "title": "Diff-Vergleich",
+          "description": "Vergleiche Versionen Seite an Seite."
+        },
+        "batch": {
+          "title": "Stapelbearbeitung",
+          "description": "Suchen und Ersetzen in deinen Daten."
+        },
+        "shortcuts": {
+          "title": "Tastenkürzel",
+          "description": "Power-User? Wir haben dich abgedeckt."
+        },
+        "darkMode": {
+          "title": "Dark Mode",
+          "description": "Angenehm für die Augen, Tag und Nacht."
+        },
+        "noAccount": {
+          "title": "Kein Account",
+          "description": "Einfach öffnen und loslegen. Keine Anmeldung."
+        }
+      },
+      "cta": "Editor ausprobieren"
+    },
+    "compare": {
+      "hero": {
+        "title": "TOON vs JSON",
+        "subtitle": "Beide Formate haben ihre Stärken. Hier ist ein ehrlicher Vergleich für deine Entscheidung."
+      },
+      "table": {
+        "criterion": "Kriterium",
+        "toon": "TOON",
+        "json": "JSON",
+        "tokenEfficiency": "Token-Effizienz",
+        "tokenToon": "30-60% weniger Tokens",
+        "tokenJson": "Baseline",
+        "readability": "Lesbarkeit",
+        "readabilityToon": "Ausgezeichnet",
+        "readabilityJson": "Gut",
+        "ecosystem": "Ökosystem-Support",
+        "ecosystemToon": "Wachsend",
+        "ecosystemJson": "Universal",
+        "learningCurve": "Lernkurve",
+        "learningToon": "Niedrig (JSON-ähnlich)",
+        "learningJson": "Niedrig",
+        "bestFor": "Am besten für",
+        "bestForToon": "LLM-Prompts, KI-Workflows",
+        "bestForJson": "APIs, allgemeine Daten"
+      },
+      "whenToon": {
+        "title": "Wann TOON verwenden",
+        "description": "Wähle TOON wenn du mit LLMs arbeitest und Token-Kosten wichtig sind. Prompts mit strukturierten Daten, Agent-Konfigurationen und KI-Pipelines profitieren am meisten von TOONs kompakter Syntax."
+      },
+      "whenJson": {
+        "title": "Wann bei JSON bleiben",
+        "description": "JSON bleibt die richtige Wahl für öffentliche APIs, Konfigurationsdateien in etablierten Ökosystemen und überall wo universelle Tool-Unterstützung wichtiger ist als Token-Effizienz."
+      },
+      "cta": "Selbst ausprobieren"
+    }
   },
   "about": {
     "title": "Über TOON",

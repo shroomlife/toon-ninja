@@ -1,0 +1,11 @@
+# TOON NINJA - https://toon.ninja
+# Welcome, friendly crawlers!
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://toon.ninja/sitemap.xml
+
+# Crawl-delay (be nice to our server)
+Crawl-delay: 1

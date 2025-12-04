@@ -2,6 +2,45 @@
 const { t } = useI18n()
 const toonStore = useToonStore()
 
+// SEO Meta Tags
+useSeoMeta({
+  title: () => t('seo.home.title'),
+  description: () => t('seo.home.description'),
+  ogTitle: () => t('seo.home.title'),
+  ogDescription: () => t('seo.home.description'),
+  ogType: 'website',
+  ogSiteName: 'TOON NINJA',
+  ogUrl: 'https://toon.ninja',
+  twitterCard: 'summary_large_image',
+  twitterTitle: () => t('seo.home.title'),
+  twitterDescription: () => t('seo.home.description')
+})
+
+// Schema.org JSON-LD
+useHead({
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      'name': 'TOON NINJA',
+      'description': 'Free online editor for TOON format. Convert JSON to TOON, reduce LLM token costs by 30-60%, validate and format with live preview.',
+      'applicationCategory': 'DeveloperApplication',
+      'operatingSystem': 'Web Browser',
+      'offers': {
+        '@type': 'Offer',
+        'price': '0',
+        'priceCurrency': 'USD'
+      },
+      'url': 'https://toon.ninja',
+      'author': {
+        '@type': 'Organization',
+        'name': 'TOON NINJA'
+      }
+    })
+  }]
+})
+
 // Keyboard shortcuts
 const keys = useMagicKeys()
 const ctrlZ = computed(() => keys['Ctrl+z']?.value ?? false)

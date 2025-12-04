@@ -28,7 +28,7 @@ const selectedLanguage = computed({
 
 const links = computed<NavigationMenuItem[][]>(() => [[{
   label: t('nav.viewer'),
-  icon: 'i-lucide-eye',
+  icon: 'i-lucide-edit',
   to: '/',
   onSelect: () => {
     open.value = false
@@ -37,6 +37,34 @@ const links = computed<NavigationMenuItem[][]>(() => [[{
   label: t('nav.about'),
   icon: 'i-lucide-info',
   to: '/about',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: t('nav.convert'),
+  icon: 'i-lucide-arrow-right-left',
+  to: '/convert',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: t('nav.tokenOptimization'),
+  icon: 'i-lucide-piggy-bank',
+  to: '/token-optimization',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: t('nav.features'),
+  icon: 'i-lucide-zap',
+  to: '/features',
+  onSelect: () => {
+    open.value = false
+  }
+}, {
+  label: t('nav.compare'),
+  icon: 'i-lucide-scale',
+  to: '/compare',
   onSelect: () => {
     open.value = false
   }
@@ -68,10 +96,10 @@ const links = computed<NavigationMenuItem[][]>(() => [[{
       :ui="{ footer: 'lg:border-t lg:border-default' }"
     >
       <template #header="{ collapsed }">
-        <div class="flex items-center gap-2 px-2 py-1">
-          <UIcon name="i-lucide-file-json" class="w-6 h-6 text-primary" />
-          <span v-if="!collapsed" class="font-semibold">TOON Viewer</span>
-        </div>
+        <NuxtLink to="/" class="flex items-center gap-2 px-2 py-1">
+          <AppLogo :size="24" />
+          <span v-if="!collapsed" class="font-bold">TOON Ninja</span>
+        </NuxtLink>
       </template>
 
       <template #default="{ collapsed }">
@@ -84,7 +112,7 @@ const links = computed<NavigationMenuItem[][]>(() => [[{
         />
 
         <div class="mt-auto space-y-2">
-          <!-- About TOON Link -->
+          <!-- About & Landing Pages -->
           <UNavigationMenu
             :collapsed="collapsed"
             :items="links[1]"
