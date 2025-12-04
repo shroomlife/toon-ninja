@@ -10,7 +10,7 @@
         "@nuxt/ui": "4.2.1",
         "@nuxtjs/i18n": "10.2.1",
         "@pinia/nuxt": "0.11.3",
-        "@toon-format/toon": "^2.0.1",
+        "@toon-format/toon": "2.1.0",
         "@vueuse/core": "14.1.0",
         "@vueuse/nuxt": "14.1.0",
         "diff": "8.0.2",
@@ -559,7 +559,7 @@
 
     "@tanstack/vue-virtual": ["@tanstack/vue-virtual@3.13.12", "", { "dependencies": { "@tanstack/virtual-core": "3.13.12" }, "peerDependencies": { "vue": "^2.7.0 || ^3.0.0" } }, "sha512-vhF7kEU9EXWXh+HdAwKJ2m3xaOnTTmgcdXcF2pim8g4GvI7eRrk2YRuV5nUlZnd/NbCIX4/Ja2OZu5EjJL06Ww=="],
 
-    "@toon-format/toon": ["@toon-format/toon@2.0.1", "", {}, "sha512-0oohzByDG/VTvsPT7iCfUdoB6yndopkPulh9Kk76fhV6YReVSGqr6ni5EMSxn3umNyfwylI0nOjLYtjJTIiT0w=="],
+    "@toon-format/toon": ["@toon-format/toon@2.1.0", "", {}, "sha512-JwWptdF5eOA0HaQxbKAzkpQtR4wSWTEfDlEy/y3/4okmOAX1qwnpLZMmtEWr+ncAhTTY1raCKH0kteHhSXnQqg=="],
 
     "@tybys/wasm-util": ["@tybys/wasm-util@0.10.1", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg=="],
 

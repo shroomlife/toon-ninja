@@ -107,22 +107,58 @@ const analyzeStructure = (): SmartField[] => {
   return fields
 }
 
+// Build smart fields from existing object (for edit mode)
+const buildFieldsFromObject = (): SmartField[] => {
+  if (props.item.type !== 'object' || !props.item.children) return []
+
+  const fields: SmartField[] = []
+  for (const child of props.item.children) {
+    fields.push({
+      key: child.label,
+      type: child.type as SmartField['type'],
+      value: child.type === 'boolean'
+        ? (child.value ? 'true' : 'false')
+        : child.type === 'null'
+          ? ''
+          : String(child.value ?? '')
+    })
+  }
+  return fields
+}
+
 // Initialize form based on mode
 watchEffect(() => {
   if (props.mode === 'edit') {
     formKey.value = props.item.label
     formType.value = props.item.type as typeof formType.value
-    useSmartForm.value = false
-    smartFields.value = []
 
     if (props.item.type === 'null') {
       formValue.value = ''
+      useSmartForm.value = false
+      smartFields.value = []
     } else if (props.item.type === 'boolean') {
       formValue.value = props.item.value ? 'true' : 'false'
-    } else if (props.item.type === 'object' || props.item.type === 'array') {
+      useSmartForm.value = false
+      smartFields.value = []
+    } else if (props.item.type === 'object') {
+      // Use smart form for editing objects
       formValue.value = ''
+      const fields = buildFieldsFromObject()
+      if (fields.length > 0) {
+        useSmartForm.value = true
+        smartFields.value = fields
+      } else {
+        useSmartForm.value = false
+        smartFields.value = []
+      }
+    } else if (props.item.type === 'array') {
+      formValue.value = ''
+      useSmartForm.value = false
+      smartFields.value = []
     } else {
       formValue.value = String(props.item.value ?? '')
+      useSmartForm.value = false
+      smartFields.value = []
     }
   } else {
     // Adding new node - check for smart form
@@ -266,9 +302,16 @@ const handleSave = () => {
 
   try {
     if (useSmartForm.value) {
-      // Smart form: build object and add to array
+      // Smart form: build object
       const obj = buildSmartObject()
-      toonStore.addNode(props.item.path, obj)
+
+      if (props.mode === 'edit') {
+        // Edit existing object - replace with updated values
+        toonStore.editNode(props.item.path, obj, showKeyInput.value ? formKey.value.trim() : undefined)
+      } else {
+        // Add new object to array
+        toonStore.addNode(props.item.path, obj)
+      }
     } else {
       const value = parseValue()
       const key = showKeyInput.value ? formKey.value.trim() : undefined

@@ -89,22 +89,18 @@ const links = computed<NavigationMenuItem[][]>(() => [[{
   <UDashboardGroup unit="rem">
     <UDashboardSidebar
       id="default"
-      v-model:open="open"
-      collapsible
-      resizable
       class="bg-elevated/25"
       :ui="{ footer: 'lg:border-t lg:border-default' }"
     >
-      <template #header="{ collapsed }">
+      <template #header>
         <NuxtLink to="/" class="flex items-center gap-2 px-2 py-1">
           <AppLogo :size="24" />
-          <span v-if="!collapsed" class="font-bold">TOON Ninja</span>
+          <span class="font-bold">TOON Ninja</span>
         </NuxtLink>
       </template>
 
-      <template #default="{ collapsed }">
+      <template #default>
         <UNavigationMenu
-          :collapsed="collapsed"
           :items="links[0]"
           orientation="vertical"
           tooltip
@@ -114,7 +110,6 @@ const links = computed<NavigationMenuItem[][]>(() => [[{
         <div class="mt-auto space-y-2">
           <!-- About & Landing Pages -->
           <UNavigationMenu
-            :collapsed="collapsed"
             :items="links[1]"
             orientation="vertical"
             tooltip
@@ -141,7 +136,6 @@ const links = computed<NavigationMenuItem[][]>(() => [[{
           </div>
 
           <UNavigationMenu
-            :collapsed="collapsed"
             :items="links[2]"
             orientation="vertical"
             tooltip

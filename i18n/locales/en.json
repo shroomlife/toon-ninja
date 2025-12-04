@@ -3,7 +3,7 @@
     "title": "TOON Ninja"
   },
   "nav": {
-    "viewer": "Editor",
+    "viewer": "Editor & Explorer",
     "about": "About TOON",
     "convert": "Convert",
     "tokenOptimization": "Token Savings",
@@ -255,7 +255,9 @@
   "explorer": {
     "title": "Explorer",
     "noData": "No data loaded",
-    "loadFile": "Load a TOON file to get started"
+    "loadFile": "Load a TOON file to get started",
+    "loadExample": "Load Example",
+    "exampleLoaded": "Example with all data types loaded"
   },
   "editor": {
     "placeholder": "Enter or paste TOON data here...",

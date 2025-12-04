@@ -39,8 +39,8 @@ jobs:
 
       - name: Build and Push Docker Production Image
         run: |
-          docker build -t shroomlife/documentr:latest . &&
-          docker push shroomlife/documentr:latest
+          docker build -t shroomlife/toon-ninja:latest . &&
+          docker push shroomlife/toon-ninja:latest
 
   Deploy:
     needs: Build
@@ -52,4 +52,4 @@ jobs:
           host: ${{ vars.DEPLOY_HOST }}
           username: ${{ vars.DEPLOY_USERNAME }}
           key: ${{ secrets.DEPLOY_KEY }}
-          script: docker compose pull documentr_app && docker compose up -d documentr_app
+          script: docker compose pull toon_ninja && docker compose up -d toon_ninja

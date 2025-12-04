@@ -1,0 +1,392 @@
+{
+  "app": {
+    "title": "TOON 忍者"
+  },
+  "nav": {
+    "viewer": "编辑器与浏览器",
+    "about": "关于 TOON",
+    "convert": "转换",
+    "tokenOptimization": "节省 Token",
+    "features": "功能",
+    "compare": "TOON vs JSON"
+  },
+  "seo": {
+    "home": {
+      "title": "TOON NINJA - 免费在线 TOON 编辑器和 JSON 转换器",
+      "description": "TOON NINJA 是免费的 TOON 格式在线编辑器。将 JSON 转换为 TOON，节省 30-60% 的 LLM Token 成本，实时预览验证和格式化。"
+    },
+    "about": {
+      "title": "关于 TOON 格式 - 面向 Token 的对象表示法",
+      "description": "了解 TOON，一种比 JSON 节省 30-60% Token 的紧凑数据格式。非常适合 LLM 应用和 AI 提示词。"
+    },
+    "convert": {
+      "title": "JSON 转 TOON 转换器 - TOON NINJA",
+      "description": "使用 TOON NINJA 即时将 JSON 转换为 TOON 格式。减少 30-60% 的 LLM Token。免费在线转换器，无需注册。"
+    },
+    "tokenOptimization": {
+      "title": "降低 LLM Token 成本 - TOON NINJA",
+      "description": "节省 30-60% 的 OpenAI 和 Anthropic API 成本。TOON NINJA 将您的 JSON 转换为 Token 高效的 TOON 格式，适用于 ChatGPT、Claude 等 LLM。"
+    },
+    "features": {
+      "title": "TOON NINJA 功能 - 编辑器、验证器、转换器",
+      "description": "TOON NINJA 功能：带语法高亮的 Monaco 编辑器、JSON 转 TOON、实时验证、差异对比和批量编辑。免费，无需注册。"
+    },
+    "compare": {
+      "title": "TOON vs JSON - AI 应用格式对比",
+      "description": "TOON 与 JSON 对比：Token 效率、可读性、应用场景。了解为什么 TOON 在 LLM 应用中节省 30-60% Token，同时保持 JSON 兼容。"
+    }
+  },
+  "pages": {
+    "convert": {
+      "hero": {
+        "title": "JSON 转 TOON 转换器",
+        "subtitle": "粘贴您的 JSON，获取紧凑的 TOON。更少的 Token，相同的数据。"
+      },
+      "howItWorks": {
+        "title": "使用方法",
+        "step1": {
+          "title": "粘贴 JSON",
+          "description": "将您的 JSON 数据粘贴到编辑器中。"
+        },
+        "step2": {
+          "title": "转换",
+          "description": "点击转换 - 即时完成。"
+        },
+        "step3": {
+          "title": "复制 TOON",
+          "description": "复制紧凑的 TOON 输出。"
+        }
+      },
+      "benefits": {
+        "title": "为什么要转换？",
+        "tokenReduction": "减少 LLM Token",
+        "smallerPayload": "更小的数据量",
+        "humanReadable": "人类可读格式",
+        "jsonCompatible": "JSON 兼容数据模型"
+      },
+      "cta": "打开转换器"
+    },
+    "tokenOptimization": {
+      "hero": {
+        "title": "降低 LLM Token 成本",
+        "subtitle": "提示词中的结构化数据消耗 Token。Token 需要花钱。上下文窗口很快就会被填满。有更好的方法。"
+      },
+      "problem": {
+        "title": "JSON 的问题",
+        "description": "JSON 很冗长。引号、括号、冒号——所有这些都消耗 Token 却不增加任何意义。每次 API 调用的成本都比必要的更高。"
+      },
+      "solution": {
+        "title": "解决方案",
+        "description": "TOON NINJA 将您的 JSON 转换为 TOON 格式——相同的数据，减少 30-60% 的 Token。无数据丢失，完全兼容。",
+        "learnMore": "了解更多关于 TOON 格式"
+      },
+      "savings": {
+        "title": "实际节省示例",
+        "description": "如果您每月在 OpenAI 上花费 100 美元，其中 30% 是结构化数据，切换到 TOON 每月可为您节省 12-18 美元。根据您的实际使用量进行换算。",
+        "monthly": "每月 API 成本",
+        "structuredData": "结构化数据",
+        "savings": "潜在节省"
+      },
+      "cta": {
+        "primary": "立即转换",
+        "secondary": "了解 TOON"
+      }
+    },
+    "features": {
+      "hero": {
+        "title": "TOON NINJA 功能",
+        "subtitle": "完整的 TOON 格式在线编辑器。您需要的一切，没有多余的东西。"
+      },
+      "list": {
+        "monaco": {
+          "title": "Monaco 编辑器",
+          "description": "VS Code 的编辑器，支持 TOON 语法高亮。"
+        },
+        "conversion": {
+          "title": "JSON ↔ TOON",
+          "description": "一键在格式之间转换。"
+        },
+        "validation": {
+          "title": "实时验证",
+          "description": "输入时即时错误反馈。"
+        },
+        "diff": {
+          "title": "差异对比",
+          "description": "并排比较版本。"
+        },
+        "batch": {
+          "title": "批量编辑",
+          "description": "在数据中查找和替换。"
+        },
+        "shortcuts": {
+          "title": "快捷键",
+          "description": "高级用户？我们为您准备好了。"
+        },
+        "darkMode": {
+          "title": "深色模式",
+          "description": "日夜都对眼睛友好。"
+        },
+        "noAccount": {
+          "title": "无需账户",
+          "description": "直接打开使用。无需注册。"
+        }
+      },
+      "cta": "试用编辑器"
+    },
+    "compare": {
+      "hero": {
+        "title": "TOON vs JSON",
+        "subtitle": "两种格式各有优势。这是一个帮助您做决定的诚实对比。"
+      },
+      "table": {
+        "criterion": "标准",
+        "toon": "TOON",
+        "json": "JSON",
+        "tokenEfficiency": "Token 效率",
+        "tokenToon": "减少 30-60% Token",
+        "tokenJson": "基准",
+        "readability": "可读性",
+        "readabilityToon": "优秀",
+        "readabilityJson": "良好",
+        "ecosystem": "生态系统支持",
+        "ecosystemToon": "成长中",
+        "ecosystemJson": "通用",
+        "learningCurve": "学习曲线",
+        "learningToon": "低（类似 JSON）",
+        "learningJson": "低",
+        "bestFor": "最适合",
+        "bestForToon": "LLM 提示词、AI 工作流",
+        "bestForJson": "API、通用数据"
+      },
+      "whenToon": {
+        "title": "何时使用 TOON",
+        "description": "当您使用 LLM 且 Token 成本很重要时选择 TOON。包含结构化数据的提示词、Agent 配置和 AI 流水线从 TOON 的紧凑语法中获益最多。"
+      },
+      "whenJson": {
+        "title": "何时继续使用 JSON",
+        "description": "JSON 仍然是公共 API、成熟生态系统中的配置文件以及通用工具支持比 Token 效率更重要的任何场景的正确选择。"
+      },
+      "cta": "亲自试试"
+    }
+  },
+  "about": {
+    "title": "关于 TOON",
+    "hero": {
+      "title": "人类可读的数据格式",
+      "subtitle": "TOON 是一种现代的、人类可读的数据序列化格式，结合了 JSON 的熟悉性、YAML 的可读性和表格数据的效率。"
+    },
+    "comparison": {
+      "title": "TOON vs JSON",
+      "bytes": "字节",
+      "savings": "相同数据约 60% 更小的文件大小"
+    },
+    "features": {
+      "title": "主要特性",
+      "humanReadable": {
+        "title": "人类可读",
+        "description": "简洁的、基于缩进的语法，无需特殊工具即可轻松读写。"
+      },
+      "compact": {
+        "title": "紧凑格式",
+        "description": "与 JSON 相比文件大小显著更小——节省带宽和存储。"
+      },
+      "tabular": {
+        "title": "表格数组",
+        "description": "原生支持带字段标题的表格数据——非常适合列表和记录。"
+      },
+      "efficient": {
+        "title": "高性能",
+        "description": "快速解析和序列化，内存占用最小。"
+      },
+      "jsonCompatible": {
+        "title": "JSON 兼容",
+        "description": "完全支持 JSON 数据模型——TOON 和 JSON 之间无损转换。"
+      },
+      "llmFriendly": {
+        "title": "LLM 友好",
+        "description": "为 AI/LLM 上下文窗口优化——用更少的 Token 处理更多数据。"
+      }
+    },
+    "useCases": {
+      "title": "应用场景",
+      "config": {
+        "title": "配置文件",
+        "description": "用可读、可维护的 TOON 文件替换 JSON/YAML 配置。"
+      },
+      "data": {
+        "title": "数据存储",
+        "description": "高效存储结构化数据，具有出色的可读性。"
+      },
+      "ai": {
+        "title": "AI 和 LLM 提示词",
+        "description": "在使用 AI 模型时最大化上下文窗口效率。"
+      },
+      "api": {
+        "title": "API 响应",
+        "description": "减少负载大小，同时保持可调试的响应。"
+      }
+    },
+    "syntax": {
+      "title": "语法亮点",
+      "indentation": {
+        "title": "基于缩进",
+        "description": "使用一致的 2 空格缩进定义结构——无需括号。"
+      },
+      "headers": {
+        "title": "数组标题",
+        "description": "使用像 'users[3]' 这样的标题定义数组结构，后跟表格数据的字段名。"
+      },
+      "primitives": {
+        "title": "无引号原语",
+        "description": "数字、布尔值和 null 不需要引号——直接写就行。"
+      },
+      "delimiters": {
+        "title": "灵活分隔符",
+        "description": "使用逗号、制表符或管道符作为表格行的分隔符。"
+      }
+    },
+    "cta": {
+      "title": "准备试试 TOON？",
+      "description": "使用 TOON 查看器直接在浏览器中解析、浏览和编辑 TOON 数据。",
+      "tryViewer": "打开查看器",
+      "learnMore": "官方文档"
+    }
+  },
+  "explorer": {
+    "title": "浏览器",
+    "noData": "未加载数据",
+    "loadFile": "加载 TOON 文件以开始",
+    "loadExample": "加载示例",
+    "exampleLoaded": "已加载包含所有数据类型的示例"
+  },
+  "editor": {
+    "placeholder": "在此输入或粘贴 TOON 数据...",
+    "format": "格式化"
+  },
+  "actions": {
+    "export": "导出",
+    "saved": "已保存",
+    "undo": "撤销",
+    "redo": "重做",
+    "copy": "复制",
+    "copyAsJson": "复制为 JSON",
+    "paste": "粘贴",
+    "clear": "清除",
+    "cancel": "取消",
+    "delete": "删除",
+    "add": "添加",
+    "moved": "已移动"
+  },
+  "diff": {
+    "title": "比较版本",
+    "original": "原始",
+    "modified": "修改后",
+    "noChanges": "未检测到更改",
+    "additions": "添加",
+    "deletions": "删除",
+    "changes": "更改"
+  },
+  "batch": {
+    "title": "批量编辑",
+    "findReplace": "查找和替换",
+    "find": "查找",
+    "replace": "替换",
+    "replaceAll": "全部替换",
+    "matchCase": "区分大小写",
+    "regex": "正则表达式",
+    "found": "找到 {count} 个匹配"
+  },
+  "dropzone": {
+    "title": "将文件拖放到这里",
+    "subtitle": "或点击浏览",
+    "accept": "接受 .json、.toon 文件"
+  },
+  "settings": {
+    "title": "设置",
+    "language": "语言",
+    "autoSave": "自动保存",
+    "wordWrap": "自动换行",
+    "fontSize": "字体大小"
+  },
+  "shortcuts": {
+    "title": "快捷键",
+    "save": "保存",
+    "undo": "撤销",
+    "redo": "重做",
+    "format": "格式化",
+    "search": "搜索",
+    "import": "导入",
+    "export": "导出"
+  },
+  "errors": {
+    "parseError": "无法解析 JSON",
+    "importError": "无法导入文件",
+    "invalidData": "无效的数据格式"
+  },
+  "success": {
+    "imported": "文件导入成功",
+    "exported": "文件导出成功",
+    "saved": "更改已保存",
+    "copied": "已复制到剪贴板",
+    "copiedAsJson": "JSON 已复制到剪贴板",
+    "jsonConverted": "JSON 已转换为 TOON"
+  },
+  "input": {
+    "title": "TOON 输入",
+    "subtitle": "粘贴或输入 TOON 数据进行解析和浏览",
+    "placeholder": "# 在此输入 TOON 数据",
+    "paste": "粘贴",
+    "clear": "清除",
+    "pasted": "已粘贴",
+    "pastedDescription": "已从剪贴板粘贴内容",
+    "error": "错误",
+    "clipboardError": "无法从剪贴板读取",
+    "aboutToon": "什么是 TOON？",
+    "learnMore": "了解更多关于 TOON 格式"
+  },
+  "tree": {
+    "expandAll": "全部展开",
+    "collapseAll": "全部折叠"
+  },
+  "editModal": {
+    "title": "编辑节点",
+    "addTitle": "添加节点",
+    "key": "键",
+    "keyPlaceholder": "输入键名",
+    "value": "值",
+    "valuePlaceholder": "输入值",
+    "type": "类型",
+    "save": "保存",
+    "cancel": "取消",
+    "keyRequired": "键是必需的",
+    "invalidNumber": "无效的数字格式",
+    "smartForm": "基于现有元素的智能表单",
+    "manualEntry": "切换到手动输入",
+    "useSmartForm": "使用智能表单",
+    "types": {
+      "string": "字符串",
+      "number": "数字",
+      "boolean": "布尔值",
+      "null": "空值",
+      "object": "对象",
+      "array": "数组"
+    }
+  },
+  "hints": {
+    "swap": "交换左右",
+    "clearDiff": "清除两个面板",
+    "loadCurrent": "加载当前编辑器内容",
+    "decreaseFontSize": "减小字体大小",
+    "increaseFontSize": "增大字体大小",
+    "decreaseTabSize": "减小制表符大小",
+    "increaseTabSize": "增大制表符大小",
+    "editNode": "在模态框中编辑",
+    "addChild": "添加子节点",
+    "deleteNode": "删除节点",
+    "toggleBoolean": "点击切换",
+    "clickToEdit": "点击编辑",
+    "pasteFromClipboard": "从剪贴板粘贴",
+    "clearInput": "清除输入",
+    "closeBatchEdit": "关闭批量编辑"
+  }
+}

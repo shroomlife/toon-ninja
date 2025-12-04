@@ -1,0 +1,392 @@
+{
+  "app": {
+    "title": "TOON Ninja"
+  },
+  "nav": {
+    "viewer": "Trình soạn thảo & Khám phá",
+    "about": "Về TOON",
+    "convert": "Chuyển đổi",
+    "tokenOptimization": "Tiết kiệm Token",
+    "features": "Tính năng",
+    "compare": "TOON vs JSON"
+  },
+  "seo": {
+    "home": {
+      "title": "TOON NINJA - Trình soạn thảo TOON trực tuyến miễn phí & Bộ chuyển đổi JSON",
+      "description": "TOON NINJA là trình soạn thảo trực tuyến miễn phí cho định dạng TOON. Chuyển đổi JSON sang TOON, tiết kiệm 30-60% chi phí token LLM, xác thực và định dạng với xem trước trực tiếp."
+    },
+    "about": {
+      "title": "Về định dạng TOON - Token-Oriented Object Notation",
+      "description": "Tìm hiểu về TOON, định dạng dữ liệu gọn nhẹ tiết kiệm 30-60% token so với JSON. Hoàn hảo cho ứng dụng LLM và prompt AI."
+    },
+    "convert": {
+      "title": "Bộ chuyển đổi JSON sang TOON - TOON NINJA",
+      "description": "Chuyển đổi JSON sang định dạng TOON ngay lập tức với TOON NINJA. Giảm 30-60% token LLM. Bộ chuyển đổi trực tuyến miễn phí, không cần đăng ký."
+    },
+    "tokenOptimization": {
+      "title": "Giảm chi phí Token LLM - TOON NINJA",
+      "description": "Tiết kiệm 30-60% chi phí API OpenAI và Anthropic. TOON NINJA chuyển đổi JSON sang định dạng TOON hiệu quả token cho ChatGPT, Claude và các LLM khác."
+    },
+    "features": {
+      "title": "Tính năng TOON NINJA - Trình soạn thảo, Trình xác thực, Bộ chuyển đổi",
+      "description": "Tính năng TOON NINJA: Trình soạn thảo Monaco với tô sáng cú pháp, chuyển đổi JSON sang TOON, xác thực trực tiếp, so sánh diff và chỉnh sửa hàng loạt. Miễn phí, không cần đăng ký."
+    },
+    "compare": {
+      "title": "TOON vs JSON - So sánh định dạng cho ứng dụng AI",
+      "description": "So sánh TOON vs JSON: hiệu quả token, khả năng đọc, trường hợp sử dụng. Tìm hiểu tại sao TOON tiết kiệm 30-60% token trong ứng dụng LLM và vẫn tương thích JSON."
+    }
+  },
+  "pages": {
+    "convert": {
+      "hero": {
+        "title": "Bộ chuyển đổi JSON sang TOON",
+        "subtitle": "Dán JSON của bạn, nhận TOON gọn nhẹ. Ít token hơn, cùng dữ liệu."
+      },
+      "howItWorks": {
+        "title": "Cách hoạt động",
+        "step1": {
+          "title": "Dán JSON",
+          "description": "Dán dữ liệu JSON vào trình soạn thảo."
+        },
+        "step2": {
+          "title": "Chuyển đổi",
+          "description": "Nhấp chuyển đổi - chuyển đổi ngay lập tức."
+        },
+        "step3": {
+          "title": "Sao chép TOON",
+          "description": "Sao chép đầu ra TOON gọn nhẹ."
+        }
+      },
+      "benefits": {
+        "title": "Tại sao chuyển đổi?",
+        "tokenReduction": "Giảm token cho LLM",
+        "smallerPayload": "Kích thước dữ liệu nhỏ hơn",
+        "humanReadable": "Định dạng con người đọc được",
+        "jsonCompatible": "Mô hình dữ liệu tương thích JSON"
+      },
+      "cta": "Mở bộ chuyển đổi"
+    },
+    "tokenOptimization": {
+      "hero": {
+        "title": "Giảm chi phí Token LLM",
+        "subtitle": "Dữ liệu có cấu trúc trong prompt tiêu thụ token. Token tốn tiền. Cửa sổ ngữ cảnh đầy nhanh. Có cách tốt hơn."
+      },
+      "problem": {
+        "title": "Vấn đề của JSON",
+        "description": "JSON dài dòng. Dấu ngoặc kép, ngoặc vuông, dấu hai chấm – tất cả tiêu thụ token mà không thêm ý nghĩa. Mỗi lệnh gọi API tốn nhiều hơn cần thiết."
+      },
+      "solution": {
+        "title": "Giải pháp",
+        "description": "TOON NINJA chuyển đổi JSON sang định dạng TOON – cùng dữ liệu, ít hơn 30-60% token. Không mất dữ liệu, tương thích hoàn toàn.",
+        "learnMore": "Tìm hiểu thêm về định dạng TOON"
+      },
+      "savings": {
+        "title": "Ví dụ tiết kiệm thực tế",
+        "description": "Nếu bạn chi 2 triệu đồng/tháng cho OpenAI và 30% là dữ liệu có cấu trúc, chuyển sang TOON tiết kiệm 240-360 nghìn đồng/tháng. Quy mô theo mức sử dụng thực tế của bạn.",
+        "monthly": "Chi phí API hàng tháng",
+        "structuredData": "Dữ liệu có cấu trúc",
+        "savings": "Tiết kiệm tiềm năng"
+      },
+      "cta": {
+        "primary": "Chuyển đổi ngay",
+        "secondary": "Tìm hiểu về TOON"
+      }
+    },
+    "features": {
+      "hero": {
+        "title": "Tính năng TOON NINJA",
+        "subtitle": "Trình soạn thảo trực tuyến hoàn chỉnh cho định dạng TOON. Mọi thứ bạn cần, không gì thừa."
+      },
+      "list": {
+        "monaco": {
+          "title": "Trình soạn thảo Monaco",
+          "description": "Trình soạn thảo VS Code với tô sáng cú pháp TOON."
+        },
+        "conversion": {
+          "title": "JSON ↔ TOON",
+          "description": "Chuyển đổi giữa các định dạng với một cú nhấp."
+        },
+        "validation": {
+          "title": "Xác thực trực tiếp",
+          "description": "Phản hồi lỗi ngay lập tức khi nhập."
+        },
+        "diff": {
+          "title": "So sánh diff",
+          "description": "So sánh các phiên bản cạnh nhau."
+        },
+        "batch": {
+          "title": "Chỉnh sửa hàng loạt",
+          "description": "Tìm và thay thế trong dữ liệu của bạn."
+        },
+        "shortcuts": {
+          "title": "Phím tắt",
+          "description": "Người dùng nâng cao? Chúng tôi hỗ trợ bạn."
+        },
+        "darkMode": {
+          "title": "Chế độ tối",
+          "description": "Dễ chịu cho mắt, ngày và đêm."
+        },
+        "noAccount": {
+          "title": "Không cần tài khoản",
+          "description": "Chỉ cần mở và bắt đầu. Không đăng ký."
+        }
+      },
+      "cta": "Thử trình soạn thảo"
+    },
+    "compare": {
+      "hero": {
+        "title": "TOON vs JSON",
+        "subtitle": "Cả hai định dạng đều có điểm mạnh. Đây là so sánh trung thực cho quyết định của bạn."
+      },
+      "table": {
+        "criterion": "Tiêu chí",
+        "toon": "TOON",
+        "json": "JSON",
+        "tokenEfficiency": "Hiệu quả token",
+        "tokenToon": "Ít hơn 30-60% token",
+        "tokenJson": "Cơ sở",
+        "readability": "Khả năng đọc",
+        "readabilityToon": "Xuất sắc",
+        "readabilityJson": "Tốt",
+        "ecosystem": "Hỗ trợ hệ sinh thái",
+        "ecosystemToon": "Đang phát triển",
+        "ecosystemJson": "Phổ biến",
+        "learningCurve": "Đường cong học tập",
+        "learningToon": "Thấp (giống JSON)",
+        "learningJson": "Thấp",
+        "bestFor": "Tốt nhất cho",
+        "bestForToon": "Prompt LLM, quy trình AI",
+        "bestForJson": "API, dữ liệu chung"
+      },
+      "whenToon": {
+        "title": "Khi nào sử dụng TOON",
+        "description": "Chọn TOON khi bạn làm việc với LLM và chi phí token quan trọng. Prompt với dữ liệu có cấu trúc, cấu hình agent và pipeline AI hưởng lợi nhiều nhất từ cú pháp gọn nhẹ của TOON."
+      },
+      "whenJson": {
+        "title": "Khi nào giữ JSON",
+        "description": "JSON vẫn là lựa chọn đúng cho API công khai, tệp cấu hình trong hệ sinh thái đã thiết lập và bất cứ nơi nào hỗ trợ công cụ phổ quát quan trọng hơn hiệu quả token."
+      },
+      "cta": "Tự mình thử"
+    }
+  },
+  "about": {
+    "title": "Về TOON",
+    "hero": {
+      "title": "Định dạng dữ liệu con người đọc được",
+      "subtitle": "TOON là định dạng tuần tự hóa dữ liệu hiện đại, con người đọc được, kết hợp sự quen thuộc của JSON với khả năng đọc của YAML và hiệu quả của dữ liệu dạng bảng."
+    },
+    "comparison": {
+      "title": "TOON vs JSON",
+      "bytes": "Byte",
+      "savings": "Kích thước tệp nhỏ hơn ~60% với cùng dữ liệu"
+    },
+    "features": {
+      "title": "Tính năng chính",
+      "humanReadable": {
+        "title": "Con người đọc được",
+        "description": "Cú pháp dựa trên thụt lề sạch sẽ, dễ đọc và viết mà không cần công cụ đặc biệt."
+      },
+      "compact": {
+        "title": "Định dạng gọn nhẹ",
+        "description": "Kích thước tệp nhỏ hơn đáng kể so với JSON – tiết kiệm băng thông và lưu trữ."
+      },
+      "tabular": {
+        "title": "Mảng dạng bảng",
+        "description": "Hỗ trợ gốc cho dữ liệu dạng bảng với tiêu đề trường – hoàn hảo cho danh sách và bản ghi."
+      },
+      "efficient": {
+        "title": "Hiệu suất cao",
+        "description": "Phân tích cú pháp và tuần tự hóa nhanh với bộ nhớ tối thiểu."
+      },
+      "jsonCompatible": {
+        "title": "Tương thích JSON",
+        "description": "Hỗ trợ đầy đủ mô hình dữ liệu JSON – chuyển đổi không mất dữ liệu giữa TOON và JSON."
+      },
+      "llmFriendly": {
+        "title": "Thân thiện với LLM",
+        "description": "Tối ưu hóa cho cửa sổ ngữ cảnh AI/LLM – nhiều dữ liệu hơn với ít token hơn."
+      }
+    },
+    "useCases": {
+      "title": "Trường hợp sử dụng",
+      "config": {
+        "title": "Tệp cấu hình",
+        "description": "Thay thế cấu hình JSON/YAML bằng tệp TOON dễ đọc, dễ bảo trì."
+      },
+      "data": {
+        "title": "Lưu trữ dữ liệu",
+        "description": "Lưu trữ dữ liệu có cấu trúc hiệu quả với khả năng đọc xuất sắc."
+      },
+      "ai": {
+        "title": "AI & Prompt LLM",
+        "description": "Tối đa hóa hiệu quả cửa sổ ngữ cảnh khi làm việc với mô hình AI."
+      },
+      "api": {
+        "title": "Phản hồi API",
+        "description": "Giảm kích thước payload trong khi giữ phản hồi có thể gỡ lỗi."
+      }
+    },
+    "syntax": {
+      "title": "Điểm nổi bật cú pháp",
+      "indentation": {
+        "title": "Dựa trên thụt lề",
+        "description": "Sử dụng thụt lề 2 dấu cách nhất quán để định nghĩa cấu trúc – không cần ngoặc."
+      },
+      "headers": {
+        "title": "Tiêu đề mảng",
+        "description": "Định nghĩa cấu trúc mảng với tiêu đề như 'users[3]' theo sau là tên trường cho dữ liệu dạng bảng."
+      },
+      "primitives": {
+        "title": "Nguyên thủy không ngoặc kép",
+        "description": "Số, boolean và null không cần ngoặc kép – chỉ cần viết trực tiếp."
+      },
+      "delimiters": {
+        "title": "Dấu phân cách linh hoạt",
+        "description": "Sử dụng dấu phẩy, tab hoặc pipe làm dấu phân cách cho hàng dạng bảng."
+      }
+    },
+    "cta": {
+      "title": "Sẵn sàng thử TOON?",
+      "description": "Sử dụng Trình xem TOON để phân tích, khám phá và chỉnh sửa dữ liệu TOON trực tiếp trong trình duyệt.",
+      "tryViewer": "Mở trình xem",
+      "learnMore": "Tài liệu chính thức"
+    }
+  },
+  "explorer": {
+    "title": "Khám phá",
+    "noData": "Chưa tải dữ liệu",
+    "loadFile": "Tải tệp TOON để bắt đầu",
+    "loadExample": "Tải ví dụ",
+    "exampleLoaded": "Đã tải ví dụ với tất cả các loại dữ liệu"
+  },
+  "editor": {
+    "placeholder": "Nhập hoặc dán dữ liệu TOON vào đây...",
+    "format": "Định dạng"
+  },
+  "actions": {
+    "export": "Xuất",
+    "saved": "Đã lưu",
+    "undo": "Hoàn tác",
+    "redo": "Làm lại",
+    "copy": "Sao chép",
+    "copyAsJson": "Sao chép dạng JSON",
+    "paste": "Dán",
+    "clear": "Xóa",
+    "cancel": "Hủy",
+    "delete": "Xóa",
+    "add": "Thêm",
+    "moved": "Đã di chuyển"
+  },
+  "diff": {
+    "title": "So sánh phiên bản",
+    "original": "Gốc",
+    "modified": "Đã sửa đổi",
+    "noChanges": "Không phát hiện thay đổi",
+    "additions": "Thêm vào",
+    "deletions": "Xóa bỏ",
+    "changes": "Thay đổi"
+  },
+  "batch": {
+    "title": "Chỉnh sửa hàng loạt",
+    "findReplace": "Tìm và thay thế",
+    "find": "Tìm",
+    "replace": "Thay thế",
+    "replaceAll": "Thay thế tất cả",
+    "matchCase": "Phân biệt hoa thường",
+    "regex": "Regex",
+    "found": "Tìm thấy {count} kết quả"
+  },
+  "dropzone": {
+    "title": "Thả tệp vào đây",
+    "subtitle": "hoặc nhấp để duyệt",
+    "accept": "Chấp nhận tệp .json, .toon"
+  },
+  "settings": {
+    "title": "Cài đặt",
+    "language": "Ngôn ngữ",
+    "autoSave": "Tự động lưu",
+    "wordWrap": "Ngắt dòng",
+    "fontSize": "Cỡ chữ"
+  },
+  "shortcuts": {
+    "title": "Phím tắt",
+    "save": "Lưu",
+    "undo": "Hoàn tác",
+    "redo": "Làm lại",
+    "format": "Định dạng",
+    "search": "Tìm kiếm",
+    "import": "Nhập",
+    "export": "Xuất"
+  },
+  "errors": {
+    "parseError": "Không thể phân tích JSON",
+    "importError": "Không thể nhập tệp",
+    "invalidData": "Định dạng dữ liệu không hợp lệ"
+  },
+  "success": {
+    "imported": "Đã nhập tệp thành công",
+    "exported": "Đã xuất tệp thành công",
+    "saved": "Đã lưu thay đổi",
+    "copied": "Đã sao chép vào clipboard",
+    "copiedAsJson": "Đã sao chép JSON vào clipboard",
+    "jsonConverted": "Đã chuyển đổi JSON sang TOON"
+  },
+  "input": {
+    "title": "Đầu vào TOON",
+    "subtitle": "Dán hoặc nhập dữ liệu TOON để phân tích và khám phá",
+    "placeholder": "# Nhập dữ liệu TOON vào đây",
+    "paste": "Dán",
+    "clear": "Xóa",
+    "pasted": "Đã dán",
+    "pastedDescription": "Đã dán nội dung từ clipboard",
+    "error": "Lỗi",
+    "clipboardError": "Không thể đọc từ clipboard",
+    "aboutToon": "TOON là gì?",
+    "learnMore": "Tìm hiểu thêm về định dạng TOON"
+  },
+  "tree": {
+    "expandAll": "Mở rộng tất cả",
+    "collapseAll": "Thu gọn tất cả"
+  },
+  "editModal": {
+    "title": "Chỉnh sửa nút",
+    "addTitle": "Thêm nút",
+    "key": "Khóa",
+    "keyPlaceholder": "Nhập tên khóa",
+    "value": "Giá trị",
+    "valuePlaceholder": "Nhập giá trị",
+    "type": "Loại",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "keyRequired": "Khóa là bắt buộc",
+    "invalidNumber": "Định dạng số không hợp lệ",
+    "smartForm": "Form thông minh dựa trên phần tử hiện có",
+    "manualEntry": "Chuyển sang nhập thủ công",
+    "useSmartForm": "Sử dụng form thông minh",
+    "types": {
+      "string": "Chuỗi",
+      "number": "Số",
+      "boolean": "Boolean",
+      "null": "Null",
+      "object": "Đối tượng",
+      "array": "Mảng"
+    }
+  },
+  "hints": {
+    "swap": "Đổi trái và phải",
+    "clearDiff": "Xóa cả hai bảng",
+    "loadCurrent": "Tải nội dung trình soạn thảo hiện tại",
+    "decreaseFontSize": "Giảm cỡ chữ",
+    "increaseFontSize": "Tăng cỡ chữ",
+    "decreaseTabSize": "Giảm kích thước tab",
+    "increaseTabSize": "Tăng kích thước tab",
+    "editNode": "Chỉnh sửa trong modal",
+    "addChild": "Thêm nút con",
+    "deleteNode": "Xóa nút",
+    "toggleBoolean": "Nhấp để chuyển đổi",
+    "clickToEdit": "Nhấp để chỉnh sửa",
+    "pasteFromClipboard": "Dán từ clipboard",
+    "clearInput": "Xóa đầu vào",
+    "closeBatchEdit": "Đóng chỉnh sửa hàng loạt"
+  }
+}

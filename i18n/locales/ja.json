@@ -1,0 +1,392 @@
+{
+  "app": {
+    "title": "TOON ニンジャ"
+  },
+  "nav": {
+    "viewer": "エディタ＆エクスプローラー",
+    "about": "TOONについて",
+    "convert": "変換",
+    "tokenOptimization": "トークン節約",
+    "features": "機能",
+    "compare": "TOON vs JSON"
+  },
+  "seo": {
+    "home": {
+      "title": "TOON NINJA - 無料オンラインTOONエディタ＆JSONコンバーター",
+      "description": "TOON NINJAはTOON形式の無料オンラインエディタです。JSONをTOONに変換し、LLMトークンコストを30-60%節約、ライブプレビューで検証とフォーマット。"
+    },
+    "about": {
+      "title": "TOON形式について - トークン指向オブジェクト記法",
+      "description": "JSONと比較して30-60%のトークンを節約するコンパクトなデータ形式TOONについて学びましょう。LLMアプリケーションとAIプロンプトに最適。"
+    },
+    "convert": {
+      "title": "JSON→TOON変換 - TOON NINJA",
+      "description": "TOON NINJAでJSONをTOON形式に即座に変換。LLMトークンを30-60%削減。無料オンラインコンバーター、登録不要。"
+    },
+    "tokenOptimization": {
+      "title": "LLMトークンコスト削減 - TOON NINJA",
+      "description": "OpenAIとAnthropic APIコストを30-60%節約。TOON NINJAはJSONをChatGPT、Claude、その他のLLM向けのトークン効率の良いTOON形式に変換します。"
+    },
+    "features": {
+      "title": "TOON NINJA機能 - エディタ、バリデーター、コンバーター",
+      "description": "TOON NINJA機能：シンタックスハイライト付きMonacoエディタ、JSON→TOON変換、ライブ検証、差分比較、一括編集。無料、登録不要。"
+    },
+    "compare": {
+      "title": "TOON vs JSON - AIアプリケーション向け形式比較",
+      "description": "TOONとJSONの比較：トークン効率、可読性、ユースケース。TOONがLLMアプリケーションで30-60%のトークンを節約しながらJSON互換を維持する理由を学びましょう。"
+    }
+  },
+  "pages": {
+    "convert": {
+      "hero": {
+        "title": "JSON→TOONコンバーター",
+        "subtitle": "JSONを貼り付けて、コンパクトなTOONを取得。トークン削減、同じデータ。"
+      },
+      "howItWorks": {
+        "title": "使い方",
+        "step1": {
+          "title": "JSONを貼り付け",
+          "description": "エディタにJSONデータを貼り付けます。"
+        },
+        "step2": {
+          "title": "変換",
+          "description": "変換をクリック - 即座に変換。"
+        },
+        "step3": {
+          "title": "TOONをコピー",
+          "description": "コンパクトなTOON出力をコピー。"
+        }
+      },
+      "benefits": {
+        "title": "なぜ変換するの？",
+        "tokenReduction": "LLM向けトークン削減",
+        "smallerPayload": "小さいデータサイズ",
+        "humanReadable": "人間が読める形式",
+        "jsonCompatible": "JSON互換データモデル"
+      },
+      "cta": "コンバーターを開く"
+    },
+    "tokenOptimization": {
+      "hero": {
+        "title": "LLMトークンコストを削減",
+        "subtitle": "プロンプト内の構造化データはトークンを消費します。トークンはお金がかかります。コンテキストウィンドウはすぐに埋まります。より良い方法があります。"
+      },
+      "problem": {
+        "title": "JSONの問題",
+        "description": "JSONは冗長です。引用符、括弧、コロン - すべて意味を追加せずにトークンを消費します。すべてのAPI呼び出しが必要以上にコストがかかります。"
+      },
+      "solution": {
+        "title": "解決策",
+        "description": "TOON NINJAはJSONをTOON形式に変換します - 同じデータ、30-60%少ないトークン。データ損失なし、完全な互換性。",
+        "learnMore": "TOON形式についてもっと学ぶ"
+      },
+      "savings": {
+        "title": "実際の節約例",
+        "description": "OpenAIに月10,000円使っていて、その30%が構造化データなら、TOONに切り替えると月1,200-1,800円節約できます。実際の使用量に合わせてスケールしてください。",
+        "monthly": "月間APIコスト",
+        "structuredData": "構造化データ",
+        "savings": "潜在的な節約"
+      },
+      "cta": {
+        "primary": "今すぐ変換",
+        "secondary": "TOONについて学ぶ"
+      }
+    },
+    "features": {
+      "hero": {
+        "title": "TOON NINJA機能",
+        "subtitle": "TOON形式のための完全なオンラインエディタ。必要なものすべて、余計なものなし。"
+      },
+      "list": {
+        "monaco": {
+          "title": "Monacoエディタ",
+          "description": "TOONシンタックスハイライト付きVS Codeのエディタ。"
+        },
+        "conversion": {
+          "title": "JSON ↔ TOON",
+          "description": "ワンクリックで形式間を変換。"
+        },
+        "validation": {
+          "title": "ライブ検証",
+          "description": "入力中に即座にエラーフィードバック。"
+        },
+        "diff": {
+          "title": "差分比較",
+          "description": "バージョンを並べて比較。"
+        },
+        "batch": {
+          "title": "一括編集",
+          "description": "データ内で検索と置換。"
+        },
+        "shortcuts": {
+          "title": "キーボードショートカット",
+          "description": "パワーユーザー？お任せください。"
+        },
+        "darkMode": {
+          "title": "ダークモード",
+          "description": "昼も夜も目に優しい。"
+        },
+        "noAccount": {
+          "title": "アカウント不要",
+          "description": "開いてすぐ開始。登録不要。"
+        }
+      },
+      "cta": "エディタを試す"
+    },
+    "compare": {
+      "hero": {
+        "title": "TOON vs JSON",
+        "subtitle": "両方の形式にそれぞれの強みがあります。あなたの決定のための正直な比較です。"
+      },
+      "table": {
+        "criterion": "基準",
+        "toon": "TOON",
+        "json": "JSON",
+        "tokenEfficiency": "トークン効率",
+        "tokenToon": "30-60%少ないトークン",
+        "tokenJson": "ベースライン",
+        "readability": "可読性",
+        "readabilityToon": "優秀",
+        "readabilityJson": "良好",
+        "ecosystem": "エコシステムサポート",
+        "ecosystemToon": "成長中",
+        "ecosystemJson": "ユニバーサル",
+        "learningCurve": "学習曲線",
+        "learningToon": "低い（JSON類似）",
+        "learningJson": "低い",
+        "bestFor": "最適な用途",
+        "bestForToon": "LLMプロンプト、AIワークフロー",
+        "bestForJson": "API、一般的なデータ"
+      },
+      "whenToon": {
+        "title": "TOONを使うべき時",
+        "description": "LLMを使用していてトークンコストが重要な場合はTOONを選択してください。構造化データを含むプロンプト、エージェント設定、AIパイプラインは、TOONのコンパクトな構文から最も恩恵を受けます。"
+      },
+      "whenJson": {
+        "title": "JSONに留まるべき時",
+        "description": "JSONは、パブリックAPI、確立されたエコシステムの設定ファイル、およびユニバーサルツールサポートがトークン効率より重要なあらゆる場所で正しい選択であり続けます。"
+      },
+      "cta": "自分で試してみる"
+    }
+  },
+  "about": {
+    "title": "TOONについて",
+    "hero": {
+      "title": "人間が読めるデータ形式",
+      "subtitle": "TOONは、JSONの馴染みやすさ、YAMLの可読性、表形式データの効率性を組み合わせた、モダンで人間が読めるデータシリアライゼーション形式です。"
+    },
+    "comparison": {
+      "title": "TOON vs JSON",
+      "bytes": "バイト",
+      "savings": "同じデータで約60%小さいファイルサイズ"
+    },
+    "features": {
+      "title": "主な特徴",
+      "humanReadable": {
+        "title": "人間が読める",
+        "description": "特別なツールなしで簡単に読み書きできる、クリーンなインデントベースの構文。"
+      },
+      "compact": {
+        "title": "コンパクトな形式",
+        "description": "JSONと比較して大幅に小さいファイルサイズ - 帯域幅とストレージを節約。"
+      },
+      "tabular": {
+        "title": "表形式配列",
+        "description": "フィールドヘッダー付きの表形式データをネイティブサポート - リストとレコードに最適。"
+      },
+      "efficient": {
+        "title": "高性能",
+        "description": "最小限のメモリフットプリントで高速なパースとシリアライゼーション。"
+      },
+      "jsonCompatible": {
+        "title": "JSON互換",
+        "description": "JSONデータモデルを完全サポート - TOONとJSON間のロスレス変換。"
+      },
+      "llmFriendly": {
+        "title": "LLMフレンドリー",
+        "description": "AI/LLMコンテキストウィンドウに最適化 - より少ないトークンでより多くのデータ。"
+      }
+    },
+    "useCases": {
+      "title": "ユースケース",
+      "config": {
+        "title": "設定ファイル",
+        "description": "JSON/YAML設定を読みやすく保守しやすいTOONファイルに置き換え。"
+      },
+      "data": {
+        "title": "データストレージ",
+        "description": "優れた可読性で構造化データを効率的に保存。"
+      },
+      "ai": {
+        "title": "AIとLLMプロンプト",
+        "description": "AIモデルを使用する際のコンテキストウィンドウ効率を最大化。"
+      },
+      "api": {
+        "title": "APIレスポンス",
+        "description": "デバッグ可能なレスポンスを維持しながらペイロードサイズを削減。"
+      }
+    },
+    "syntax": {
+      "title": "構文のハイライト",
+      "indentation": {
+        "title": "インデントベース",
+        "description": "構造定義に一貫した2スペースのインデントを使用 - 括弧不要。"
+      },
+      "headers": {
+        "title": "配列ヘッダー",
+        "description": "'users[3]'のようなヘッダーで配列構造を定義し、続いて表形式データのフィールド名を記述。"
+      },
+      "primitives": {
+        "title": "引用符なしのプリミティブ",
+        "description": "数値、ブーリアン、nullは引用符不要 - そのまま記述するだけ。"
+      },
+      "delimiters": {
+        "title": "柔軟なデリミタ",
+        "description": "表形式の行にカンマ、タブ、またはパイプをデリミタとして使用。"
+      }
+    },
+    "cta": {
+      "title": "TOONを試す準備はできましたか？",
+      "description": "TOONビューアーを使用して、ブラウザで直接TOONデータをパース、探索、編集できます。",
+      "tryViewer": "ビューアーを開く",
+      "learnMore": "公式ドキュメント"
+    }
+  },
+  "explorer": {
+    "title": "エクスプローラー",
+    "noData": "データがロードされていません",
+    "loadFile": "TOONファイルをロードして開始",
+    "loadExample": "サンプルを読み込む",
+    "exampleLoaded": "すべてのデータ型を含むサンプルがロードされました"
+  },
+  "editor": {
+    "placeholder": "ここにTOONデータを入力または貼り付け...",
+    "format": "フォーマット"
+  },
+  "actions": {
+    "export": "エクスポート",
+    "saved": "保存済み",
+    "undo": "元に戻す",
+    "redo": "やり直し",
+    "copy": "コピー",
+    "copyAsJson": "JSONとしてコピー",
+    "paste": "貼り付け",
+    "clear": "クリア",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "add": "追加",
+    "moved": "移動済み"
+  },
+  "diff": {
+    "title": "バージョン比較",
+    "original": "オリジナル",
+    "modified": "変更後",
+    "noChanges": "変更は検出されませんでした",
+    "additions": "追加",
+    "deletions": "削除",
+    "changes": "変更"
+  },
+  "batch": {
+    "title": "一括編集",
+    "findReplace": "検索と置換",
+    "find": "検索",
+    "replace": "置換",
+    "replaceAll": "すべて置換",
+    "matchCase": "大文字小文字を区別",
+    "regex": "正規表現",
+    "found": "{count}件の一致が見つかりました"
+  },
+  "dropzone": {
+    "title": "ファイルをここにドロップ",
+    "subtitle": "またはクリックして参照",
+    "accept": ".json、.toonファイルを受け付けます"
+  },
+  "settings": {
+    "title": "設定",
+    "language": "言語",
+    "autoSave": "自動保存",
+    "wordWrap": "折り返し",
+    "fontSize": "フォントサイズ"
+  },
+  "shortcuts": {
+    "title": "キーボードショートカット",
+    "save": "保存",
+    "undo": "元に戻す",
+    "redo": "やり直し",
+    "format": "フォーマット",
+    "search": "検索",
+    "import": "インポート",
+    "export": "エクスポート"
+  },
+  "errors": {
+    "parseError": "JSONをパースできませんでした",
+    "importError": "ファイルをインポートできませんでした",
+    "invalidData": "無効なデータ形式"
+  },
+  "success": {
+    "imported": "ファイルが正常にインポートされました",
+    "exported": "ファイルが正常にエクスポートされました",
+    "saved": "変更が保存されました",
+    "copied": "クリップボードにコピーしました",
+    "copiedAsJson": "JSONをクリップボードにコピーしました",
+    "jsonConverted": "JSONをTOONに変換しました"
+  },
+  "input": {
+    "title": "TOON入力",
+    "subtitle": "TOONデータを貼り付けまたは入力してパースと探索",
+    "placeholder": "# ここにTOONデータを入力",
+    "paste": "貼り付け",
+    "clear": "クリア",
+    "pasted": "貼り付けました",
+    "pastedDescription": "クリップボードからコンテンツを貼り付けました",
+    "error": "エラー",
+    "clipboardError": "クリップボードから読み取れませんでした",
+    "aboutToon": "TOONとは？",
+    "learnMore": "TOON形式についてもっと学ぶ"
+  },
+  "tree": {
+    "expandAll": "すべて展開",
+    "collapseAll": "すべて折りたたむ"
+  },
+  "editModal": {
+    "title": "ノードを編集",
+    "addTitle": "ノードを追加",
+    "key": "キー",
+    "keyPlaceholder": "キー名を入力",
+    "value": "値",
+    "valuePlaceholder": "値を入力",
+    "type": "タイプ",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "keyRequired": "キーは必須です",
+    "invalidNumber": "無効な数値形式",
+    "smartForm": "既存要素に基づくスマートフォーム",
+    "manualEntry": "手動入力に切り替え",
+    "useSmartForm": "スマートフォームを使用",
+    "types": {
+      "string": "文字列",
+      "number": "数値",
+      "boolean": "ブーリアン",
+      "null": "Null",
+      "object": "オブジェクト",
+      "array": "配列"
+    }
+  },
+  "hints": {
+    "swap": "左右を入れ替え",
+    "clearDiff": "両方のパネルをクリア",
+    "loadCurrent": "現在のエディタコンテンツを読み込み",
+    "decreaseFontSize": "フォントサイズを小さく",
+    "increaseFontSize": "フォントサイズを大きく",
+    "decreaseTabSize": "タブサイズを小さく",
+    "increaseTabSize": "タブサイズを大きく",
+    "editNode": "モーダルで編集",
+    "addChild": "子ノードを追加",
+    "deleteNode": "ノードを削除",
+    "toggleBoolean": "クリックして切り替え",
+    "clickToEdit": "クリックして編集",
+    "pasteFromClipboard": "クリップボードから貼り付け",
+    "clearInput": "入力をクリア",
+    "closeBatchEdit": "一括編集を閉じる"
+  }
+}

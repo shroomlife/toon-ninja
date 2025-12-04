@@ -67,11 +67,7 @@ function handleContentUpdate(content: string) {
 <template>
   <UDashboardPanel id="toon-viewer" class="flex flex-col h-screen">
     <template #header>
-      <UDashboardNavbar :title="t('app.title')" :ui="{ right: 'gap-3' }">
-        <template #leading>
-          <UDashboardSidebarCollapse />
-        </template>
-
+      <UDashboardNavbar :title="t('nav.viewer')" :ui="{ right: 'gap-3' }">
         <template #right>
           <ToonBatchEdit />
         </template>

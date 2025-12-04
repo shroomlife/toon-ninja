@@ -55,8 +55,6 @@ const initEditor = () => {
   try {
     const theme = colorMode.value === 'dark' ? 'vs-dark' : 'vs'
 
-    console.log('Creating Monaco editor...', editorContainer.value)
-
     editor = monaco.editor.create(editorContainer.value, {
       value: props.modelValue || '',
       language: 'plaintext',
@@ -68,8 +66,6 @@ const initEditor = () => {
       minimap: { enabled: settingsStore.showMinimap },
       automaticLayout: true
     })
-
-    console.log('Monaco editor created:', editor)
 
     editor.onDidChangeModelContent(() => {
       if (editor && !isConvertingJson) {

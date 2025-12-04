@@ -3,7 +3,7 @@
     "title": "TOON Ninja"
   },
   "nav": {
-    "viewer": "Editor",
+    "viewer": "Editor & Explorer",
     "about": "Über TOON",
     "convert": "Konvertieren",
     "tokenOptimization": "Token sparen",
@@ -12,27 +12,27 @@
   },
   "seo": {
     "home": {
-      "title": "TOON NINJA – Kostenloser Online TOON-Editor & JSON-Konverter",
+      "title": "TOON NINJA - Kostenloser Online TOON-Editor & JSON-Konverter",
       "description": "TOON NINJA ist ein kostenloser Online-Editor für das TOON-Format. Konvertiere JSON zu TOON, spare 30-60% LLM-Token-Kosten, validiere und formatiere mit Live-Vorschau."
     },
     "about": {
-      "title": "Über TOON Format – Token-Oriented Object Notation",
+      "title": "Über TOON Format - Token-Oriented Object Notation",
       "description": "Erfahre mehr über TOON, ein kompaktes Datenformat das 30-60% Tokens gegenüber JSON spart. Perfekt für LLM-Anwendungen und KI-Prompts."
     },
     "convert": {
-      "title": "JSON zu TOON Konverter – TOON NINJA",
+      "title": "JSON zu TOON Konverter - TOON NINJA",
       "description": "Konvertiere JSON sofort ins TOON-Format mit TOON NINJA. Reduziere deine LLM-Token um 30-60%. Kostenloser Online-Konverter, keine Anmeldung."
     },
     "tokenOptimization": {
-      "title": "LLM Token-Kosten senken – TOON NINJA",
+      "title": "LLM Token-Kosten senken - TOON NINJA",
       "description": "Spare 30-60% bei OpenAI und Anthropic API-Kosten. TOON NINJA konvertiert dein JSON ins token-effiziente TOON-Format für ChatGPT, Claude und andere LLMs."
     },
     "features": {
-      "title": "TOON NINJA Features – Editor, Validator, Konverter",
+      "title": "TOON NINJA Features - Editor, Validator, Konverter",
       "description": "TOON NINJA Features: Monaco-Editor mit Syntax-Highlighting, JSON-zu-TOON-Konvertierung, Live-Validierung, Diff-Vergleich und Stapelbearbeitung. Kostenlos, keine Anmeldung."
     },
     "compare": {
-      "title": "TOON vs JSON – Formatvergleich für KI-Anwendungen",
+      "title": "TOON vs JSON - Formatvergleich für KI-Anwendungen",
       "description": "TOON vs JSON im Vergleich: Token-Effizienz, Lesbarkeit, Anwendungsfälle. Erfahre warum TOON 30-60% Tokens bei LLM-Anwendungen spart und JSON-kompatibel bleibt."
     }
   },
@@ -50,7 +50,7 @@
         },
         "step2": {
           "title": "Konvertieren",
-          "description": "Klick auf Konvertieren – sofortige Umwandlung."
+          "description": "Klick auf Konvertieren - sofortige Umwandlung."
         },
         "step3": {
           "title": "TOON kopieren",
@@ -255,7 +255,9 @@
   "explorer": {
     "title": "Explorer",
     "noData": "Keine Daten",
-    "loadFile": "Gib JSON oder TOON String ein, um zu starten"
+    "loadFile": "Gib JSON oder TOON String ein, um zu starten",
+    "loadExample": "Beispiel laden",
+    "exampleLoaded": "Beispiel mit allen Datentypen geladen"
   },
   "editor": {
     "placeholder": "TOON-Daten hier eingeben oder einfügen...",

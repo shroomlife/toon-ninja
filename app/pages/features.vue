@@ -62,16 +62,12 @@ const features = computed(() => [
 <template>
   <UDashboardPanel id="features">
     <template #header>
-      <UDashboardNavbar :title="t('nav.features')">
-        <template #leading>
-          <UDashboardSidebarCollapse />
-        </template>
-      </UDashboardNavbar>
+      <UDashboardNavbar :title="t('nav.features')" />
     </template>
 
     <template #body>
       <div class="overflow-y-auto h-full">
-        <div class="max-w-4xl mx-auto p-6 pb-24">
+        <div class="max-w-5xl mx-auto p-6 pb-24">
           <!-- Hero Section -->
           <div class="text-center mb-12">
             <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-6">

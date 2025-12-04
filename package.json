@@ -1,5 +1,5 @@
 {
-  "name": "toon-viewer",
+  "name": "toon-ninja",
   "version": "1.0.0",
   "description": "A modern Nuxt 4 SPA for viewing and editing TOON data with Monaco editor, live preview, and diff comparison",
   "author": "shroomlife",
@@ -23,7 +23,7 @@
     "@nuxt/ui": "4.2.1",
     "@nuxtjs/i18n": "10.2.1",
     "@pinia/nuxt": "0.11.3",
-    "@toon-format/toon": "^2.0.1",
+    "@toon-format/toon": "2.1.0",
     "@vueuse/core": "14.1.0",
     "@vueuse/nuxt": "14.1.0",
     "diff": "8.0.2",

@@ -5,6 +5,33 @@ const { t } = useI18n()
 const toonStore = useToonStore()
 const toast = useToast()
 
+// Example TOON data with all data types
+const exampleToon = `title: TOON Example
+version: 1.0
+active: true
+count: 42
+nothing: null
+tags[3]: demo, example, toon
+config:
+  debug: false
+  timeout: 3000
+  endpoint: "https://api.example.com"
+users[3]{name, age, active, role}:
+  Alice, 30, true, admin
+  Bob, 25, false, user
+  Carol, 28, true, editor`
+
+// Load example data
+const loadExample = () => {
+  toonStore.setContent(exampleToon)
+  toast.add({
+    title: t('explorer.loadExample'),
+    description: t('explorer.exampleLoaded'),
+    color: 'success',
+    icon: 'i-lucide-file-code'
+  })
+}
+
 // Selected item for editing
 const selectedItem = ref<ToonTreeItem | null>(null)
 
@@ -302,6 +329,15 @@ const formatValuePreview = (item: ToonTreeItem): string => {
         <p class="text-xs mt-1">
           {{ t('explorer.loadFile') }}
         </p>
+        <UButton
+          class="mt-4"
+          icon="i-lucide-play"
+          color="primary"
+          variant="soft"
+          @click="loadExample"
+        >
+          {{ t('explorer.loadExample') }}
+        </UButton>
       </div>
     </div>
 

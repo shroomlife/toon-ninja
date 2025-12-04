@@ -1,0 +1,392 @@
+{
+  "app": {
+    "title": "TOON 닌자"
+  },
+  "nav": {
+    "viewer": "에디터 & 탐색기",
+    "about": "TOON 소개",
+    "convert": "변환",
+    "tokenOptimization": "토큰 절약",
+    "features": "기능",
+    "compare": "TOON vs JSON"
+  },
+  "seo": {
+    "home": {
+      "title": "TOON NINJA - 무료 온라인 TOON 에디터 & JSON 변환기",
+      "description": "TOON NINJA는 TOON 형식을 위한 무료 온라인 에디터입니다. JSON을 TOON으로 변환하고, LLM 토큰 비용을 30-60% 절약하고, 실시간 미리보기로 검증 및 포맷팅하세요."
+    },
+    "about": {
+      "title": "TOON 형식 소개 - 토큰 지향 객체 표기법",
+      "description": "JSON 대비 30-60% 토큰을 절약하는 컴팩트한 데이터 형식 TOON에 대해 알아보세요. LLM 애플리케이션과 AI 프롬프트에 완벽합니다."
+    },
+    "convert": {
+      "title": "JSON에서 TOON 변환기 - TOON NINJA",
+      "description": "TOON NINJA로 JSON을 TOON 형식으로 즉시 변환하세요. LLM 토큰을 30-60% 줄이세요. 무료 온라인 변환기, 가입 불필요."
+    },
+    "tokenOptimization": {
+      "title": "LLM 토큰 비용 절감 - TOON NINJA",
+      "description": "OpenAI 및 Anthropic API 비용을 30-60% 절약하세요. TOON NINJA는 ChatGPT, Claude 및 기타 LLM을 위해 JSON을 토큰 효율적인 TOON 형식으로 변환합니다."
+    },
+    "features": {
+      "title": "TOON NINJA 기능 - 에디터, 검증기, 변환기",
+      "description": "TOON NINJA 기능: 구문 강조가 있는 Monaco 에디터, JSON에서 TOON 변환, 실시간 검증, 차이 비교 및 일괄 편집. 무료, 가입 불필요."
+    },
+    "compare": {
+      "title": "TOON vs JSON - AI 애플리케이션을 위한 형식 비교",
+      "description": "TOON vs JSON 비교: 토큰 효율성, 가독성, 사용 사례. TOON이 LLM 애플리케이션에서 30-60% 토큰을 절약하면서 JSON 호환을 유지하는 이유를 알아보세요."
+    }
+  },
+  "pages": {
+    "convert": {
+      "hero": {
+        "title": "JSON에서 TOON 변환기",
+        "subtitle": "JSON을 붙여넣고 컴팩트한 TOON을 받으세요. 더 적은 토큰, 같은 데이터."
+      },
+      "howItWorks": {
+        "title": "사용 방법",
+        "step1": {
+          "title": "JSON 붙여넣기",
+          "description": "에디터에 JSON 데이터를 붙여넣으세요."
+        },
+        "step2": {
+          "title": "변환",
+          "description": "변환 클릭 - 즉시 변환."
+        },
+        "step3": {
+          "title": "TOON 복사",
+          "description": "컴팩트한 TOON 출력을 복사하세요."
+        }
+      },
+      "benefits": {
+        "title": "왜 변환해야 하나요?",
+        "tokenReduction": "LLM을 위한 토큰 감소",
+        "smallerPayload": "더 작은 데이터 크기",
+        "humanReadable": "사람이 읽을 수 있는 형식",
+        "jsonCompatible": "JSON 호환 데이터 모델"
+      },
+      "cta": "변환기 열기"
+    },
+    "tokenOptimization": {
+      "hero": {
+        "title": "LLM 토큰 비용 절감",
+        "subtitle": "프롬프트의 구조화된 데이터는 토큰을 소비합니다. 토큰은 돈이 듭니다. 컨텍스트 윈도우는 빠르게 채워집니다. 더 좋은 방법이 있습니다."
+      },
+      "problem": {
+        "title": "JSON의 문제점",
+        "description": "JSON은 장황합니다. 따옴표, 괄호, 콜론 – 모두 의미를 추가하지 않으면서 토큰을 소비합니다. 모든 API 호출이 필요 이상으로 비용이 듭니다."
+      },
+      "solution": {
+        "title": "해결책",
+        "description": "TOON NINJA는 JSON을 TOON 형식으로 변환합니다 – 같은 데이터, 30-60% 적은 토큰. 데이터 손실 없음, 완전한 호환성.",
+        "learnMore": "TOON 형식에 대해 더 알아보기"
+      },
+      "savings": {
+        "title": "실제 절약 예시",
+        "description": "OpenAI에 월 10만원을 사용하고 그 중 30%가 구조화된 데이터라면, TOON으로 전환하면 월 12,000-18,000원을 절약합니다. 실제 사용량에 맞게 조정하세요.",
+        "monthly": "월간 API 비용",
+        "structuredData": "구조화된 데이터",
+        "savings": "잠재적 절약"
+      },
+      "cta": {
+        "primary": "지금 변환",
+        "secondary": "TOON 알아보기"
+      }
+    },
+    "features": {
+      "hero": {
+        "title": "TOON NINJA 기능",
+        "subtitle": "TOON 형식을 위한 완전한 온라인 에디터. 필요한 모든 것, 불필요한 것 없음."
+      },
+      "list": {
+        "monaco": {
+          "title": "Monaco 에디터",
+          "description": "TOON 구문 강조가 있는 VS Code의 에디터."
+        },
+        "conversion": {
+          "title": "JSON ↔ TOON",
+          "description": "한 번의 클릭으로 형식 간 변환."
+        },
+        "validation": {
+          "title": "실시간 검증",
+          "description": "입력하면서 즉각적인 오류 피드백."
+        },
+        "diff": {
+          "title": "차이 비교",
+          "description": "버전을 나란히 비교."
+        },
+        "batch": {
+          "title": "일괄 편집",
+          "description": "데이터에서 찾기 및 바꾸기."
+        },
+        "shortcuts": {
+          "title": "키보드 단축키",
+          "description": "파워 유저? 준비되어 있습니다."
+        },
+        "darkMode": {
+          "title": "다크 모드",
+          "description": "낮이나 밤이나 눈에 편안합니다."
+        },
+        "noAccount": {
+          "title": "계정 불필요",
+          "description": "그냥 열고 시작하세요. 가입 없음."
+        }
+      },
+      "cta": "에디터 체험하기"
+    },
+    "compare": {
+      "hero": {
+        "title": "TOON vs JSON",
+        "subtitle": "두 형식 모두 각자의 강점이 있습니다. 결정을 위한 정직한 비교입니다."
+      },
+      "table": {
+        "criterion": "기준",
+        "toon": "TOON",
+        "json": "JSON",
+        "tokenEfficiency": "토큰 효율성",
+        "tokenToon": "30-60% 적은 토큰",
+        "tokenJson": "기준선",
+        "readability": "가독성",
+        "readabilityToon": "우수",
+        "readabilityJson": "양호",
+        "ecosystem": "생태계 지원",
+        "ecosystemToon": "성장 중",
+        "ecosystemJson": "범용",
+        "learningCurve": "학습 곡선",
+        "learningToon": "낮음 (JSON과 유사)",
+        "learningJson": "낮음",
+        "bestFor": "최적 용도",
+        "bestForToon": "LLM 프롬프트, AI 워크플로우",
+        "bestForJson": "API, 일반 데이터"
+      },
+      "whenToon": {
+        "title": "TOON을 사용해야 할 때",
+        "description": "LLM을 사용하고 토큰 비용이 중요할 때 TOON을 선택하세요. 구조화된 데이터가 있는 프롬프트, 에이전트 구성 및 AI 파이프라인이 TOON의 컴팩트한 구문에서 가장 큰 혜택을 받습니다."
+      },
+      "whenJson": {
+        "title": "JSON을 유지해야 할 때",
+        "description": "JSON은 공개 API, 확립된 생태계의 구성 파일, 그리고 범용 도구 지원이 토큰 효율성보다 중요한 모든 곳에서 올바른 선택으로 남습니다."
+      },
+      "cta": "직접 체험해보기"
+    }
+  },
+  "about": {
+    "title": "TOON 소개",
+    "hero": {
+      "title": "사람이 읽을 수 있는 데이터 형식",
+      "subtitle": "TOON은 JSON의 친숙함, YAML의 가독성, 테이블 데이터의 효율성을 결합한 현대적이고 사람이 읽을 수 있는 데이터 직렬화 형식입니다."
+    },
+    "comparison": {
+      "title": "TOON vs JSON",
+      "bytes": "바이트",
+      "savings": "동일한 데이터로 ~60% 작은 파일 크기"
+    },
+    "features": {
+      "title": "주요 특징",
+      "humanReadable": {
+        "title": "사람이 읽을 수 있음",
+        "description": "특별한 도구 없이 쉽게 읽고 쓸 수 있는 깔끔한 들여쓰기 기반 구문."
+      },
+      "compact": {
+        "title": "컴팩트한 형식",
+        "description": "JSON에 비해 상당히 작은 파일 크기 – 대역폭과 스토리지 절약."
+      },
+      "tabular": {
+        "title": "테이블 배열",
+        "description": "필드 헤더가 있는 테이블 데이터의 네이티브 지원 – 목록과 레코드에 완벽."
+      },
+      "efficient": {
+        "title": "고성능",
+        "description": "최소한의 메모리 사용으로 빠른 파싱 및 직렬화."
+      },
+      "jsonCompatible": {
+        "title": "JSON 호환",
+        "description": "JSON 데이터 모델 완전 지원 – TOON과 JSON 간 무손실 변환."
+      },
+      "llmFriendly": {
+        "title": "LLM 친화적",
+        "description": "AI/LLM 컨텍스트 윈도우에 최적화 – 더 적은 토큰으로 더 많은 데이터."
+      }
+    },
+    "useCases": {
+      "title": "사용 사례",
+      "config": {
+        "title": "구성 파일",
+        "description": "JSON/YAML 구성을 읽기 쉽고 유지 관리가 용이한 TOON 파일로 대체."
+      },
+      "data": {
+        "title": "데이터 저장",
+        "description": "우수한 가독성으로 구조화된 데이터를 효율적으로 저장."
+      },
+      "ai": {
+        "title": "AI 및 LLM 프롬프트",
+        "description": "AI 모델 작업 시 컨텍스트 윈도우 효율성 극대화."
+      },
+      "api": {
+        "title": "API 응답",
+        "description": "디버그 가능한 응답을 유지하면서 페이로드 크기 감소."
+      }
+    },
+    "syntax": {
+      "title": "구문 하이라이트",
+      "indentation": {
+        "title": "들여쓰기 기반",
+        "description": "구조 정의에 일관된 2칸 들여쓰기 사용 – 괄호 불필요."
+      },
+      "headers": {
+        "title": "배열 헤더",
+        "description": "'users[3]'과 같은 헤더로 배열 구조를 정의하고 테이블 데이터의 필드 이름이 뒤따릅니다."
+      },
+      "primitives": {
+        "title": "따옴표 없는 기본형",
+        "description": "숫자, 불리언 및 null은 따옴표가 필요 없습니다 – 그냥 직접 작성하세요."
+      },
+      "delimiters": {
+        "title": "유연한 구분자",
+        "description": "테이블 행에 쉼표, 탭 또는 파이프를 구분자로 사용."
+      }
+    },
+    "cta": {
+      "title": "TOON을 체험할 준비가 되셨나요?",
+      "description": "TOON 뷰어를 사용하여 브라우저에서 직접 TOON 데이터를 파싱, 탐색 및 편집하세요.",
+      "tryViewer": "뷰어 열기",
+      "learnMore": "공식 문서"
+    }
+  },
+  "explorer": {
+    "title": "탐색기",
+    "noData": "로드된 데이터 없음",
+    "loadFile": "시작하려면 TOON 파일을 로드하세요",
+    "loadExample": "예제 로드",
+    "exampleLoaded": "모든 데이터 타입이 포함된 예제가 로드되었습니다"
+  },
+  "editor": {
+    "placeholder": "여기에 TOON 데이터를 입력하거나 붙여넣으세요...",
+    "format": "포맷"
+  },
+  "actions": {
+    "export": "내보내기",
+    "saved": "저장됨",
+    "undo": "실행 취소",
+    "redo": "다시 실행",
+    "copy": "복사",
+    "copyAsJson": "JSON으로 복사",
+    "paste": "붙여넣기",
+    "clear": "지우기",
+    "cancel": "취소",
+    "delete": "삭제",
+    "add": "추가",
+    "moved": "이동됨"
+  },
+  "diff": {
+    "title": "버전 비교",
+    "original": "원본",
+    "modified": "수정됨",
+    "noChanges": "변경 사항이 감지되지 않음",
+    "additions": "추가",
+    "deletions": "삭제",
+    "changes": "변경"
+  },
+  "batch": {
+    "title": "일괄 편집",
+    "findReplace": "찾기 및 바꾸기",
+    "find": "찾기",
+    "replace": "바꾸기",
+    "replaceAll": "모두 바꾸기",
+    "matchCase": "대소문자 구분",
+    "regex": "정규식",
+    "found": "{count}개 일치 항목 발견"
+  },
+  "dropzone": {
+    "title": "여기에 파일을 놓으세요",
+    "subtitle": "또는 클릭하여 찾아보기",
+    "accept": ".json, .toon 파일 허용"
+  },
+  "settings": {
+    "title": "설정",
+    "language": "언어",
+    "autoSave": "자동 저장",
+    "wordWrap": "줄 바꿈",
+    "fontSize": "글꼴 크기"
+  },
+  "shortcuts": {
+    "title": "키보드 단축키",
+    "save": "저장",
+    "undo": "실행 취소",
+    "redo": "다시 실행",
+    "format": "포맷",
+    "search": "검색",
+    "import": "가져오기",
+    "export": "내보내기"
+  },
+  "errors": {
+    "parseError": "JSON을 파싱할 수 없습니다",
+    "importError": "파일을 가져올 수 없습니다",
+    "invalidData": "잘못된 데이터 형식"
+  },
+  "success": {
+    "imported": "파일을 성공적으로 가져왔습니다",
+    "exported": "파일을 성공적으로 내보냈습니다",
+    "saved": "변경 사항이 저장되었습니다",
+    "copied": "클립보드에 복사됨",
+    "copiedAsJson": "JSON이 클립보드에 복사됨",
+    "jsonConverted": "JSON이 TOON으로 변환됨"
+  },
+  "input": {
+    "title": "TOON 입력",
+    "subtitle": "파싱 및 탐색을 위해 TOON 데이터를 붙여넣거나 입력하세요",
+    "placeholder": "# 여기에 TOON 데이터 입력",
+    "paste": "붙여넣기",
+    "clear": "지우기",
+    "pasted": "붙여넣음",
+    "pastedDescription": "클립보드에서 콘텐츠를 붙여넣었습니다",
+    "error": "오류",
+    "clipboardError": "클립보드에서 읽을 수 없습니다",
+    "aboutToon": "TOON이란?",
+    "learnMore": "TOON 형식에 대해 더 알아보기"
+  },
+  "tree": {
+    "expandAll": "모두 펼치기",
+    "collapseAll": "모두 접기"
+  },
+  "editModal": {
+    "title": "노드 편집",
+    "addTitle": "노드 추가",
+    "key": "키",
+    "keyPlaceholder": "키 이름 입력",
+    "value": "값",
+    "valuePlaceholder": "값 입력",
+    "type": "타입",
+    "save": "저장",
+    "cancel": "취소",
+    "keyRequired": "키가 필요합니다",
+    "invalidNumber": "잘못된 숫자 형식",
+    "smartForm": "기존 요소 기반 스마트 폼",
+    "manualEntry": "수동 입력으로 전환",
+    "useSmartForm": "스마트 폼 사용",
+    "types": {
+      "string": "문자열",
+      "number": "숫자",
+      "boolean": "불리언",
+      "null": "Null",
+      "object": "객체",
+      "array": "배열"
+    }
+  },
+  "hints": {
+    "swap": "왼쪽과 오른쪽 바꾸기",
+    "clearDiff": "양쪽 패널 지우기",
+    "loadCurrent": "현재 에디터 내용 로드",
+    "decreaseFontSize": "글꼴 크기 줄이기",
+    "increaseFontSize": "글꼴 크기 늘리기",
+    "decreaseTabSize": "탭 크기 줄이기",
+    "increaseTabSize": "탭 크기 늘리기",
+    "editNode": "모달에서 편집",
+    "addChild": "자식 노드 추가",
+    "deleteNode": "노드 삭제",
+    "toggleBoolean": "클릭하여 전환",
+    "clickToEdit": "클릭하여 편집",
+    "pasteFromClipboard": "클립보드에서 붙여넣기",
+    "clearInput": "입력 지우기",
+    "closeBatchEdit": "일괄 편집 닫기"
+  }
+}

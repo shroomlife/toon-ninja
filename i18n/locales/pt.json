@@ -1,0 +1,392 @@
+{
+  "app": {
+    "title": "TOON Ninja"
+  },
+  "nav": {
+    "viewer": "Editor e Explorador",
+    "about": "Sobre TOON",
+    "convert": "Converter",
+    "tokenOptimization": "Economizar Tokens",
+    "features": "Recursos",
+    "compare": "TOON vs JSON"
+  },
+  "seo": {
+    "home": {
+      "title": "TOON NINJA - Editor TOON Online Gratuito e Conversor JSON",
+      "description": "TOON NINJA é um editor online gratuito para o formato TOON. Converta JSON para TOON, economize 30-60% em custos de tokens LLM, valide e formate com visualização ao vivo."
+    },
+    "about": {
+      "title": "Sobre o Formato TOON - Notação de Objeto Orientada a Token",
+      "description": "Conheça o TOON, um formato de dados compacto que economiza 30-60% de tokens em comparação com JSON. Perfeito para aplicações LLM e prompts de IA."
+    },
+    "convert": {
+      "title": "Conversor JSON para TOON - TOON NINJA",
+      "description": "Converta JSON para o formato TOON instantaneamente com TOON NINJA. Reduza seus tokens LLM em 30-60%. Conversor online gratuito, sem cadastro."
+    },
+    "tokenOptimization": {
+      "title": "Reduza Custos de Tokens LLM - TOON NINJA",
+      "description": "Economize 30-60% em custos de API OpenAI e Anthropic. TOON NINJA converte seu JSON para o formato TOON eficiente em tokens para ChatGPT, Claude e outros LLMs."
+    },
+    "features": {
+      "title": "Recursos do TOON NINJA - Editor, Validador, Conversor",
+      "description": "Recursos do TOON NINJA: Editor Monaco com destaque de sintaxe, conversão JSON para TOON, validação ao vivo, comparação diff e edição em lote. Gratuito, sem cadastro."
+    },
+    "compare": {
+      "title": "TOON vs JSON - Comparação de Formatos para Aplicações de IA",
+      "description": "TOON vs JSON comparados: eficiência de tokens, legibilidade, casos de uso. Descubra por que o TOON economiza 30-60% de tokens em aplicações LLM e permanece compatível com JSON."
+    }
+  },
+  "pages": {
+    "convert": {
+      "hero": {
+        "title": "Conversor JSON para TOON",
+        "subtitle": "Cole seu JSON, obtenha TOON compacto. Menos tokens, mesmos dados."
+      },
+      "howItWorks": {
+        "title": "Como Funciona",
+        "step1": {
+          "title": "Cole o JSON",
+          "description": "Cole seus dados JSON no editor."
+        },
+        "step2": {
+          "title": "Converter",
+          "description": "Clique em converter - conversão instantânea."
+        },
+        "step3": {
+          "title": "Copiar TOON",
+          "description": "Copie a saída TOON compacta."
+        }
+      },
+      "benefits": {
+        "title": "Por que Converter?",
+        "tokenReduction": "Redução de tokens para LLMs",
+        "smallerPayload": "Tamanho de dados menor",
+        "humanReadable": "Formato legível por humanos",
+        "jsonCompatible": "Modelo de dados compatível com JSON"
+      },
+      "cta": "Abrir Conversor"
+    },
+    "tokenOptimization": {
+      "hero": {
+        "title": "Reduza Custos de Tokens LLM",
+        "subtitle": "Dados estruturados em prompts consomem tokens. Tokens custam dinheiro. Janelas de contexto enchem rápido. Existe uma forma melhor."
+      },
+      "problem": {
+        "title": "O Problema do JSON",
+        "description": "JSON é verboso. Aspas, colchetes, dois-pontos – tudo consome tokens sem adicionar significado. Cada chamada de API custa mais do que o necessário."
+      },
+      "solution": {
+        "title": "A Solução",
+        "description": "TOON NINJA converte seu JSON para o formato TOON – mesmos dados, 30-60% menos tokens. Sem perda de dados, compatibilidade total.",
+        "learnMore": "Saiba mais sobre o formato TOON"
+      },
+      "savings": {
+        "title": "Exemplo Real de Economia",
+        "description": "Se você gasta R$500/mês com OpenAI e 30% disso são dados estruturados, mudar para TOON economiza R$60-90/mês. Escale para seu uso real.",
+        "monthly": "Custo Mensal de API",
+        "structuredData": "Dados Estruturados",
+        "savings": "Economia Potencial"
+      },
+      "cta": {
+        "primary": "Converter Agora",
+        "secondary": "Aprender sobre TOON"
+      }
+    },
+    "features": {
+      "hero": {
+        "title": "Recursos do TOON NINJA",
+        "subtitle": "Um editor online completo para o formato TOON. Tudo que você precisa, nada supérfluo."
+      },
+      "list": {
+        "monaco": {
+          "title": "Editor Monaco",
+          "description": "O editor do VS Code com destaque de sintaxe TOON."
+        },
+        "conversion": {
+          "title": "JSON ↔ TOON",
+          "description": "Converta entre formatos com um clique."
+        },
+        "validation": {
+          "title": "Validação ao Vivo",
+          "description": "Feedback instantâneo de erros enquanto digita."
+        },
+        "diff": {
+          "title": "Comparação Diff",
+          "description": "Compare versões lado a lado."
+        },
+        "batch": {
+          "title": "Edição em Lote",
+          "description": "Buscar e substituir nos seus dados."
+        },
+        "shortcuts": {
+          "title": "Atalhos de Teclado",
+          "description": "Usuário avançado? Estamos com você."
+        },
+        "darkMode": {
+          "title": "Modo Escuro",
+          "description": "Confortável para os olhos, dia e noite."
+        },
+        "noAccount": {
+          "title": "Sem Conta",
+          "description": "Basta abrir e começar. Sem cadastro."
+        }
+      },
+      "cta": "Experimentar Editor"
+    },
+    "compare": {
+      "hero": {
+        "title": "TOON vs JSON",
+        "subtitle": "Ambos os formatos têm seus pontos fortes. Aqui está uma comparação honesta para sua decisão."
+      },
+      "table": {
+        "criterion": "Critério",
+        "toon": "TOON",
+        "json": "JSON",
+        "tokenEfficiency": "Eficiência de Tokens",
+        "tokenToon": "30-60% menos tokens",
+        "tokenJson": "Base",
+        "readability": "Legibilidade",
+        "readabilityToon": "Excelente",
+        "readabilityJson": "Boa",
+        "ecosystem": "Suporte do Ecossistema",
+        "ecosystemToon": "Crescendo",
+        "ecosystemJson": "Universal",
+        "learningCurve": "Curva de Aprendizado",
+        "learningToon": "Baixa (similar ao JSON)",
+        "learningJson": "Baixa",
+        "bestFor": "Melhor Para",
+        "bestForToon": "Prompts LLM, fluxos de IA",
+        "bestForJson": "APIs, dados gerais"
+      },
+      "whenToon": {
+        "title": "Quando Usar TOON",
+        "description": "Escolha TOON quando você trabalha com LLMs e custos de tokens importam. Prompts com dados estruturados, configurações de agentes e pipelines de IA se beneficiam mais da sintaxe compacta do TOON."
+      },
+      "whenJson": {
+        "title": "Quando Ficar com JSON",
+        "description": "JSON continua sendo a escolha certa para APIs públicas, arquivos de configuração em ecossistemas estabelecidos e qualquer lugar onde suporte universal de ferramentas importa mais que eficiência de tokens."
+      },
+      "cta": "Experimente Você Mesmo"
+    }
+  },
+  "about": {
+    "title": "Sobre TOON",
+    "hero": {
+      "title": "O Formato de Dados Legível por Humanos",
+      "subtitle": "TOON é um formato moderno de serialização de dados legível por humanos que combina a familiaridade do JSON com a legibilidade do YAML e a eficiência de dados tabulares."
+    },
+    "comparison": {
+      "title": "TOON vs JSON",
+      "bytes": "Bytes",
+      "savings": "~60% menor tamanho de arquivo com os mesmos dados"
+    },
+    "features": {
+      "title": "Principais Características",
+      "humanReadable": {
+        "title": "Legível por Humanos",
+        "description": "Sintaxe limpa baseada em indentação que é fácil de ler e escrever sem ferramentas especiais."
+      },
+      "compact": {
+        "title": "Formato Compacto",
+        "description": "Tamanhos de arquivo significativamente menores comparados ao JSON – economiza banda e armazenamento."
+      },
+      "tabular": {
+        "title": "Arrays Tabulares",
+        "description": "Suporte nativo para dados tabulares com cabeçalhos de campo – perfeito para listas e registros."
+      },
+      "efficient": {
+        "title": "Alto Desempenho",
+        "description": "Parsing e serialização rápidos com uso mínimo de memória."
+      },
+      "jsonCompatible": {
+        "title": "Compatível com JSON",
+        "description": "Suporte total ao modelo de dados JSON – conversão sem perdas entre TOON e JSON."
+      },
+      "llmFriendly": {
+        "title": "Amigável para LLM",
+        "description": "Otimizado para janelas de contexto de IA/LLM – mais dados com menos tokens."
+      }
+    },
+    "useCases": {
+      "title": "Casos de Uso",
+      "config": {
+        "title": "Arquivos de Configuração",
+        "description": "Substitua configs JSON/YAML por arquivos TOON legíveis e de fácil manutenção."
+      },
+      "data": {
+        "title": "Armazenamento de Dados",
+        "description": "Armazene dados estruturados de forma eficiente com excelente legibilidade."
+      },
+      "ai": {
+        "title": "IA e Prompts LLM",
+        "description": "Maximize a eficiência da janela de contexto ao trabalhar com modelos de IA."
+      },
+      "api": {
+        "title": "Respostas de API",
+        "description": "Reduza tamanhos de payload mantendo respostas depuráveis."
+      }
+    },
+    "syntax": {
+      "title": "Destaques da Sintaxe",
+      "indentation": {
+        "title": "Baseada em Indentação",
+        "description": "Usa indentação consistente de 2 espaços para definição de estrutura – sem necessidade de colchetes."
+      },
+      "headers": {
+        "title": "Cabeçalhos de Array",
+        "description": "Defina estruturas de array com cabeçalhos como 'users[3]' seguidos de nomes de campo para dados tabulares."
+      },
+      "primitives": {
+        "title": "Primitivos Sem Aspas",
+        "description": "Números, booleanos e null não precisam de aspas – basta escrever diretamente."
+      },
+      "delimiters": {
+        "title": "Delimitadores Flexíveis",
+        "description": "Use vírgula, tab ou pipe como delimitadores para linhas tabulares."
+      }
+    },
+    "cta": {
+      "title": "Pronto para Experimentar TOON?",
+      "description": "Use o Visualizador TOON para parsear, explorar e editar dados TOON diretamente no navegador.",
+      "tryViewer": "Abrir Visualizador",
+      "learnMore": "Documentação Oficial"
+    }
+  },
+  "explorer": {
+    "title": "Explorador",
+    "noData": "Nenhum dado carregado",
+    "loadFile": "Carregue um arquivo TOON para começar",
+    "loadExample": "Carregar Exemplo",
+    "exampleLoaded": "Exemplo com todos os tipos de dados carregado"
+  },
+  "editor": {
+    "placeholder": "Digite ou cole dados TOON aqui...",
+    "format": "Formatar"
+  },
+  "actions": {
+    "export": "Exportar",
+    "saved": "Salvo",
+    "undo": "Desfazer",
+    "redo": "Refazer",
+    "copy": "Copiar",
+    "copyAsJson": "Copiar como JSON",
+    "paste": "Colar",
+    "clear": "Limpar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "add": "Adicionar",
+    "moved": "Movido"
+  },
+  "diff": {
+    "title": "Comparar Versões",
+    "original": "Original",
+    "modified": "Modificado",
+    "noChanges": "Nenhuma alteração detectada",
+    "additions": "Adições",
+    "deletions": "Exclusões",
+    "changes": "Alterações"
+  },
+  "batch": {
+    "title": "Edição em Lote",
+    "findReplace": "Buscar e Substituir",
+    "find": "Buscar",
+    "replace": "Substituir",
+    "replaceAll": "Substituir Tudo",
+    "matchCase": "Diferenciar maiúsculas",
+    "regex": "Regex",
+    "found": "{count} correspondências encontradas"
+  },
+  "dropzone": {
+    "title": "Solte arquivos aqui",
+    "subtitle": "ou clique para navegar",
+    "accept": "Aceita arquivos .json, .toon"
+  },
+  "settings": {
+    "title": "Configurações",
+    "language": "Idioma",
+    "autoSave": "Salvar automaticamente",
+    "wordWrap": "Quebra de linha",
+    "fontSize": "Tamanho da fonte"
+  },
+  "shortcuts": {
+    "title": "Atalhos de Teclado",
+    "save": "Salvar",
+    "undo": "Desfazer",
+    "redo": "Refazer",
+    "format": "Formatar",
+    "search": "Buscar",
+    "import": "Importar",
+    "export": "Exportar"
+  },
+  "errors": {
+    "parseError": "Não foi possível parsear JSON",
+    "importError": "Não foi possível importar arquivo",
+    "invalidData": "Formato de dados inválido"
+  },
+  "success": {
+    "imported": "Arquivo importado com sucesso",
+    "exported": "Arquivo exportado com sucesso",
+    "saved": "Alterações salvas",
+    "copied": "Copiado para a área de transferência",
+    "copiedAsJson": "JSON copiado para a área de transferência",
+    "jsonConverted": "JSON convertido para TOON"
+  },
+  "input": {
+    "title": "Entrada TOON",
+    "subtitle": "Cole ou digite dados TOON para parsear e explorar",
+    "placeholder": "# Digite dados TOON aqui",
+    "paste": "Colar",
+    "clear": "Limpar",
+    "pasted": "Colado",
+    "pastedDescription": "Conteúdo colado da área de transferência",
+    "error": "Erro",
+    "clipboardError": "Não foi possível ler da área de transferência",
+    "aboutToon": "O que é TOON?",
+    "learnMore": "Saiba mais sobre o formato TOON"
+  },
+  "tree": {
+    "expandAll": "Expandir tudo",
+    "collapseAll": "Recolher tudo"
+  },
+  "editModal": {
+    "title": "Editar Nó",
+    "addTitle": "Adicionar Nó",
+    "key": "Chave",
+    "keyPlaceholder": "Digite o nome da chave",
+    "value": "Valor",
+    "valuePlaceholder": "Digite o valor",
+    "type": "Tipo",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "keyRequired": "Chave é obrigatória",
+    "invalidNumber": "Formato de número inválido",
+    "smartForm": "Formulário inteligente baseado em elementos existentes",
+    "manualEntry": "Mudar para entrada manual",
+    "useSmartForm": "Usar formulário inteligente",
+    "types": {
+      "string": "String",
+      "number": "Número",
+      "boolean": "Booleano",
+      "null": "Nulo",
+      "object": "Objeto",
+      "array": "Array"
+    }
+  },
+  "hints": {
+    "swap": "Trocar esquerda e direita",
+    "clearDiff": "Limpar ambos os painéis",
+    "loadCurrent": "Carregar conteúdo atual do editor",
+    "decreaseFontSize": "Diminuir tamanho da fonte",
+    "increaseFontSize": "Aumentar tamanho da fonte",
+    "decreaseTabSize": "Diminuir tamanho do tab",
+    "increaseTabSize": "Aumentar tamanho do tab",
+    "editNode": "Editar no modal",
+    "addChild": "Adicionar nó filho",
+    "deleteNode": "Excluir nó",
+    "toggleBoolean": "Clique para alternar",
+    "clickToEdit": "Clique para editar",
+    "pasteFromClipboard": "Colar da área de transferência",
+    "clearInput": "Limpar entrada",
+    "closeBatchEdit": "Fechar edição em lote"
+  }
+}
