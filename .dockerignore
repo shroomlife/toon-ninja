@@ -49,8 +49,6 @@ docs/
 eslint.config.mjs
 tsconfig.json
 nuxt.config.ts
-package.json
-bun.lockb
 
 # Misc
 .prettierrc
