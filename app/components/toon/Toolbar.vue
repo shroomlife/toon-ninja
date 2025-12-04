@@ -66,6 +66,25 @@ function handleCopyAsJson() {
 async function handlePaste() {
   try {
     const text = await navigator.clipboard.readText()
+    const trimmed = text.trim()
+
+    // Check if it's valid JSON and convert to TOON
+    if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
+      try {
+        const parsed = JSON.parse(trimmed)
+        const toonContent = encode(parsed, { indent: 2 })
+        toonStore.setContent(toonContent)
+        toast.add({
+          title: t('success.jsonConverted'),
+          color: 'success'
+        })
+        return
+      } catch {
+        // Not valid JSON, continue with raw paste
+      }
+    }
+
+    // Paste as-is (already TOON or plain text)
     toonStore.setContent(text)
   } catch {
     toast.add({
@@ -228,16 +247,6 @@ function setLocale(code: string) {
       size="sm"
     >
       {{ toonStore.isValid ? 'Valid TOON' : 'Invalid TOON' }}
-    </UBadge>
-
-    <!-- Dirty indicator -->
-    <UBadge
-      v-if="toonStore.isDirty"
-      color="warning"
-      variant="subtle"
-      size="sm"
-    >
-      Unsaved
     </UBadge>
 
     <!-- Language selector -->

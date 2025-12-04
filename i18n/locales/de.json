@@ -102,7 +102,8 @@
     "exported": "Datei erfolgreich exportiert",
     "saved": "Änderungen gespeichert",
     "copied": "In Zwischenablage kopiert",
-    "copiedAsJson": "JSON in Zwischenablage kopiert"
+    "copiedAsJson": "JSON in Zwischenablage kopiert",
+    "jsonConverted": "JSON zu TOON konvertiert"
   },
   "input": {
     "title": "TOON Eingabe",
@@ -158,6 +159,8 @@
     "cancel": "Abbrechen",
     "keyRequired": "Schlüssel ist erforderlich",
     "invalidNumber": "Ungültiges Zahlenformat",
+    "preview": "TOON Vorschau",
+    "previewHint": "So wird die TOON-Ausgabe nach dem Speichern aussehen",
     "types": {
       "string": "Zeichenkette",
       "number": "Zahl",

@@ -5,13 +5,15 @@ const { t } = useI18n()
 const toonStore = useToonStore()
 const toast = useToast()
 
-// Selected item for context menu
+// Selected item for editing
 const selectedItem = ref<ToonTreeItem | null>(null)
-const contextMenuOpen = ref(false)
 
 // Edit modal state
 const showEditModal = ref(false)
 const editMode = ref<'edit' | 'addChild' | 'addSibling'>('edit')
+
+// Inline editing state
+const editingId = ref<string | null>(null)
 
 // Expanded items
 const expandedKeys = ref<string[]>([])
@@ -26,81 +28,59 @@ const toggleExpand = (item: ToonTreeItem) => {
   }
 }
 
-// Open context menu
-const openContextMenu = (item: ToonTreeItem) => {
+// Handle edit action (opens modal)
+const handleEdit = (item: ToonTreeItem) => {
+  // Cancel any inline edit first
+  editingId.value = null
   selectedItem.value = item
-  contextMenuOpen.value = true
-}
-
-// Context menu actions
-const handleEditValue = () => {
-  if (!selectedItem.value) return
   editMode.value = 'edit'
   showEditModal.value = true
-  contextMenuOpen.value = false
 }
 
-const handleAddChild = () => {
-  if (!selectedItem.value) return
-  editMode.value = 'addChild'
-  showEditModal.value = true
-  contextMenuOpen.value = false
-}
-
-const handleAddSibling = () => {
-  if (!selectedItem.value) return
-  editMode.value = 'addSibling'
-  showEditModal.value = true
-  contextMenuOpen.value = false
-}
-
-const handleDuplicate = () => {
-  if (!selectedItem.value) return
-  toonStore.duplicateNode(selectedItem.value.path)
-  toast.add({
-    title: t('success.copied'),
-    color: 'success',
-    icon: 'i-lucide-copy'
-  })
-  contextMenuOpen.value = false
-}
-
-const handleDelete = () => {
-  if (!selectedItem.value) return
-  toonStore.deleteNode(selectedItem.value.path)
+// Handle delete action
+const handleDelete = (item: ToonTreeItem) => {
+  toonStore.deleteNode(item.path)
   toast.add({
     title: t('actions.delete'),
-    description: t('success.saved'),
+    description: item.label,
     color: 'success',
     icon: 'i-lucide-trash-2'
   })
-  contextMenuOpen.value = false
 }
 
-const handleCopyPath = async () => {
-  if (!selectedItem.value) return
-  const path = selectedItem.value.path.join('.')
-  await navigator.clipboard.writeText(path)
+// Handle boolean toggle (1-click)
+const handleToggleBoolean = (item: ToonTreeItem) => {
+  if (item.type !== 'boolean') return
+  const newValue = !item.value
+  toonStore.editNode(item.path, newValue, item.key)
   toast.add({
-    title: t('success.copied'),
-    description: path,
+    title: item.label,
+    description: `→ ${newValue}`,
     color: 'success',
-    icon: 'i-lucide-clipboard-check'
+    icon: 'i-lucide-toggle-left'
   })
-  contextMenuOpen.value = false
 }
 
-const handleCopyValue = async () => {
-  if (!selectedItem.value) return
-  const value = selectedItem.value.value
-  const text = typeof value === 'object' ? JSON.stringify(value, null, 2) : String(value ?? 'null')
-  await navigator.clipboard.writeText(text)
+// Handle inline edit start
+const handleStartInlineEdit = (item: ToonTreeItem) => {
+  editingId.value = item.id
+}
+
+// Handle inline edit save
+const handleSaveInlineEdit = (item: ToonTreeItem, value: unknown) => {
+  editingId.value = null
+  toonStore.editNode(item.path, value, item.key)
   toast.add({
-    title: t('success.copied'),
+    title: item.label,
+    description: t('actions.saved'),
     color: 'success',
-    icon: 'i-lucide-clipboard-check'
+    icon: 'i-lucide-check'
   })
-  contextMenuOpen.value = false
+}
+
+// Handle inline edit cancel
+const handleCancelInlineEdit = () => {
+  editingId.value = null
 }
 
 // Expand/collapse all
@@ -170,74 +150,6 @@ const formatValuePreview = (item: ToonTreeItem): string => {
   }
   return String(item.value)
 }
-
-// Check if item can have children
-const canHaveChildren = (item: ToonTreeItem): boolean => {
-  return item.type === 'object' || item.type === 'array'
-}
-
-// Recursive tree node render helper
-interface MenuItemBase {
-  label: string
-  icon: string
-  color?: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error' | 'neutral'
-  onSelect?: (e: Event) => void
-}
-
-const contextMenuItems = computed(() => {
-  if (!selectedItem.value) return []
-
-  const items: MenuItemBase[][] = [
-    [
-      {
-        label: t('contextMenu.editValue'),
-        icon: 'i-lucide-pencil',
-        onSelect: handleEditValue
-      }
-    ],
-    [
-      ...(canHaveChildren(selectedItem.value)
-        ? [{
-            label: t('contextMenu.addChild'),
-            icon: 'i-lucide-plus',
-            onSelect: handleAddChild
-          }]
-        : []),
-      {
-        label: t('contextMenu.addSibling'),
-        icon: 'i-lucide-plus-circle',
-        onSelect: handleAddSibling
-      },
-      {
-        label: t('contextMenu.duplicate'),
-        icon: 'i-lucide-copy',
-        onSelect: handleDuplicate
-      }
-    ],
-    [
-      {
-        label: t('contextMenu.copyPath'),
-        icon: 'i-lucide-link',
-        onSelect: handleCopyPath
-      },
-      {
-        label: t('contextMenu.copyValue'),
-        icon: 'i-lucide-clipboard',
-        onSelect: handleCopyValue
-      }
-    ],
-    [
-      {
-        label: t('contextMenu.delete'),
-        icon: 'i-lucide-trash-2',
-        color: 'error',
-        onSelect: handleDelete
-      }
-    ]
-  ]
-
-  return items
-})
 </script>
 
 <template>
@@ -280,11 +192,17 @@ const contextMenuItems = computed(() => {
           :item="item"
           :level="0"
           :expanded-keys="expandedKeys"
+          :editing-id="editingId"
           :get-type-icon="getTypeIcon"
           :get-type-color="getTypeColor"
           :format-value-preview="formatValuePreview"
           @toggle="toggleExpand"
-          @context-menu="openContextMenu"
+          @edit="handleEdit"
+          @delete="handleDelete"
+          @toggle-boolean="handleToggleBoolean"
+          @start-inline-edit="handleStartInlineEdit"
+          @save-inline-edit="handleSaveInlineEdit"
+          @cancel-inline-edit="handleCancelInlineEdit"
         />
       </template>
 
@@ -299,16 +217,6 @@ const contextMenuItems = computed(() => {
         </p>
       </div>
     </div>
-
-    <!-- Context Menu -->
-    <UContextMenu
-      v-model:open="contextMenuOpen"
-      :items="contextMenuItems"
-    >
-      <template #default>
-        <div />
-      </template>
-    </UContextMenu>
 
     <!-- Edit Modal -->
     <ToonEditNodeModal

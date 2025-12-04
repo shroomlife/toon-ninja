@@ -99,6 +99,42 @@ const showValueInput = computed(() => {
   return formType.value !== 'object' && formType.value !== 'array' && formType.value !== 'null'
 })
 
+// Parse value based on type
+const parseValue = (): unknown => {
+  switch (formType.value) {
+    case 'string':
+      return formValue.value
+    case 'number':
+      return Number(formValue.value)
+    case 'boolean':
+      return formValue.value === 'true'
+    case 'null':
+      return null
+    case 'object':
+      return {}
+    case 'array':
+      return []
+    default:
+      return formValue.value
+  }
+}
+
+// Computed: TOON preview (live updates)
+const toonPreview = computed(() => {
+  if (props.mode !== 'edit') return null
+
+  // Validate number if needed
+  if (formType.value === 'number') {
+    const num = Number(formValue.value)
+    if (isNaN(num)) return null
+  }
+
+  const value = parseValue()
+  const key = showKeyInput.value ? formKey.value.trim() : undefined
+
+  return toonStore.previewEdit(props.item.path, value, key)
+})
+
 // Validate form
 const validate = (): boolean => {
   keyError.value = ''
@@ -118,26 +154,6 @@ const validate = (): boolean => {
   }
 
   return true
-}
-
-// Parse value based on type
-const parseValue = (): unknown => {
-  switch (formType.value) {
-    case 'string':
-      return formValue.value
-    case 'number':
-      return Number(formValue.value)
-    case 'boolean':
-      return formValue.value === 'true'
-    case 'null':
-      return null
-    case 'object':
-      return {}
-    case 'array':
-      return []
-    default:
-      return formValue.value
-  }
 }
 
 // Handle save
@@ -284,6 +300,19 @@ const handleCancel = () => {
                 : 'An empty array will be created. You can add items using the context menu.'
               }}
             </p>
+          </div>
+
+          <!-- TOON Preview (only for edit mode) -->
+          <div v-if="mode === 'edit' && toonPreview" class="mt-4">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              {{ t('editModal.preview') }}
+            </label>
+            <div class="relative">
+              <pre class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-xs font-mono overflow-auto max-h-32 text-gray-700 dark:text-gray-300">{{ toonPreview }}</pre>
+              <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                {{ t('editModal.previewHint') }}
+              </p>
+            </div>
           </div>
         </div>
 

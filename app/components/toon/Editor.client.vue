@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import * as monaco from 'monaco-editor'
+import { encode } from '@toon-format/toon'
 
 interface Props {
   modelValue: string
@@ -16,8 +17,29 @@ const emit = defineEmits<{
 
 const editorContainer = ref<HTMLDivElement | null>(null)
 const colorMode = useColorMode()
+const settingsStore = useSettingsStore()
+const toast = useToast()
+const { t } = useI18n()
 
 let editor: monaco.editor.IStandaloneCodeEditor | null = null
+let isConvertingJson = false
+
+// Try to detect and convert JSON to TOON
+function tryConvertJsonToToon(content: string): string | null {
+  const trimmed = content.trim()
+
+  // Check if it looks like JSON
+  if (!trimmed.startsWith('{') && !trimmed.startsWith('[')) {
+    return null
+  }
+
+  try {
+    const parsed = JSON.parse(trimmed)
+    return encode(parsed, { indent: 2 })
+  } catch {
+    return null
+  }
+}
 
 const initEditor = () => {
   if (!editorContainer.value) {
@@ -40,18 +62,37 @@ const initEditor = () => {
       language: 'plaintext',
       theme: theme,
       readOnly: props.readOnly,
-      fontSize: 14,
-      wordWrap: 'on',
-      lineNumbers: 'on',
-      minimap: { enabled: false },
+      fontSize: settingsStore.fontSize,
+      wordWrap: settingsStore.wordWrap ? 'on' : 'off',
+      lineNumbers: settingsStore.showLineNumbers ? 'on' : 'off',
+      minimap: { enabled: settingsStore.showMinimap },
       automaticLayout: true
     })
 
     console.log('Monaco editor created:', editor)
 
     editor.onDidChangeModelContent(() => {
-      if (editor) {
+      if (editor && !isConvertingJson) {
         emit('update:modelValue', editor.getValue())
+      }
+    })
+
+    // Listen for paste events to auto-convert JSON
+    editor.onDidPaste(() => {
+      if (!editor) return
+
+      const content = editor.getValue()
+      const toonContent = tryConvertJsonToToon(content)
+
+      if (toonContent) {
+        isConvertingJson = true
+        editor.setValue(toonContent)
+        isConvertingJson = false
+        emit('update:modelValue', toonContent)
+        toast.add({
+          title: t('success.jsonConverted'),
+          color: 'success'
+        })
       }
     })
   } catch (e) {
@@ -76,6 +117,23 @@ watch(() => colorMode.value, (newMode) => {
   if (editor) {
     monaco.editor.setTheme(newMode === 'dark' ? 'vs-dark' : 'vs')
   }
+})
+
+// Watch settings changes
+watch(() => settingsStore.fontSize, (size) => {
+  editor?.updateOptions({ fontSize: size })
+})
+
+watch(() => settingsStore.wordWrap, (wrap) => {
+  editor?.updateOptions({ wordWrap: wrap ? 'on' : 'off' })
+})
+
+watch(() => settingsStore.showLineNumbers, (show) => {
+  editor?.updateOptions({ lineNumbers: show ? 'on' : 'off' })
+})
+
+watch(() => settingsStore.showMinimap, (show) => {
+  editor?.updateOptions({ minimap: { enabled: show } })
 })
 
 onUnmounted(() => {

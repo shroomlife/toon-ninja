@@ -102,7 +102,8 @@
     "exported": "File exported successfully",
     "saved": "Changes saved",
     "copied": "Copied to clipboard",
-    "copiedAsJson": "JSON copied to clipboard"
+    "copiedAsJson": "JSON copied to clipboard",
+    "jsonConverted": "JSON converted to TOON"
   },
   "input": {
     "title": "TOON Input",
@@ -158,6 +159,8 @@
     "cancel": "Cancel",
     "keyRequired": "Key is required",
     "invalidNumber": "Invalid number format",
+    "preview": "TOON Preview",
+    "previewHint": "This is what the TOON output will look like after saving",
     "types": {
       "string": "String",
       "number": "Number",

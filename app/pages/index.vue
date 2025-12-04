@@ -46,7 +46,7 @@ function handleContentUpdate(content: string) {
     <template #body>
       <div class="flex flex-col lg:flex-row h-full overflow-hidden">
         <!-- Left: Explorer -->
-        <div class="w-full lg:w-72 border-r border-default shrink-0 overflow-hidden flex flex-col">
+        <div class="w-full lg:w-96 border-r border-default shrink-0 overflow-hidden flex flex-col">
           <ToonExplorer />
         </div>
 
