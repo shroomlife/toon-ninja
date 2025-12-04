@@ -39,8 +39,8 @@ jobs:
 
       - name: Build and Push Docker Production Image
         run: |
-          docker build -t shroomlife/toon-ninja:latest . &&
-          docker push shroomlife/toon-ninja:latest
+          docker build -t shroomlife/toon.ninja:latest . &&
+          docker push shroomlife/toon.ninja:latest
 
   Deploy:
     needs: Build
