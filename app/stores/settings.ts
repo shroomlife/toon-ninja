@@ -35,7 +35,5 @@ export const useSettingsStore = defineStore('settings', {
     setTabSize(size: number) {
       this.tabSize = Math.max(2, Math.min(8, size))
     }
-  },
-
-  persist: true
+  }
 })

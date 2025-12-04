@@ -1,60 +1,26 @@
-import type { AvatarProps } from '@nuxt/ui'
+// TOON Viewer Types
 
-export type UserStatus = 'subscribed' | 'unsubscribed' | 'bounced'
-export type SaleStatus = 'paid' | 'failed' | 'refunded'
-
-export interface User {
-  id: number
-  name: string
-  email: string
-  avatar?: AvatarProps
-  status: UserStatus
-  location: string
-}
-
-export interface Mail {
-  id: number
-  unread?: boolean
-  from: User
-  subject: string
-  body: string
-  date: string
-}
-
-export interface Member {
-  name: string
-  username: string
-  role: 'member' | 'owner'
-  avatar: AvatarProps
-}
-
-export interface Stat {
-  title: string
-  icon: string
-  value: number | string
-  variation: number
-  formatter?: (value: number) => string
-}
-
-export interface Sale {
+export interface ToonNode {
   id: string
-  date: string
-  status: SaleStatus
-  email: string
-  amount: number
+  key: string
+  value: unknown
+  type: 'object' | 'array' | 'string' | 'number' | 'boolean' | 'null'
+  children?: ToonNode[]
+  path: string[]
+  expanded?: boolean
 }
 
-export interface Notification {
-  id: number
-  unread?: boolean
-  sender: User
-  body: string
-  date: string
+export interface HistoryState {
+  content: string
+  timestamp: number
 }
 
-export type Period = 'daily' | 'weekly' | 'monthly'
-
-export interface Range {
-  start: Date
-  end: Date
+export interface EditorSettings {
+  fontSize: number
+  wordWrap: boolean
+  autoSave: boolean
+  autoSaveInterval: number
+  showLineNumbers: boolean
+  showMinimap: boolean
+  tabSize: number
 }

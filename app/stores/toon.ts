@@ -41,20 +41,10 @@ export const useToonStore = defineStore('toon', {
       return buildTree(state.parsedData, [], state.expandedPaths)
     },
     formattedContent: (state): string => {
-      if (!state.isValid || !state.parsedData) return state.rawContent
-      try {
-        return JSON.stringify(state.parsedData, null, 2)
-      } catch {
-        return state.rawContent
-      }
+      return safeStringify(state.parsedData, state.rawContent, 2)
     },
     minifiedContent: (state): string => {
-      if (!state.isValid || !state.parsedData) return state.rawContent
-      try {
-        return JSON.stringify(state.parsedData)
-      } catch {
-        return state.rawContent
-      }
+      return safeStringify(state.parsedData, state.rawContent)
     }
   },
 
@@ -346,12 +336,14 @@ function findMatches(data: unknown, query: string, path: string[]): string[] {
 }
 
 function setNestedValue(obj: unknown, path: string[], value: unknown): void {
-  if (path.length === 0) return
+  if (path.length === 0 || obj === null || typeof obj !== 'object') return
 
   let current: Record<string, unknown> = obj as Record<string, unknown>
   for (let i = 0; i < path.length - 1; i++) {
     const key = path[i] as string
-    current = current[key] as Record<string, unknown>
+    const next = current[key]
+    if (next === null || typeof next !== 'object') return
+    current = next as Record<string, unknown>
   }
 
   const lastKey = path[path.length - 1] as string
@@ -359,12 +351,14 @@ function setNestedValue(obj: unknown, path: string[], value: unknown): void {
 }
 
 function deleteNestedValue(obj: unknown, path: string[]): void {
-  if (path.length === 0) return
+  if (path.length === 0 || obj === null || typeof obj !== 'object') return
 
   let current: Record<string, unknown> = obj as Record<string, unknown>
   for (let i = 0; i < path.length - 1; i++) {
     const key = path[i] as string
-    current = current[key] as Record<string, unknown>
+    const next = current[key]
+    if (next === null || typeof next !== 'object') return
+    current = next as Record<string, unknown>
   }
 
   const lastKey = path[path.length - 1] as string
@@ -377,4 +371,13 @@ function deleteNestedValue(obj: unknown, path: string[]): void {
 
 function escapeRegex(string: string): string {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function safeStringify(data: unknown, fallback: string, indent?: number): string {
+  if (data === null || data === undefined) return fallback
+  try {
+    return JSON.stringify(data, null, indent)
+  } catch {
+    return fallback
+  }
 }
