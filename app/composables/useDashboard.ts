@@ -3,22 +3,23 @@ import { createSharedComposable } from '@vueuse/core'
 const _useDashboard = () => {
   const route = useRoute()
   const router = useRouter()
-  const isNotificationsSlideoverOpen = ref(false)
+  const isSettingsOpen = ref(false)
+  const isShortcutsOpen = ref(false)
 
   defineShortcuts({
     'g-h': () => router.push('/'),
-    'g-i': () => router.push('/inbox'),
-    'g-c': () => router.push('/customers'),
-    'g-s': () => router.push('/settings'),
-    'n': () => isNotificationsSlideoverOpen.value = !isNotificationsSlideoverOpen.value
+    'g-c': () => router.push('/compare'),
+    '?': () => isShortcutsOpen.value = !isShortcutsOpen.value
   })
 
   watch(() => route.fullPath, () => {
-    isNotificationsSlideoverOpen.value = false
+    isSettingsOpen.value = false
+    isShortcutsOpen.value = false
   })
 
   return {
-    isNotificationsSlideoverOpen
+    isSettingsOpen,
+    isShortcutsOpen
   }
 }
 

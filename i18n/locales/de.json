@@ -1,0 +1,105 @@
+{
+  "app": {
+    "title": "TOON Betrachter",
+    "description": "TOON-Daten anzeigen und bearbeiten mit Live-Vorschau"
+  },
+  "nav": {
+    "viewer": "Betrachter",
+    "editor": "Editor",
+    "compare": "Vergleichen",
+    "settings": "Einstellungen"
+  },
+  "explorer": {
+    "title": "Explorer",
+    "search": "Suchen...",
+    "noData": "Keine Daten geladen",
+    "loadFile": "Laden Sie eine TOON-Datei, um zu beginnen",
+    "expandAll": "Alle erweitern",
+    "collapseAll": "Alle einklappen"
+  },
+  "editor": {
+    "title": "Editor",
+    "placeholder": "TOON-Daten hier eingeben oder einfügen...",
+    "validate": "Validieren",
+    "format": "Formatieren",
+    "minify": "Minimieren",
+    "validJson": "Gültiges JSON",
+    "invalidJson": "Ungültiges JSON"
+  },
+  "preview": {
+    "title": "Vorschau",
+    "noData": "Keine Vorschau verfügbar"
+  },
+  "actions": {
+    "import": "Importieren",
+    "export": "Exportieren",
+    "save": "Speichern",
+    "undo": "Rückgängig",
+    "redo": "Wiederholen",
+    "copy": "Kopieren",
+    "paste": "Einfügen",
+    "clear": "Löschen",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "add": "Hinzufügen",
+    "new": "Neu"
+  },
+  "diff": {
+    "title": "Versionen vergleichen",
+    "original": "Original",
+    "modified": "Geändert",
+    "noChanges": "Keine Änderungen erkannt",
+    "additions": "Hinzufügungen",
+    "deletions": "Löschungen",
+    "changes": "Änderungen"
+  },
+  "batch": {
+    "title": "Stapelbearbeitung",
+    "findReplace": "Suchen & Ersetzen",
+    "find": "Suchen",
+    "replace": "Ersetzen",
+    "replaceAll": "Alle ersetzen",
+    "matchCase": "Groß-/Kleinschreibung",
+    "regex": "Regex",
+    "found": "{count} Treffer gefunden"
+  },
+  "dropzone": {
+    "title": "Dateien hier ablegen",
+    "subtitle": "oder klicken zum Durchsuchen",
+    "accept": "Akzeptiert .json, .toon Dateien"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "language": "Sprache",
+    "theme": "Design",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "autoSave": "Automatisch speichern",
+    "wordWrap": "Zeilenumbruch",
+    "fontSize": "Schriftgröße"
+  },
+  "shortcuts": {
+    "title": "Tastenkürzel",
+    "save": "Speichern",
+    "undo": "Rückgängig",
+    "redo": "Wiederholen",
+    "format": "Formatieren",
+    "search": "Suchen",
+    "import": "Importieren",
+    "export": "Exportieren"
+  },
+  "errors": {
+    "parseError": "JSON konnte nicht geparst werden",
+    "importError": "Datei konnte nicht importiert werden",
+    "exportError": "Datei konnte nicht exportiert werden",
+    "invalidData": "Ungültiges Datenformat"
+  },
+  "success": {
+    "imported": "Datei erfolgreich importiert",
+    "exported": "Datei erfolgreich exportiert",
+    "saved": "Änderungen gespeichert",
+    "copied": "In Zwischenablage kopiert"
+  }
+}

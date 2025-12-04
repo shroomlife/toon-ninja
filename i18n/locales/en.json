@@ -1,0 +1,105 @@
+{
+  "app": {
+    "title": "TOON Viewer",
+    "description": "View and edit TOON data with live preview"
+  },
+  "nav": {
+    "viewer": "Viewer",
+    "editor": "Editor",
+    "compare": "Compare",
+    "settings": "Settings"
+  },
+  "explorer": {
+    "title": "Explorer",
+    "search": "Search...",
+    "noData": "No data loaded",
+    "loadFile": "Load a TOON file to get started",
+    "expandAll": "Expand all",
+    "collapseAll": "Collapse all"
+  },
+  "editor": {
+    "title": "Editor",
+    "placeholder": "Enter or paste TOON data here...",
+    "validate": "Validate",
+    "format": "Format",
+    "minify": "Minify",
+    "validJson": "Valid JSON",
+    "invalidJson": "Invalid JSON"
+  },
+  "preview": {
+    "title": "Preview",
+    "noData": "No preview available"
+  },
+  "actions": {
+    "import": "Import",
+    "export": "Export",
+    "save": "Save",
+    "undo": "Undo",
+    "redo": "Redo",
+    "copy": "Copy",
+    "paste": "Paste",
+    "clear": "Clear",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "new": "New"
+  },
+  "diff": {
+    "title": "Compare Versions",
+    "original": "Original",
+    "modified": "Modified",
+    "noChanges": "No changes detected",
+    "additions": "Additions",
+    "deletions": "Deletions",
+    "changes": "Changes"
+  },
+  "batch": {
+    "title": "Batch Edit",
+    "findReplace": "Find & Replace",
+    "find": "Find",
+    "replace": "Replace",
+    "replaceAll": "Replace All",
+    "matchCase": "Match case",
+    "regex": "Regex",
+    "found": "Found {count} matches"
+  },
+  "dropzone": {
+    "title": "Drop files here",
+    "subtitle": "or click to browse",
+    "accept": "Accepts .json, .toon files"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "autoSave": "Auto-save",
+    "wordWrap": "Word wrap",
+    "fontSize": "Font size"
+  },
+  "shortcuts": {
+    "title": "Keyboard Shortcuts",
+    "save": "Save",
+    "undo": "Undo",
+    "redo": "Redo",
+    "format": "Format",
+    "search": "Search",
+    "import": "Import",
+    "export": "Export"
+  },
+  "errors": {
+    "parseError": "Failed to parse JSON",
+    "importError": "Failed to import file",
+    "exportError": "Failed to export file",
+    "invalidData": "Invalid data format"
+  },
+  "success": {
+    "imported": "File imported successfully",
+    "exported": "File exported successfully",
+    "saved": "Changes saved",
+    "copied": "Copied to clipboard"
+  }
+}
