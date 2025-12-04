@@ -1,21 +1,21 @@
 {
   "name": "toon-ninja",
   "version": "1.0.0",
-  "description": "A modern Nuxt 4 SPA for viewing and editing TOON data with Monaco editor, live preview, and diff comparison",
-  "author": "shroomlife",
-  "license": "MIT",
   "private": true,
+  "description": "A modern Nuxt 4 SPA for viewing and editing TOON data with Monaco editor, live preview, and diff comparison",
+  "license": "MIT",
+  "author": "shroomlife",
   "type": "module",
   "scripts": {
-    "dev": "nuxt dev",
     "build": "nuxt build",
-    "preview": "nuxt preview",
+    "dev": "nuxt dev",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "nuxt typecheck",
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "preview": "nuxt preview",
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
     "@iconify-json/lucide": "1.2.78",
