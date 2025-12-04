@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { encode } from '@toon-format/toon'
+
 const { t, locale, locales } = useI18n()
 const toonStore = useToonStore()
 const toast = useToast()
@@ -9,6 +11,20 @@ const availableLocales = computed(() => {
     value: l.code
   }))
 })
+
+// Export format options
+const exportItems = [
+  [{
+    label: 'TOON (.toon)',
+    icon: 'i-lucide-file-code',
+    onSelect: () => handleExport('toon')
+  }],
+  [{
+    label: 'JSON (.json)',
+    icon: 'i-lucide-file-json',
+    onSelect: () => handleExport('json')
+  }]
+]
 
 function handleUndo() {
   toonStore.undo()
@@ -22,10 +38,6 @@ function handleFormat() {
   toonStore.format()
 }
 
-function handleMinify() {
-  toonStore.minify()
-}
-
 function handleClear() {
   toonStore.clear()
 }
@@ -35,6 +47,17 @@ function handleCopy() {
     navigator.clipboard.writeText(toonStore.rawContent)
     toast.add({
       title: t('success.copied'),
+      color: 'success'
+    })
+  }
+}
+
+function handleCopyAsJson() {
+  if (toonStore.parsedData) {
+    const jsonContent = JSON.stringify(toonStore.parsedData, null, 2)
+    navigator.clipboard.writeText(jsonContent)
+    toast.add({
+      title: t('success.copiedAsJson'),
       color: 'success'
     })
   }
@@ -52,14 +75,28 @@ async function handlePaste() {
   }
 }
 
-function handleExport() {
-  if (!toonStore.rawContent) return
+function handleExport(format: 'toon' | 'json') {
+  if (!toonStore.parsedData) return
 
-  const blob = new Blob([toonStore.rawContent], { type: 'application/json' })
+  let content: string
+  let extension: string
+  let mimeType: string
+
+  if (format === 'json') {
+    content = JSON.stringify(toonStore.parsedData, null, 2)
+    extension = 'json'
+    mimeType = 'application/json'
+  } else {
+    content = encode(toonStore.parsedData, { indent: 2 })
+    extension = 'toon'
+    mimeType = 'text/plain'
+  }
+
+  const blob = new Blob([content], { type: mimeType })
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = toonStore.fileName || 'toon-data.json'
+  a.download = `toon-data.${extension}`
   document.body.appendChild(a)
   a.click()
   document.body.removeChild(a)
@@ -72,7 +109,7 @@ function handleExport() {
 }
 
 function setLocale(code: string) {
-  locale.value = code
+  locale.value = code as typeof locale.value
 }
 </script>
 
@@ -104,7 +141,7 @@ function setLocale(code: string) {
 
     <USeparator orientation="vertical" class="h-6" />
 
-    <!-- Format/Minify -->
+    <!-- Format -->
     <div class="flex items-center gap-1">
       <UTooltip :text="t('editor.format')">
         <UButton
@@ -114,16 +151,6 @@ function setLocale(code: string) {
           variant="ghost"
           :disabled="!toonStore.isValid || !toonStore.parsedData"
           @click="handleFormat"
-        />
-      </UTooltip>
-      <UTooltip :text="t('editor.minify')">
-        <UButton
-          icon="i-lucide-minimize-2"
-          size="sm"
-          color="neutral"
-          variant="ghost"
-          :disabled="!toonStore.isValid || !toonStore.parsedData"
-          @click="handleMinify"
         />
       </UTooltip>
     </div>
@@ -142,6 +169,16 @@ function setLocale(code: string) {
           @click="handleCopy"
         />
       </UTooltip>
+      <UTooltip :text="t('actions.copyAsJson')">
+        <UButton
+          icon="i-lucide-braces"
+          size="sm"
+          color="neutral"
+          variant="ghost"
+          :disabled="!toonStore.parsedData"
+          @click="handleCopyAsJson"
+        />
+      </UTooltip>
       <UTooltip :text="`${t('actions.paste')} (Ctrl+V)`">
         <UButton
           icon="i-lucide-clipboard-paste"
@@ -157,16 +194,17 @@ function setLocale(code: string) {
 
     <!-- Export/Clear -->
     <div class="flex items-center gap-1">
-      <UTooltip :text="t('actions.export')">
-        <UButton
-          icon="i-lucide-download"
-          size="sm"
-          color="neutral"
-          variant="ghost"
-          :disabled="!toonStore.rawContent"
-          @click="handleExport"
-        />
-      </UTooltip>
+      <UDropdownMenu :items="exportItems">
+        <UTooltip :text="t('actions.export')">
+          <UButton
+            icon="i-lucide-download"
+            size="sm"
+            color="neutral"
+            variant="ghost"
+            :disabled="!toonStore.parsedData"
+          />
+        </UTooltip>
+      </UDropdownMenu>
       <UTooltip :text="t('actions.clear')">
         <UButton
           icon="i-lucide-trash-2"
@@ -189,7 +227,7 @@ function setLocale(code: string) {
       variant="subtle"
       size="sm"
     >
-      {{ toonStore.isValid ? t('editor.validJson') : t('editor.invalidJson') }}
+      {{ toonStore.isValid ? 'Valid TOON' : 'Invalid TOON' }}
     </UBadge>
 
     <!-- Dirty indicator -->

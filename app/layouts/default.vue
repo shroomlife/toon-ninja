@@ -14,13 +14,6 @@ const links = computed<NavigationMenuItem[][]>(() => [[{
   onSelect: () => {
     open.value = false
   }
-}, {
-  label: t('nav.compare'),
-  icon: 'i-lucide-git-compare',
-  to: '/compare',
-  onSelect: () => {
-    open.value = false
-  }
 }], [{
   label: t('settings.title'),
   icon: 'i-lucide-settings',
@@ -36,12 +29,6 @@ const links = computed<NavigationMenuItem[][]>(() => [[{
     open.value = false
   }
 }]])
-
-const groups = computed(() => [{
-  id: 'links',
-  label: 'Go to',
-  items: links.value.flat()
-}])
 </script>
 
 <template>
@@ -62,8 +49,6 @@ const groups = computed(() => [{
       </template>
 
       <template #default="{ collapsed }">
-        <UDashboardSearchButton :collapsed="collapsed" class="bg-transparent ring-default" />
-
         <UNavigationMenu
           :collapsed="collapsed"
           :items="links[0]"
@@ -80,13 +65,7 @@ const groups = computed(() => [{
           class="mt-auto"
         />
       </template>
-
-      <template #footer="{ collapsed }">
-        <UserMenu :collapsed="collapsed" />
-      </template>
     </UDashboardSidebar>
-
-    <UDashboardSearch :groups="groups" />
 
     <slot />
 

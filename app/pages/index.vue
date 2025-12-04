@@ -3,17 +3,20 @@ const { t } = useI18n()
 const toonStore = useToonStore()
 
 // Keyboard shortcuts
-const { Ctrl_z, Ctrl_y, Ctrl_Shift_f } = useMagicKeys()
+const keys = useMagicKeys()
+const ctrlZ = computed(() => keys['Ctrl+z']?.value ?? false)
+const ctrlY = computed(() => keys['Ctrl+y']?.value ?? false)
+const ctrlShiftF = computed(() => keys['Ctrl+Shift+f']?.value ?? false)
 
-watch(Ctrl_z, (pressed) => {
+watch(ctrlZ, (pressed) => {
   if (pressed) toonStore.undo()
 })
 
-watch(Ctrl_y, (pressed) => {
+watch(ctrlY, (pressed) => {
   if (pressed) toonStore.redo()
 })
 
-watch(Ctrl_Shift_f, (pressed) => {
+watch(ctrlShiftF, (pressed) => {
   if (pressed) toonStore.format()
 })
 
@@ -47,31 +50,19 @@ function handleContentUpdate(content: string) {
           <ToonExplorer />
         </div>
 
-        <!-- Center: Editor -->
-        <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
-          <!-- Dropzone when empty -->
-          <div
-            v-if="!toonStore.rawContent"
-            class="flex-1 flex items-center justify-center p-8"
-          >
-            <div class="w-full max-w-md">
-              <ToonDropZone />
-            </div>
-          </div>
-
-          <!-- Editor when content exists -->
-          <ClientOnly v-else>
+        <!-- Center: Monaco Editor -->
+        <div class="flex-1 min-w-0 p-2">
+          <ClientOnly>
             <ToonEditor
               :model-value="toonStore.rawContent"
-              class="flex-1"
               @update:model-value="handleContentUpdate"
             />
+            <template #fallback>
+              <div class="h-[500px] flex items-center justify-center bg-gray-800">
+                <UIcon name="i-lucide-loader-2" class="w-8 h-8 animate-spin text-primary" />
+              </div>
+            </template>
           </ClientOnly>
-        </div>
-
-        <!-- Right: Preview -->
-        <div class="w-full lg:w-80 border-l border-default shrink-0 overflow-hidden flex flex-col">
-          <ToonPreview />
         </div>
       </div>
     </template>

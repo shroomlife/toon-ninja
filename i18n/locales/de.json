@@ -37,6 +37,7 @@
     "undo": "Rückgängig",
     "redo": "Wiederholen",
     "copy": "Kopieren",
+    "copyAsJson": "Als JSON kopieren",
     "paste": "Einfügen",
     "clear": "Löschen",
     "cancel": "Abbrechen",
@@ -100,6 +101,70 @@
     "imported": "Datei erfolgreich importiert",
     "exported": "Datei erfolgreich exportiert",
     "saved": "Änderungen gespeichert",
-    "copied": "In Zwischenablage kopiert"
+    "copied": "In Zwischenablage kopiert",
+    "copiedAsJson": "JSON in Zwischenablage kopiert"
+  },
+  "input": {
+    "title": "TOON Eingabe",
+    "subtitle": "TOON-Daten einfügen oder eingeben zum Parsen und Erkunden",
+    "placeholder": "# TOON-Daten hier eingeben\nname: Max Mustermann\nage: 30\nactive: true\n\naddress:\n  city: Berlin\n  zip: 10115",
+    "parse": "Parsen & Laden",
+    "paste": "Einfügen",
+    "clear": "Leeren",
+    "loadExample": "Beispiel laden",
+    "shortcut": "Strg+Enter zum Parsen",
+    "success": "Erfolg",
+    "parsed": "TOON-Daten erfolgreich geparst",
+    "error": "Fehler",
+    "emptyContent": "Bitte TOON-Inhalt eingeben",
+    "invalidToon": "Ungültiges TOON-Format",
+    "parseError": "TOON-Daten konnten nicht geparst werden",
+    "pasted": "Eingefügt",
+    "pastedDescription": "Inhalt aus Zwischenablage eingefügt",
+    "clipboardError": "Konnte nicht aus der Zwischenablage lesen",
+    "example": "Beispiel geladen",
+    "exampleLoaded": "Beispiel TOON-Daten wurden geladen",
+    "aboutToon": "Was ist TOON?",
+    "aboutToonDescription": "TOON ist ein benutzerfreundliches Daten-Serialisierungsformat, das einfach zu lesen und zu schreiben ist. Es unterstützt Objekte, Arrays, Tabellen und primitive Typen.",
+    "learnMore": "Mehr über das TOON-Format erfahren"
+  },
+  "tree": {
+    "root": "Wurzel",
+    "empty": "Leer",
+    "items": "{count} Elemente",
+    "expandAll": "Alle erweitern",
+    "collapseAll": "Alle einklappen"
+  },
+  "contextMenu": {
+    "editValue": "Wert bearbeiten",
+    "addChild": "Kind hinzufügen",
+    "addSibling": "Geschwister hinzufügen",
+    "duplicate": "Duplizieren",
+    "delete": "Löschen",
+    "copyPath": "Pfad kopieren",
+    "copyValue": "Wert kopieren",
+    "moveUp": "Nach oben",
+    "moveDown": "Nach unten"
+  },
+  "editModal": {
+    "title": "Knoten bearbeiten",
+    "addTitle": "Knoten hinzufügen",
+    "key": "Schlüssel",
+    "keyPlaceholder": "Schlüsselname eingeben",
+    "value": "Wert",
+    "valuePlaceholder": "Wert eingeben",
+    "type": "Typ",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "keyRequired": "Schlüssel ist erforderlich",
+    "invalidNumber": "Ungültiges Zahlenformat",
+    "types": {
+      "string": "Zeichenkette",
+      "number": "Zahl",
+      "boolean": "Wahrheitswert",
+      "null": "Null",
+      "object": "Objekt",
+      "array": "Array"
+    }
   }
 }

@@ -1,13 +1,19 @@
 import { defineStore } from 'pinia'
+import { decode, encode } from '@toon-format/toon'
+import type { TreeItem } from '@nuxt/ui'
 
-export interface ToonNode {
+// === Types ===
+export interface ToonTreeItem extends TreeItem {
   id: string
-  key: string
-  value: unknown
+  label: string
+  icon?: string
+  value?: unknown
   type: 'object' | 'array' | 'string' | 'number' | 'boolean' | 'null'
-  children?: ToonNode[]
   path: string[]
-  expanded?: boolean
+  isArrayItem?: boolean
+  arrayIndex?: number
+  children?: ToonTreeItem[]
+  defaultExpanded?: boolean
 }
 
 export interface HistoryState {
@@ -15,40 +21,55 @@ export interface HistoryState {
   timestamp: number
 }
 
+export interface ValidationError {
+  line: number
+  column: number
+  message: string
+}
+
+// === Store ===
 export const useToonStore = defineStore('toon', {
   state: () => ({
     rawContent: '' as string,
     parsedData: null as unknown,
     isValid: true,
     errorMessage: '',
-    fileName: '',
+    errors: [] as ValidationError[],
     history: [] as HistoryState[],
     historyIndex: -1,
     maxHistory: 50,
     selectedNodePath: [] as string[],
-    expandedPaths: new Set<string>(),
+    expandedKeys: [] as string[],
     searchQuery: '',
     searchResults: [] as string[],
     compareContent: '' as string,
-    isDirty: false
+    isDirty: false,
+    isLoading: false
   }),
 
   getters: {
     canUndo: (state): boolean => state.historyIndex > 0,
     canRedo: (state): boolean => state.historyIndex < state.history.length - 1,
-    treeData: (state): ToonNode[] => {
-      if (!state.parsedData) return []
-      return buildTree(state.parsedData, [], state.expandedPaths)
+
+    hasContent: (state): boolean => state.rawContent.trim().length > 0,
+
+    treeItems(): ToonTreeItem[] {
+      if (!this.parsedData) return []
+      return buildTreeItems(this.parsedData, [])
     },
+
     formattedContent: (state): string => {
-      return safeStringify(state.parsedData, state.rawContent, 2)
-    },
-    minifiedContent: (state): string => {
-      return safeStringify(state.parsedData, state.rawContent)
+      if (!state.parsedData) return state.rawContent
+      try {
+        return encode(state.parsedData, { indent: 2 })
+      } catch {
+        return state.rawContent
+      }
     }
   },
 
   actions: {
+    // === Content Management ===
     setContent(content: string, addToHistory = true) {
       this.rawContent = content
       this.isDirty = true
@@ -60,6 +81,8 @@ export const useToonStore = defineStore('toon', {
     },
 
     validateAndParse() {
+      this.errors = []
+
       if (!this.rawContent.trim()) {
         this.parsedData = null
         this.isValid = true
@@ -68,18 +91,30 @@ export const useToonStore = defineStore('toon', {
       }
 
       try {
-        this.parsedData = JSON.parse(this.rawContent)
+        this.parsedData = decode(this.rawContent, { strict: true })
         this.isValid = true
         this.errorMessage = ''
       } catch (e) {
         this.isValid = false
-        this.errorMessage = e instanceof Error ? e.message : 'Invalid JSON'
+        const errorMsg = e instanceof Error ? e.message : 'Invalid TOON'
+        this.errorMessage = errorMsg
+
+        // Try to extract line number from error message
+        const lineMatch = errorMsg.match(/line\s*(\d+)/i)
+        const colMatch = errorMsg.match(/column\s*(\d+)/i)
+
+        this.errors.push({
+          line: lineMatch?.[1] ? parseInt(lineMatch[1], 10) : 1,
+          column: colMatch?.[1] ? parseInt(colMatch[1], 10) : 1,
+          message: errorMsg
+        })
+
         this.parsedData = null
       }
     },
 
+    // === History Management ===
     addToHistory(content: string) {
-      // Remove any future history if we're not at the end
       if (this.historyIndex < this.history.length - 1) {
         this.history = this.history.slice(0, this.historyIndex + 1)
       }
@@ -89,7 +124,6 @@ export const useToonStore = defineStore('toon', {
         timestamp: Date.now()
       })
 
-      // Limit history size
       if (this.history.length > this.maxHistory) {
         this.history.shift()
       } else {
@@ -119,78 +153,226 @@ export const useToonStore = defineStore('toon', {
       }
     },
 
+    // === Formatting ===
     format() {
       if (this.isValid && this.parsedData) {
-        const formatted = JSON.stringify(this.parsedData, null, 2)
-        this.setContent(formatted)
+        try {
+          const formatted = encode(this.parsedData, { indent: 2 })
+          this.setContent(formatted)
+        } catch (e) {
+          console.error('Format error:', e)
+        }
       }
     },
 
-    minify() {
-      if (this.isValid && this.parsedData) {
-        const minified = JSON.stringify(this.parsedData)
-        this.setContent(minified)
-      }
-    },
-
-    clear() {
-      this.setContent('')
-      this.fileName = ''
-      this.isDirty = false
-    },
-
-    setFileName(name: string) {
-      this.fileName = name
-    },
-
-    toggleNode(path: string[]) {
-      const pathStr = path.join('.')
-      if (this.expandedPaths.has(pathStr)) {
-        this.expandedPaths.delete(pathStr)
+    // === Node Operations ===
+    addNode(path: string[], value: unknown, key?: string) {
+      if (!this.parsedData) {
+        // Create new root object/array
+        if (key) {
+          this.parsedData = { [key]: value }
+        } else if (Array.isArray(value)) {
+          this.parsedData = [value]
+        } else {
+          this.parsedData = value
+        }
       } else {
-        this.expandedPaths.add(pathStr)
+        const newData = structuredClone(this.parsedData)
+        const parent = path.length > 0 ? getNestedValue(newData, path) : newData
+
+        if (Array.isArray(parent)) {
+          parent.push(value)
+        } else if (parent && typeof parent === 'object') {
+          if (key) {
+            (parent as Record<string, unknown>)[key] = value
+          }
+        }
+
+        this.parsedData = newData
+      }
+
+      this.syncContentFromData()
+    },
+
+    editNode(path: string[], newValue: unknown, newKey?: string) {
+      if (!this.parsedData || path.length === 0) return
+
+      const newData = structuredClone(this.parsedData)
+
+      if (newKey !== undefined && path.length > 0) {
+        // Key rename
+        const parentPath = path.slice(0, -1)
+        const oldKey = path[path.length - 1]!
+        const parent = parentPath.length > 0
+          ? getNestedValue(newData, parentPath)
+          : newData
+
+        if (parent && typeof parent === 'object' && !Array.isArray(parent)) {
+          const obj = parent as Record<string, unknown>
+          if (oldKey !== newKey) {
+            obj[newKey] = newValue
+            // Use object spread to remove the old key instead of delete
+            const { [oldKey]: _, ...rest } = obj
+            Object.keys(obj).forEach(k => Reflect.deleteProperty(obj, k))
+            Object.assign(obj, rest)
+          } else {
+            obj[oldKey] = newValue
+          }
+        }
+      } else {
+        setNestedValue(newData, path, newValue)
+      }
+
+      this.parsedData = newData
+      this.syncContentFromData()
+    },
+
+    deleteNode(path: string[]) {
+      if (!this.parsedData || path.length === 0) return
+
+      const newData = structuredClone(this.parsedData)
+      deleteNestedValue(newData, path)
+      this.parsedData = newData
+      this.syncContentFromData()
+    },
+
+    duplicateNode(path: string[]) {
+      if (!this.parsedData || path.length === 0) return
+
+      const newData = structuredClone(this.parsedData)
+      const parentPath = path.slice(0, -1)
+      const key = path[path.length - 1]!
+      const parent = parentPath.length > 0
+        ? getNestedValue(newData, parentPath)
+        : newData
+
+      if (Array.isArray(parent)) {
+        const index = parseInt(key, 10)
+        const value = structuredClone(parent[index])
+        parent.splice(index + 1, 0, value)
+      } else if (parent && typeof parent === 'object') {
+        const obj = parent as Record<string, unknown>
+        const value = structuredClone(obj[key])
+        let newKey = `${key}_copy`
+        let counter = 1
+        while (newKey in obj) {
+          newKey = `${key}_copy_${counter++}`
+        }
+        obj[newKey] = value
+      }
+
+      this.parsedData = newData
+      this.syncContentFromData()
+    },
+
+    moveNode(fromPath: string[], toPath: string[], position: 'before' | 'after' | 'inside') {
+      if (!this.parsedData) return
+
+      const newData = structuredClone(this.parsedData)
+
+      // Get the value to move
+      const value = getNestedValue(newData, fromPath)
+      if (value === undefined) return
+
+      // Delete from original location
+      deleteNestedValue(newData, fromPath)
+
+      // Insert at new location
+      if (position === 'inside') {
+        const target = getNestedValue(newData, toPath)
+        if (Array.isArray(target)) {
+          target.push(value)
+        } else if (target && typeof target === 'object') {
+          const key = fromPath[fromPath.length - 1]!
+          ;(target as Record<string, unknown>)[key] = value
+        }
+      } else {
+        const parentPath = toPath.slice(0, -1)
+        const parent = parentPath.length > 0
+          ? getNestedValue(newData, parentPath)
+          : newData
+
+        if (Array.isArray(parent)) {
+          const index = parseInt(toPath[toPath.length - 1]!, 10)
+          const insertIndex = position === 'after' ? index + 1 : index
+          parent.splice(insertIndex, 0, value)
+        }
+      }
+
+      this.parsedData = newData
+      this.syncContentFromData()
+    },
+
+    // === Sync ===
+    syncContentFromData() {
+      if (this.parsedData) {
+        try {
+          const content = encode(this.parsedData, { indent: 2 })
+          this.rawContent = content
+          this.isDirty = true
+          this.isValid = true
+          this.errorMessage = ''
+          this.errors = []
+          this.addToHistory(content)
+        } catch (e) {
+          console.error('Encode error:', e)
+        }
+      }
+    },
+
+    // === Tree State ===
+    toggleExpanded(key: string) {
+      const index = this.expandedKeys.indexOf(key)
+      if (index > -1) {
+        this.expandedKeys.splice(index, 1)
+      } else {
+        this.expandedKeys.push(key)
       }
     },
 
     expandAll() {
       if (!this.parsedData) return
-      const paths = collectAllPaths(this.parsedData, [])
-      paths.forEach(p => this.expandedPaths.add(p))
+      this.expandedKeys = collectAllKeys(this.parsedData, [])
     },
 
     collapseAll() {
-      this.expandedPaths.clear()
+      this.expandedKeys = []
     },
 
     selectNode(path: string[]) {
       this.selectedNodePath = path
     },
 
+    // === Search ===
     setSearchQuery(query: string) {
       this.searchQuery = query
       this.searchResults = query ? findMatches(this.parsedData, query, []) : []
     },
 
+    // === Compare ===
     setCompareContent(content: string) {
       this.compareContent = content
     },
 
-    updateValue(path: string[], value: unknown) {
-      if (!this.parsedData) return
-
-      const newData = JSON.parse(JSON.stringify(this.parsedData))
-      setNestedValue(newData, path, value)
-      this.setContent(JSON.stringify(newData, null, 2))
+    // === Utility ===
+    clear() {
+      this.rawContent = ''
+      this.parsedData = null
+      this.isValid = true
+      this.errorMessage = ''
+      this.errors = []
+      this.isDirty = false
+      this.selectedNodePath = []
+      this.expandedKeys = []
+      this.searchQuery = ''
+      this.searchResults = []
     },
 
-    deleteNode(path: string[]) {
-      if (!this.parsedData || path.length === 0) return
-
-      const newData = JSON.parse(JSON.stringify(this.parsedData))
-      deleteNestedValue(newData, path)
-      this.setContent(JSON.stringify(newData, null, 2))
+    markClean() {
+      this.isDirty = false
     },
 
+    // === Batch Replace ===
     batchReplace(find: string, replace: string, useRegex = false, matchCase = false) {
       if (!this.rawContent) return 0
 
@@ -215,20 +397,22 @@ export const useToonStore = defineStore('toon', {
       return count
     },
 
-    markClean() {
-      this.isDirty = false
+    getNodeByPath(path: string[]): unknown {
+      return getNestedValue(this.parsedData, path)
     }
   }
 })
 
-// Helper functions
-function buildTree(data: unknown, path: string[], expandedPaths: Set<string>): ToonNode[] {
-  const nodes: ToonNode[] = []
+// === Helper Functions ===
+
+function buildTreeItems(data: unknown, path: string[]): ToonTreeItem[] {
+  const items: ToonTreeItem[] = []
 
   if (data === null) {
     return [{
-      id: path.join('.') || 'root',
-      key: path[path.length - 1] || 'null',
+      id: path.join('.') || 'null',
+      label: 'null',
+      icon: 'i-lucide-circle-slash',
       value: null,
       type: 'null',
       path
@@ -238,70 +422,89 @@ function buildTree(data: unknown, path: string[], expandedPaths: Set<string>): T
   if (Array.isArray(data)) {
     data.forEach((item, index) => {
       const itemPath = [...path, String(index)]
-      const pathStr = itemPath.join('.')
+      const id = itemPath.join('.')
       const type = getType(item)
+      const hasChildren = type === 'object' || type === 'array'
 
-      nodes.push({
-        id: pathStr,
-        key: String(index),
+      items.push({
+        id,
+        label: `[${index}]`,
+        icon: getTypeIcon(type),
         value: item,
         type,
         path: itemPath,
-        expanded: expandedPaths.has(pathStr),
-        children: (type === 'object' || type === 'array')
-          ? buildTree(item, itemPath, expandedPaths)
-          : undefined
+        isArrayItem: true,
+        arrayIndex: index,
+        defaultExpanded: false,
+        children: hasChildren ? buildTreeItems(item, itemPath) : undefined
       })
     })
   } else if (typeof data === 'object') {
     Object.entries(data as Record<string, unknown>).forEach(([key, value]) => {
       const itemPath = [...path, key]
-      const pathStr = itemPath.join('.')
+      const id = itemPath.join('.')
       const type = getType(value)
+      const hasChildren = type === 'object' || type === 'array'
 
-      nodes.push({
-        id: pathStr,
-        key,
+      items.push({
+        id,
+        label: key,
+        icon: getTypeIcon(type),
         value,
         type,
         path: itemPath,
-        expanded: expandedPaths.has(pathStr),
-        children: (type === 'object' || type === 'array')
-          ? buildTree(value, itemPath, expandedPaths)
-          : undefined
+        defaultExpanded: false,
+        children: hasChildren ? buildTreeItems(value, itemPath) : undefined
       })
     })
   }
 
-  return nodes
+  return items
 }
 
-function getType(value: unknown): ToonNode['type'] {
+function getType(value: unknown): ToonTreeItem['type'] {
   if (value === null) return 'null'
   if (Array.isArray(value)) return 'array'
-  return typeof value as ToonNode['type']
+  const t = typeof value
+  if (t === 'string') return 'string'
+  if (t === 'number') return 'number'
+  if (t === 'boolean') return 'boolean'
+  if (t === 'object') return 'object'
+  return 'string'
 }
 
-function collectAllPaths(data: unknown, path: string[]): string[] {
-  const paths: string[] = []
+function getTypeIcon(type: ToonTreeItem['type']): string {
+  switch (type) {
+    case 'object': return 'i-lucide-braces'
+    case 'array': return 'i-lucide-brackets'
+    case 'string': return 'i-lucide-text'
+    case 'number': return 'i-lucide-hash'
+    case 'boolean': return 'i-lucide-toggle-left'
+    case 'null': return 'i-lucide-circle-slash'
+    default: return 'i-lucide-file'
+  }
+}
 
-  if (data === null || typeof data !== 'object') return paths
+function collectAllKeys(data: unknown, path: string[]): string[] {
+  const keys: string[] = []
+
+  if (data === null || typeof data !== 'object') return keys
 
   if (Array.isArray(data)) {
     data.forEach((item, index) => {
       const itemPath = [...path, String(index)]
-      paths.push(itemPath.join('.'))
-      paths.push(...collectAllPaths(item, itemPath))
+      keys.push(itemPath.join('.'))
+      keys.push(...collectAllKeys(item, itemPath))
     })
   } else {
     Object.entries(data as Record<string, unknown>).forEach(([key, value]) => {
       const itemPath = [...path, key]
-      paths.push(itemPath.join('.'))
-      paths.push(...collectAllPaths(value, itemPath))
+      keys.push(itemPath.join('.'))
+      keys.push(...collectAllKeys(value, itemPath))
     })
   }
 
-  return paths
+  return keys
 }
 
 function findMatches(data: unknown, query: string, path: string[]): string[] {
@@ -313,9 +516,6 @@ function findMatches(data: unknown, query: string, path: string[]): string[] {
   if (Array.isArray(data)) {
     data.forEach((item, index) => {
       const itemPath = [...path, String(index)]
-      if (String(index).toLowerCase().includes(lowerQuery)) {
-        results.push(itemPath.join('.'))
-      }
       results.push(...findMatches(item, query, itemPath))
     })
   } else if (typeof data === 'object') {
@@ -335,49 +535,65 @@ function findMatches(data: unknown, query: string, path: string[]): string[] {
   return results
 }
 
+function getNestedValue(obj: unknown, path: string[]): unknown {
+  if (path.length === 0) return obj
+
+  let current: unknown = obj
+  for (const key of path) {
+    if (current === null || typeof current !== 'object') return undefined
+    if (Array.isArray(current)) {
+      current = current[parseInt(key!, 10)]
+    } else {
+      current = (current as Record<string, unknown>)[key!]
+    }
+  }
+  return current
+}
+
 function setNestedValue(obj: unknown, path: string[], value: unknown): void {
   if (path.length === 0 || obj === null || typeof obj !== 'object') return
 
-  let current: Record<string, unknown> = obj as Record<string, unknown>
+  let current: unknown = obj
   for (let i = 0; i < path.length - 1; i++) {
-    const key = path[i] as string
-    const next = current[key]
-    if (next === null || typeof next !== 'object') return
-    current = next as Record<string, unknown>
+    const key = path[i]!
+    if (current === null || typeof current !== 'object') return
+    if (Array.isArray(current)) {
+      current = current[parseInt(key, 10)]
+    } else {
+      current = (current as Record<string, unknown>)[key]
+    }
   }
 
-  const lastKey = path[path.length - 1] as string
-  current[lastKey] = value
+  const lastKey = path[path.length - 1]!
+  if (Array.isArray(current)) {
+    current[parseInt(lastKey, 10)] = value
+  } else if (current && typeof current === 'object') {
+    (current as Record<string, unknown>)[lastKey] = value
+  }
 }
 
 function deleteNestedValue(obj: unknown, path: string[]): void {
   if (path.length === 0 || obj === null || typeof obj !== 'object') return
 
-  let current: Record<string, unknown> = obj as Record<string, unknown>
+  let current: unknown = obj
   for (let i = 0; i < path.length - 1; i++) {
-    const key = path[i] as string
-    const next = current[key]
-    if (next === null || typeof next !== 'object') return
-    current = next as Record<string, unknown>
+    const key = path[i]!
+    if (current === null || typeof current !== 'object') return
+    if (Array.isArray(current)) {
+      current = current[parseInt(key, 10)]
+    } else {
+      current = (current as Record<string, unknown>)[key]
+    }
   }
 
-  const lastKey = path[path.length - 1] as string
+  const lastKey = path[path.length - 1]!
   if (Array.isArray(current)) {
-    current.splice(Number(lastKey), 1)
-  } else {
-    Reflect.deleteProperty(current, lastKey)
+    current.splice(parseInt(lastKey, 10), 1)
+  } else if (current && typeof current === 'object') {
+    Reflect.deleteProperty(current as Record<string, unknown>, lastKey)
   }
 }
 
 function escapeRegex(string: string): string {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-}
-
-function safeStringify(data: unknown, fallback: string, indent?: number): string {
-  if (data === null || data === undefined) return fallback
-  try {
-    return JSON.stringify(data, null, indent)
-  } catch {
-    return fallback
-  }
 }

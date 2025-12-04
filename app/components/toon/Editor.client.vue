@@ -1,107 +1,81 @@
 <script setup lang="ts">
 import * as monaco from 'monaco-editor'
-import { useColorMode } from '@vueuse/core'
 
-const props = defineProps<{
+interface Props {
   modelValue: string
-}>()
+  readOnly?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  readOnly: false
+})
 
 const emit = defineEmits<{
   'update:modelValue': [value: string]
 }>()
 
-const editorContainer = ref<HTMLDivElement>()
-const toonStore = useToonStore()
-const settingsStore = useSettingsStore()
+const editorContainer = ref<HTMLDivElement | null>(null)
 const colorMode = useColorMode()
 
 let editor: monaco.editor.IStandaloneCodeEditor | null = null
 
-const editorTheme = computed(() => colorMode.value === 'dark' ? 'vs-dark' : 'vs')
+const initEditor = () => {
+  if (!editorContainer.value) {
+    console.error('No editor container!')
+    return
+  }
 
-onMounted(() => {
-  if (!editorContainer.value) return
+  if (editor) {
+    // Already initialized
+    return
+  }
 
-  // Configure JSON defaults
-  monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
-    validate: true,
-    allowComments: false,
-    schemas: [],
-    enableSchemaRequest: false
-  })
+  try {
+    const theme = colorMode.value === 'dark' ? 'vs-dark' : 'vs'
 
-  editor = monaco.editor.create(editorContainer.value, {
-    value: props.modelValue,
-    language: 'json',
-    theme: editorTheme.value,
-    fontSize: settingsStore.fontSize,
-    wordWrap: settingsStore.wordWrap ? 'on' : 'off',
-    lineNumbers: settingsStore.showLineNumbers ? 'on' : 'off',
-    minimap: { enabled: settingsStore.showMinimap },
-    tabSize: settingsStore.tabSize,
-    automaticLayout: true,
-    scrollBeyondLastLine: false,
-    folding: true,
-    formatOnPaste: true,
-    formatOnType: false,
-    renderWhitespace: 'selection',
-    bracketPairColorization: { enabled: true },
-    padding: { top: 8, bottom: 8 }
-  })
+    console.log('Creating Monaco editor...', editorContainer.value)
 
-  // Handle content changes
-  editor.onDidChangeModelContent(() => {
-    if (editor) {
-      const value = editor.getValue()
-      emit('update:modelValue', value)
-    }
-  })
+    editor = monaco.editor.create(editorContainer.value, {
+      value: props.modelValue || '# Enter TOON content here',
+      language: 'plaintext',
+      theme: theme,
+      readOnly: props.readOnly,
+      fontSize: 14,
+      wordWrap: 'on',
+      lineNumbers: 'on',
+      minimap: { enabled: false },
+      automaticLayout: true
+    })
 
-  // Add keyboard shortcuts
-  editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => {
-    // Save action
-    toonStore.markClean()
-  })
+    console.log('Monaco editor created:', editor)
 
-  editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyMod.Shift | monaco.KeyCode.KeyF, () => {
-    // Format action
-    toonStore.format()
-  })
+    editor.onDidChangeModelContent(() => {
+      if (editor) {
+        emit('update:modelValue', editor.getValue())
+      }
+    })
+  } catch (e) {
+    console.error('Error creating Monaco editor:', e)
+  }
+}
+
+onMounted(async () => {
+  await nextTick()
+  initEditor()
 })
 
 // Watch for external value changes
 watch(() => props.modelValue, (newValue) => {
-  if (editor && editor.getValue() !== newValue) {
-    const position = editor.getPosition()
+  if (editor && newValue !== editor.getValue()) {
     editor.setValue(newValue)
-    if (position) {
-      editor.setPosition(position)
-    }
   }
 })
 
-// Watch for theme changes
-watch(editorTheme, (theme) => {
+// Watch theme changes
+watch(() => colorMode.value, (newMode) => {
   if (editor) {
-    monaco.editor.setTheme(theme)
+    monaco.editor.setTheme(newMode === 'dark' ? 'vs-dark' : 'vs')
   }
-})
-
-// Watch for settings changes
-watch(() => settingsStore.fontSize, (size) => {
-  editor?.updateOptions({ fontSize: size })
-})
-
-watch(() => settingsStore.wordWrap, (wrap) => {
-  editor?.updateOptions({ wordWrap: wrap ? 'on' : 'off' })
-})
-
-watch(() => settingsStore.showLineNumbers, (show) => {
-  editor?.updateOptions({ lineNumbers: show ? 'on' : 'off' })
-})
-
-watch(() => settingsStore.showMinimap, (show) => {
-  editor?.updateOptions({ minimap: { enabled: show } })
 })
 
 onUnmounted(() => {
@@ -110,5 +84,5 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="editorContainer" class="w-full h-full min-h-[300px]" />
+  <div ref="editorContainer" class="editor-container w-full h-full" />
 </template>

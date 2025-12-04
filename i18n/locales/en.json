@@ -37,6 +37,7 @@
     "undo": "Undo",
     "redo": "Redo",
     "copy": "Copy",
+    "copyAsJson": "Copy as JSON",
     "paste": "Paste",
     "clear": "Clear",
     "cancel": "Cancel",
@@ -100,6 +101,70 @@
     "imported": "File imported successfully",
     "exported": "File exported successfully",
     "saved": "Changes saved",
-    "copied": "Copied to clipboard"
+    "copied": "Copied to clipboard",
+    "copiedAsJson": "JSON copied to clipboard"
+  },
+  "input": {
+    "title": "TOON Input",
+    "subtitle": "Paste or type TOON data to parse and explore",
+    "placeholder": "# Enter TOON data here\nname: John Doe\nage: 30\nactive: true\n\naddress:\n  city: New York\n  zip: 10001",
+    "parse": "Parse & Load",
+    "paste": "Paste",
+    "clear": "Clear",
+    "loadExample": "Load Example",
+    "shortcut": "Ctrl+Enter to parse",
+    "success": "Success",
+    "parsed": "TOON data parsed successfully",
+    "error": "Error",
+    "emptyContent": "Please enter some TOON content",
+    "invalidToon": "Invalid TOON format",
+    "parseError": "Failed to parse TOON data",
+    "pasted": "Pasted",
+    "pastedDescription": "Content pasted from clipboard",
+    "clipboardError": "Could not read from clipboard",
+    "example": "Example Loaded",
+    "exampleLoaded": "Example TOON data has been loaded",
+    "aboutToon": "What is TOON?",
+    "aboutToonDescription": "TOON is a human-friendly data serialization format designed to be easy to read and write. It supports objects, arrays, tables, and primitive types.",
+    "learnMore": "Learn more about TOON format"
+  },
+  "tree": {
+    "root": "Root",
+    "empty": "Empty",
+    "items": "{count} items",
+    "expandAll": "Expand All",
+    "collapseAll": "Collapse All"
+  },
+  "contextMenu": {
+    "editValue": "Edit Value",
+    "addChild": "Add Child",
+    "addSibling": "Add Sibling",
+    "duplicate": "Duplicate",
+    "delete": "Delete",
+    "copyPath": "Copy Path",
+    "copyValue": "Copy Value",
+    "moveUp": "Move Up",
+    "moveDown": "Move Down"
+  },
+  "editModal": {
+    "title": "Edit Node",
+    "addTitle": "Add Node",
+    "key": "Key",
+    "keyPlaceholder": "Enter key name",
+    "value": "Value",
+    "valuePlaceholder": "Enter value",
+    "type": "Type",
+    "save": "Save",
+    "cancel": "Cancel",
+    "keyRequired": "Key is required",
+    "invalidNumber": "Invalid number format",
+    "types": {
+      "string": "String",
+      "number": "Number",
+      "boolean": "Boolean",
+      "null": "Null",
+      "object": "Object",
+      "array": "Array"
+    }
   }
 }

@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+.bun/
+*.lock
+bun.lockb
+
+# Build outputs
+.nuxt/
+.output/
+dist/
+.cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+bun-debug.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Source maps (don't need in production)
+*.map
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+docs/
+.github/
+
+# Development-only files
+.copilotrc
+eslint.config.mjs
+tsconfig.json
+nuxt.config.ts
+package.json
+bun.lockb
+
+# Misc
+.prettierrc
+.editorconfig
+README.md
+LICENSE
+renovate.json

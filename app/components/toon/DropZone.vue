@@ -60,7 +60,6 @@ async function processFile(file: File) {
   try {
     const content = await file.text()
     toonStore.setContent(content)
-    toonStore.setFileName(file.name)
     toast.add({
       title: t('success.imported'),
       color: 'success'
