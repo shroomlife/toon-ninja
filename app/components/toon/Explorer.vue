@@ -15,6 +15,11 @@ const editMode = ref<'edit' | 'addChild' | 'addSibling'>('edit')
 // Inline editing state
 const editingId = ref<string | null>(null)
 
+// Drag & Drop state
+const draggedItem = ref<ToonTreeItem | null>(null)
+const dragOverId = ref<string | null>(null)
+const dragPosition = ref<'before' | 'after' | 'inside' | null>(null)
+
 // Expanded items
 const expandedKeys = ref<string[]>([])
 
@@ -34,6 +39,29 @@ const handleEdit = (item: ToonTreeItem) => {
   editingId.value = null
   selectedItem.value = item
   editMode.value = 'edit'
+  showEditModal.value = true
+}
+
+// Handle add action (opens modal in addChild mode)
+const handleAdd = (item: ToonTreeItem) => {
+  editingId.value = null
+  selectedItem.value = item
+  editMode.value = 'addChild'
+  showEditModal.value = true
+}
+
+// Handle add root item
+const handleAddRoot = () => {
+  // Create a fake root item for adding to root
+  const rootItem: ToonTreeItem = {
+    id: 'root',
+    label: 'root',
+    type: Array.isArray(toonStore.parsedData) ? 'array' : 'object',
+    path: [],
+    value: toonStore.parsedData
+  }
+  selectedItem.value = rootItem
+  editMode.value = 'addChild'
   showEditModal.value = true
 }
 
@@ -81,6 +109,48 @@ const handleSaveInlineEdit = (item: ToonTreeItem, value: unknown) => {
 // Handle inline edit cancel
 const handleCancelInlineEdit = () => {
   editingId.value = null
+}
+
+// Drag & Drop handlers
+const handleDragStart = (item: ToonTreeItem) => {
+  draggedItem.value = item
+}
+
+const handleDragOver = (item: ToonTreeItem, position: 'before' | 'after' | 'inside') => {
+  if (!draggedItem.value) return
+  // Prevent dropping on self or into own children
+  if (draggedItem.value.id === item.id) return
+  if (item.path.join('.').startsWith(draggedItem.value.path.join('.'))) return
+
+  dragOverId.value = item.id
+  dragPosition.value = position
+}
+
+const handleDragLeave = () => {
+  dragOverId.value = null
+  dragPosition.value = null
+}
+
+const handleDrop = (targetItem: ToonTreeItem) => {
+  if (!draggedItem.value || !dragPosition.value) return
+  if (draggedItem.value.id === targetItem.id) return
+
+  const fromPath = draggedItem.value.path
+  const toPath = targetItem.path
+
+  toonStore.moveNode(fromPath, toPath, dragPosition.value)
+
+  toast.add({
+    title: t('actions.moved') || 'Moved',
+    description: `${draggedItem.value.label} → ${targetItem.label}`,
+    color: 'success',
+    icon: 'i-lucide-move'
+  })
+
+  // Reset drag state
+  draggedItem.value = null
+  dragOverId.value = null
+  dragPosition.value = null
 }
 
 // Expand/collapse all
@@ -160,6 +230,16 @@ const formatValuePreview = (item: ToonTreeItem): string => {
         {{ t('explorer.title') }}
       </h3>
       <div class="flex gap-1">
+        <UTooltip :text="t('actions.add')">
+          <UButton
+            icon="i-lucide-plus"
+            size="xs"
+            color="neutral"
+            variant="ghost"
+            :disabled="!toonStore.parsedData"
+            @click="handleAddRoot"
+          />
+        </UTooltip>
         <UTooltip :text="t('tree.expandAll')">
           <UButton
             icon="i-lucide-unfold-vertical"
@@ -193,16 +273,23 @@ const formatValuePreview = (item: ToonTreeItem): string => {
           :level="0"
           :expanded-keys="expandedKeys"
           :editing-id="editingId"
+          :drag-over-id="dragOverId"
+          :drag-position="dragPosition"
           :get-type-icon="getTypeIcon"
           :get-type-color="getTypeColor"
           :format-value-preview="formatValuePreview"
           @toggle="toggleExpand"
           @edit="handleEdit"
           @delete="handleDelete"
+          @add="handleAdd"
           @toggle-boolean="handleToggleBoolean"
           @start-inline-edit="handleStartInlineEdit"
           @save-inline-edit="handleSaveInlineEdit"
           @cancel-inline-edit="handleCancelInlineEdit"
+          @drag-start="handleDragStart"
+          @drag-over="handleDragOver"
+          @drag-leave="handleDragLeave"
+          @drop="handleDrop"
         />
       </template>
 

@@ -177,7 +177,7 @@ export const useToonStore = defineStore('toon', {
           this.parsedData = value
         }
       } else {
-        const newData = structuredClone(this.parsedData)
+        const newData = JSON.parse(JSON.stringify(this.parsedData))
         const parent = path.length > 0 ? getNestedValue(newData, path) : newData
 
         if (Array.isArray(parent)) {
@@ -197,7 +197,7 @@ export const useToonStore = defineStore('toon', {
     editNode(path: string[], newValue: unknown, newKey?: string) {
       if (!this.parsedData || path.length === 0) return
 
-      const newData = structuredClone(this.parsedData)
+      const newData = JSON.parse(JSON.stringify(this.parsedData))
 
       if (newKey !== undefined && path.length > 0) {
         // Key rename
@@ -230,7 +230,7 @@ export const useToonStore = defineStore('toon', {
     deleteNode(path: string[]) {
       if (!this.parsedData || path.length === 0) return
 
-      const newData = structuredClone(this.parsedData)
+      const newData = JSON.parse(JSON.stringify(this.parsedData))
       deleteNestedValue(newData, path)
       this.parsedData = newData
       this.syncContentFromData()
@@ -239,7 +239,7 @@ export const useToonStore = defineStore('toon', {
     duplicateNode(path: string[]) {
       if (!this.parsedData || path.length === 0) return
 
-      const newData = structuredClone(this.parsedData)
+      const newData = JSON.parse(JSON.stringify(this.parsedData))
       const parentPath = path.slice(0, -1)
       const key = path[path.length - 1]!
       const parent = parentPath.length > 0
@@ -248,11 +248,11 @@ export const useToonStore = defineStore('toon', {
 
       if (Array.isArray(parent)) {
         const index = parseInt(key, 10)
-        const value = structuredClone(parent[index])
+        const value = JSON.parse(JSON.stringify(parent[index]))
         parent.splice(index + 1, 0, value)
       } else if (parent && typeof parent === 'object') {
         const obj = parent as Record<string, unknown>
-        const value = structuredClone(obj[key])
+        const value = JSON.parse(JSON.stringify(obj[key]))
         let newKey = `${key}_copy`
         let counter = 1
         while (newKey in obj) {
@@ -268,7 +268,7 @@ export const useToonStore = defineStore('toon', {
     moveNode(fromPath: string[], toPath: string[], position: 'before' | 'after' | 'inside') {
       if (!this.parsedData) return
 
-      const newData = structuredClone(this.parsedData)
+      const newData = JSON.parse(JSON.stringify(this.parsedData))
 
       // Get the value to move
       const value = getNestedValue(newData, fromPath)
@@ -399,50 +399,6 @@ export const useToonStore = defineStore('toon', {
 
     getNodeByPath(path: string[]): unknown {
       return getNestedValue(this.parsedData, path)
-    },
-
-    /**
-     * Preview what the TOON output would look like after an edit
-     * Returns the encoded TOON string or null on error
-     */
-    previewEdit(path: string[], newValue: unknown, newKey?: string): string | null {
-      if (!this.parsedData) return null
-
-      const previewData = structuredClone(this.parsedData)
-
-      if (path.length === 0) {
-        // Editing root
-        return encode(newValue, { indent: 2 })
-      }
-
-      if (newKey !== undefined) {
-        // Key rename
-        const parentPath = path.slice(0, -1)
-        const oldKey = path[path.length - 1]!
-        const parent = parentPath.length > 0
-          ? getNestedValue(previewData, parentPath)
-          : previewData
-
-        if (parent && typeof parent === 'object' && !Array.isArray(parent)) {
-          const obj = parent as Record<string, unknown>
-          if (oldKey !== newKey) {
-            obj[newKey] = newValue
-            const { [oldKey]: _, ...rest } = obj
-            Object.keys(obj).forEach(k => Reflect.deleteProperty(obj, k))
-            Object.assign(obj, rest)
-          } else {
-            obj[oldKey] = newValue
-          }
-        }
-      } else {
-        setNestedValue(previewData, path, newValue)
-      }
-
-      try {
-        return encode(previewData, { indent: 2 })
-      } catch {
-        return null
-      }
     }
   }
 })

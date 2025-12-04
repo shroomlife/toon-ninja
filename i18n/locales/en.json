@@ -34,6 +34,7 @@
     "import": "Import",
     "export": "Export",
     "save": "Save",
+    "saved": "Saved",
     "undo": "Undo",
     "redo": "Redo",
     "copy": "Copy",
@@ -45,7 +46,8 @@
     "delete": "Delete",
     "edit": "Edit",
     "add": "Add",
-    "new": "New"
+    "new": "New",
+    "moved": "Moved"
   },
   "diff": {
     "title": "Compare Versions",

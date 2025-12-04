@@ -34,6 +34,7 @@
     "import": "Importieren",
     "export": "Exportieren",
     "save": "Speichern",
+    "saved": "Gespeichert",
     "undo": "Rückgängig",
     "redo": "Wiederholen",
     "copy": "Kopieren",
@@ -45,7 +46,8 @@
     "delete": "Löschen",
     "edit": "Bearbeiten",
     "add": "Hinzufügen",
-    "new": "Neu"
+    "new": "Neu",
+    "moved": "Verschoben"
   },
   "diff": {
     "title": "Versionen vergleichen",

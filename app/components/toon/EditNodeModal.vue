@@ -119,22 +119,6 @@ const parseValue = (): unknown => {
   }
 }
 
-// Computed: TOON preview (live updates)
-const toonPreview = computed(() => {
-  if (props.mode !== 'edit') return null
-
-  // Validate number if needed
-  if (formType.value === 'number') {
-    const num = Number(formValue.value)
-    if (isNaN(num)) return null
-  }
-
-  const value = parseValue()
-  const key = showKeyInput.value ? formKey.value.trim() : undefined
-
-  return toonStore.previewEdit(props.item.path, value, key)
-})
-
 // Validate form
 const validate = (): boolean => {
   keyError.value = ''
@@ -228,6 +212,7 @@ const handleCancel = () => {
             </label>
             <UInput
               v-model="formKey"
+              class="w-full"
               :placeholder="t('editModal.keyPlaceholder')"
               :error="!!keyError"
             />
@@ -243,6 +228,7 @@ const handleCancel = () => {
             </label>
             <USelectMenu
               v-model="formType"
+              class="w-full"
               :items="typeOptions"
               value-key="value"
             >
@@ -266,6 +252,7 @@ const handleCancel = () => {
             <USelectMenu
               v-if="formType === 'boolean'"
               v-model="formValue"
+              class="w-full"
               :items="booleanOptions"
               value-key="value"
             />
@@ -274,6 +261,7 @@ const handleCancel = () => {
             <UInput
               v-else-if="formType === 'number'"
               v-model="formValue"
+              class="w-full"
               type="number"
               :placeholder="t('editModal.valuePlaceholder')"
               :error="!!valueError"
@@ -283,6 +271,7 @@ const handleCancel = () => {
             <UTextarea
               v-else
               v-model="formValue"
+              class="w-full"
               :placeholder="t('editModal.valuePlaceholder')"
               :rows="3"
             />
@@ -296,23 +285,10 @@ const handleCancel = () => {
           <div v-if="formType === 'object' || formType === 'array'" class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
             <p class="text-sm text-gray-600 dark:text-gray-400">
               {{ formType === 'object'
-                ? 'An empty object will be created. You can add properties using the context menu.'
-                : 'An empty array will be created. You can add items using the context menu.'
+                ? 'An empty object will be created. You can add properties after creation.'
+                : 'An empty array will be created. You can add items after creation.'
               }}
             </p>
-          </div>
-
-          <!-- TOON Preview (only for edit mode) -->
-          <div v-if="mode === 'edit' && toonPreview" class="mt-4">
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              {{ t('editModal.preview') }}
-            </label>
-            <div class="relative">
-              <pre class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-xs font-mono overflow-auto max-h-32 text-gray-700 dark:text-gray-300">{{ toonPreview }}</pre>
-              <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                {{ t('editModal.previewHint') }}
-              </p>
-            </div>
           </div>
         </div>
 

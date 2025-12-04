@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
+const emit = defineEmits<{
+  close: []
+}>()
+
 const shortcuts = [
   { keys: ['Ctrl', 'S'], action: 'shortcuts.save' },
   { keys: ['Ctrl', 'Z'], action: 'shortcuts.undo' },
@@ -13,10 +17,21 @@ const shortcuts = [
 </script>
 
 <template>
-  <div class="p-4">
-    <h3 class="font-semibold text-lg mb-4">
-      {{ t('shortcuts.title') }}
-    </h3>
+  <div class="p-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+        {{ t('shortcuts.title') }}
+      </h3>
+      <UButton
+        icon="i-lucide-x"
+        color="neutral"
+        variant="ghost"
+        size="sm"
+        @click="emit('close')"
+      />
+    </div>
+
     <div class="space-y-2">
       <div
         v-for="(shortcut, index) in shortcuts"

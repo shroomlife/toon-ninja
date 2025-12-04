@@ -6,6 +6,8 @@ interface Props {
   level: number
   expandedKeys: string[]
   editingId: string | null
+  dragOverId: string | null
+  dragPosition: 'before' | 'after' | 'inside' | null
   getTypeIcon: (type: string) => string
   getTypeColor: (type: string) => string
   formatValuePreview: (item: ToonTreeItem) => string
@@ -17,10 +19,15 @@ const emit = defineEmits<{
   toggle: [item: ToonTreeItem]
   edit: [item: ToonTreeItem]
   delete: [item: ToonTreeItem]
+  add: [item: ToonTreeItem]
   toggleBoolean: [item: ToonTreeItem]
   startInlineEdit: [item: ToonTreeItem]
   saveInlineEdit: [item: ToonTreeItem, value: unknown]
   cancelInlineEdit: []
+  dragStart: [item: ToonTreeItem]
+  dragOver: [item: ToonTreeItem, position: 'before' | 'after' | 'inside']
+  dragLeave: []
+  drop: [item: ToonTreeItem]
 }>()
 
 // Local state for inline editing
@@ -39,6 +46,10 @@ const isEditing = computed(() => {
   return props.editingId === props.item.id
 })
 
+const isDragOver = computed(() => {
+  return props.dragOverId === props.item.id
+})
+
 // Check if this item can be inline-edited (primitive types only)
 const canInlineEdit = computed(() => {
   const type = props.item.type
@@ -49,6 +60,11 @@ const canInlineEdit = computed(() => {
     return val.length <= 50 && !val.includes('\n')
   }
   return true // number, boolean
+})
+
+// Can add children (only objects and arrays)
+const canAddChild = computed(() => {
+  return props.item.type === 'object' || props.item.type === 'array'
 })
 
 // Start inline editing
@@ -136,9 +152,51 @@ const handleEditButton = (e: MouseEvent) => {
   emit('edit', props.item) // Always open modal for full edit
 }
 
+const handleAddButton = (e: MouseEvent) => {
+  e.stopPropagation()
+  emit('add', props.item)
+}
+
 const handleDelete = (e: MouseEvent) => {
   e.stopPropagation()
   emit('delete', props.item)
+}
+
+// Drag & Drop handlers
+const handleDragStart = (e: DragEvent) => {
+  e.dataTransfer?.setData('text/plain', props.item.id)
+  emit('dragStart', props.item)
+}
+
+const handleDragOver = (e: DragEvent) => {
+  e.preventDefault()
+  e.stopPropagation()
+
+  const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
+  const y = e.clientY - rect.top
+  const height = rect.height
+
+  let position: 'before' | 'after' | 'inside' = 'after'
+  if (y < height * 0.25) {
+    position = 'before'
+  } else if (y > height * 0.75 || !canAddChild.value) {
+    position = 'after'
+  } else {
+    position = 'inside'
+  }
+
+  emit('dragOver', props.item, position)
+}
+
+const handleDragLeave = (e: DragEvent) => {
+  e.preventDefault()
+  emit('dragLeave')
+}
+
+const handleDrop = (e: DragEvent) => {
+  e.preventDefault()
+  e.stopPropagation()
+  emit('drop', props.item)
 }
 </script>
 
@@ -146,9 +204,19 @@ const handleDelete = (e: MouseEvent) => {
   <div>
     <!-- Node row - fixed height h-7 to prevent jittering -->
     <div
-      class="group flex items-center gap-1.5 h-7 px-2 rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 select-none"
+      class="group flex items-center gap-1.5 h-7 px-2 rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 select-none transition-colors"
+      :class="{
+        'bg-primary-50 dark:bg-primary-900/20 border-t-2 border-primary': isDragOver && dragPosition === 'before',
+        'bg-primary-50 dark:bg-primary-900/20 border-b-2 border-primary': isDragOver && dragPosition === 'after',
+        'bg-primary-100 dark:bg-primary-900/40 ring-2 ring-primary ring-inset': isDragOver && dragPosition === 'inside'
+      }"
       :style="{ paddingLeft: `${level * 16 + 4}px` }"
+      draggable="true"
       @click="handleRowClick"
+      @dragstart="handleDragStart"
+      @dragover="handleDragOver"
+      @dragleave="handleDragLeave"
+      @drop="handleDrop"
     >
       <!-- Chevron for expandable nodes -->
       <button
@@ -209,6 +277,15 @@ const handleDelete = (e: MouseEvent) => {
 
       <!-- Action buttons - opacity transition to prevent jitter -->
       <div class="flex items-center gap-0.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+        <!-- Add button (only for objects/arrays) -->
+        <button
+          v-if="canAddChild"
+          class="w-5 h-5 flex items-center justify-center rounded hover:bg-green-100 dark:hover:bg-green-900/30"
+          title="Add child"
+          @click="handleAddButton"
+        >
+          <UIcon name="i-lucide-plus" class="w-3 h-3 text-gray-400 hover:text-green-500" />
+        </button>
         <button
           class="w-5 h-5 flex items-center justify-center rounded hover:bg-gray-200 dark:hover:bg-gray-700"
           title="Edit (Modal)"
@@ -235,16 +312,23 @@ const handleDelete = (e: MouseEvent) => {
         :level="level + 1"
         :expanded-keys="expandedKeys"
         :editing-id="editingId"
+        :drag-over-id="dragOverId"
+        :drag-position="dragPosition"
         :get-type-icon="getTypeIcon"
         :get-type-color="getTypeColor"
         :format-value-preview="formatValuePreview"
         @toggle="emit('toggle', $event)"
         @edit="emit('edit', $event)"
         @delete="emit('delete', $event)"
+        @add="emit('add', $event)"
         @toggle-boolean="emit('toggleBoolean', $event)"
         @start-inline-edit="emit('startInlineEdit', $event)"
         @save-inline-edit="(item, val) => emit('saveInlineEdit', item, val)"
         @cancel-inline-edit="emit('cancelInlineEdit')"
+        @drag-start="emit('dragStart', $event)"
+        @drag-over="(item, pos) => emit('dragOver', item, pos)"
+        @drag-leave="emit('dragLeave')"
+        @drop="emit('drop', $event)"
       />
     </div>
   </div>

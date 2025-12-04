@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   ],
 
   // === SPA Mode Configuration ===
-  ssr: false,
+  ssr: true,
 
   // === Development Tools ===
   devtools: {

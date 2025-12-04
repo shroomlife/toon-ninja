@@ -70,22 +70,31 @@ watch(() => toonStore.rawContent, countMatches)
     </UButton>
 
     <template #content>
-      <UCard>
-        <template #header>
+      <div class="p-6">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-6">
           <div class="flex items-center gap-2">
             <UIcon name="i-lucide-replace-all" class="w-5 h-5" />
-            <h3 class="font-semibold">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
               {{ t('batch.findReplace') }}
             </h3>
           </div>
-        </template>
+          <UButton
+            icon="i-lucide-x"
+            color="neutral"
+            variant="ghost"
+            size="sm"
+            @click="isOpen = false"
+          />
+        </div>
 
         <div class="space-y-4">
           <!-- Find input -->
           <div>
-            <label class="block text-sm font-medium mb-1">{{ t('batch.find') }}</label>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ t('batch.find') }}</label>
             <UInput
               v-model="findText"
+              class="w-full"
               :placeholder="t('batch.find')"
               icon="i-lucide-search"
             />
@@ -96,9 +105,10 @@ watch(() => toonStore.rawContent, countMatches)
 
           <!-- Replace input -->
           <div>
-            <label class="block text-sm font-medium mb-1">{{ t('batch.replace') }}</label>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ t('batch.replace') }}</label>
             <UInput
               v-model="replaceText"
+              class="w-full"
               :placeholder="t('batch.replace')"
               icon="i-lucide-pencil"
             />
@@ -111,24 +121,24 @@ watch(() => toonStore.rawContent, countMatches)
           </div>
         </div>
 
-        <template #footer>
-          <div class="flex justify-end gap-2">
-            <UButton
-              color="neutral"
-              variant="ghost"
-              @click="isOpen = false"
-            >
-              {{ t('actions.cancel') }}
-            </UButton>
-            <UButton
-              :disabled="!findText || matchCount === 0"
-              @click="replaceAll"
-            >
-              {{ t('batch.replaceAll') }}
-            </UButton>
-          </div>
-        </template>
-      </UCard>
+        <!-- Actions -->
+        <div class="flex justify-end gap-2 mt-6">
+          <UButton
+            color="neutral"
+            variant="ghost"
+            @click="isOpen = false"
+          >
+            {{ t('actions.cancel') }}
+          </UButton>
+          <UButton
+            color="primary"
+            :disabled="!findText || matchCount === 0"
+            @click="replaceAll"
+          >
+            {{ t('batch.replaceAll') }}
+          </UButton>
+        </div>
+      </div>
     </template>
   </UModal>
 </template>

@@ -79,7 +79,7 @@ const links = computed<NavigationMenuItem[][]>(() => [[{
     <!-- Shortcuts Modal -->
     <UModal v-model:open="shortcutsOpen">
       <template #content>
-        <ToonShortcuts />
+        <ToonShortcuts @close="shortcutsOpen = false" />
       </template>
     </UModal>
   </UDashboardGroup>
