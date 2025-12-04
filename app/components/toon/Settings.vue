@@ -13,21 +13,25 @@ const settingsStore = useSettingsStore()
     <div>
       <label class="block text-sm font-medium mb-2">{{ t('settings.fontSize') }}</label>
       <div class="flex items-center gap-2">
-        <UButton
-          icon="i-lucide-minus"
-          size="xs"
-          color="neutral"
-          variant="ghost"
-          @click="settingsStore.setFontSize(settingsStore.fontSize - 1)"
-        />
+        <UTooltip :text="t('hints.decreaseFontSize')">
+          <UButton
+            icon="i-lucide-minus"
+            size="xs"
+            color="neutral"
+            variant="ghost"
+            @click="settingsStore.setFontSize(settingsStore.fontSize - 1)"
+          />
+        </UTooltip>
         <span class="w-8 text-center">{{ settingsStore.fontSize }}</span>
-        <UButton
-          icon="i-lucide-plus"
-          size="xs"
-          color="neutral"
-          variant="ghost"
-          @click="settingsStore.setFontSize(settingsStore.fontSize + 1)"
-        />
+        <UTooltip :text="t('hints.increaseFontSize')">
+          <UButton
+            icon="i-lucide-plus"
+            size="xs"
+            color="neutral"
+            variant="ghost"
+            @click="settingsStore.setFontSize(settingsStore.fontSize + 1)"
+          />
+        </UTooltip>
       </div>
     </div>
 
@@ -71,21 +75,25 @@ const settingsStore = useSettingsStore()
     <div>
       <label class="block text-sm font-medium mb-2">Tab Size</label>
       <div class="flex items-center gap-2">
-        <UButton
-          icon="i-lucide-minus"
-          size="xs"
-          color="neutral"
-          variant="ghost"
-          @click="settingsStore.setTabSize(settingsStore.tabSize - 1)"
-        />
+        <UTooltip :text="t('hints.decreaseTabSize')">
+          <UButton
+            icon="i-lucide-minus"
+            size="xs"
+            color="neutral"
+            variant="ghost"
+            @click="settingsStore.setTabSize(settingsStore.tabSize - 1)"
+          />
+        </UTooltip>
         <span class="w-8 text-center">{{ settingsStore.tabSize }}</span>
-        <UButton
-          icon="i-lucide-plus"
-          size="xs"
-          color="neutral"
-          variant="ghost"
-          @click="settingsStore.setTabSize(settingsStore.tabSize + 1)"
-        />
+        <UTooltip :text="t('hints.increaseTabSize')">
+          <UButton
+            icon="i-lucide-plus"
+            size="xs"
+            color="neutral"
+            variant="ghost"
+            @click="settingsStore.setTabSize(settingsStore.tabSize + 1)"
+          />
+        </UTooltip>
       </div>
     </div>
   </div>

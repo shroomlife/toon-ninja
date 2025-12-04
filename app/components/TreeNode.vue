@@ -259,17 +259,18 @@ const handleDrop = (e: DragEvent) => {
       </template>
       <template v-else>
         <!-- Value preview (clickable for inline edit) -->
-        <span
-          class="text-xs truncate max-w-32 cursor-pointer hover:underline"
-          :class="[
-            getTypeColor(item.type),
-            item.type === 'boolean' ? 'hover:opacity-70' : ''
-          ]"
-          :title="item.type === 'boolean' ? 'Click to toggle' : 'Click to edit'"
-          @click="handleValueClick"
-        >
-          {{ formatValuePreview(item) }}
-        </span>
+        <UTooltip :text="item.type === 'boolean' ? $t('hints.toggleBoolean') : $t('hints.clickToEdit')">
+          <span
+            class="text-xs truncate max-w-32 cursor-pointer hover:underline"
+            :class="[
+              getTypeColor(item.type),
+              item.type === 'boolean' ? 'hover:opacity-70' : ''
+            ]"
+            @click="handleValueClick"
+          >
+            {{ formatValuePreview(item) }}
+          </span>
+        </UTooltip>
       </template>
 
       <!-- Spacer -->
@@ -278,28 +279,30 @@ const handleDrop = (e: DragEvent) => {
       <!-- Action buttons - opacity transition to prevent jitter -->
       <div class="flex items-center gap-0.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
         <!-- Add button (only for objects/arrays) -->
-        <button
-          v-if="canAddChild"
-          class="w-5 h-5 flex items-center justify-center rounded hover:bg-green-100 dark:hover:bg-green-900/30"
-          title="Add child"
-          @click="handleAddButton"
-        >
-          <UIcon name="i-lucide-plus" class="w-3 h-3 text-gray-400 hover:text-green-500" />
-        </button>
-        <button
-          class="w-5 h-5 flex items-center justify-center rounded hover:bg-gray-200 dark:hover:bg-gray-700"
-          title="Edit (Modal)"
-          @click="handleEditButton"
-        >
-          <UIcon name="i-lucide-pencil" class="w-3 h-3 text-gray-400 hover:text-primary" />
-        </button>
-        <button
-          class="w-5 h-5 flex items-center justify-center rounded hover:bg-red-100 dark:hover:bg-red-900/30"
-          title="Delete"
-          @click="handleDelete"
-        >
-          <UIcon name="i-lucide-trash-2" class="w-3 h-3 text-gray-400 hover:text-red-500" />
-        </button>
+        <UTooltip v-if="canAddChild" :text="$t('hints.addChild')">
+          <button
+            class="w-5 h-5 flex items-center justify-center rounded hover:bg-green-100 dark:hover:bg-green-900/30"
+            @click="handleAddButton"
+          >
+            <UIcon name="i-lucide-plus" class="w-3 h-3 text-gray-400 hover:text-green-500" />
+          </button>
+        </UTooltip>
+        <UTooltip :text="$t('hints.editNode')">
+          <button
+            class="w-5 h-5 flex items-center justify-center rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+            @click="handleEditButton"
+          >
+            <UIcon name="i-lucide-pencil" class="w-3 h-3 text-gray-400 hover:text-primary" />
+          </button>
+        </UTooltip>
+        <UTooltip :text="$t('hints.deleteNode')">
+          <button
+            class="w-5 h-5 flex items-center justify-center rounded hover:bg-red-100 dark:hover:bg-red-900/30"
+            @click="handleDelete"
+          >
+            <UIcon name="i-lucide-trash-2" class="w-3 h-3 text-gray-400 hover:text-red-500" />
+          </button>
+        </UTooltip>
       </div>
     </div>
 

@@ -79,13 +79,15 @@ watch(() => toonStore.rawContent, countMatches)
               {{ t('batch.findReplace') }}
             </h3>
           </div>
-          <UButton
-            icon="i-lucide-x"
-            color="neutral"
-            variant="ghost"
-            size="sm"
-            @click="isOpen = false"
-          />
+          <UTooltip :text="t('hints.closeBatchEdit')">
+            <UButton
+              icon="i-lucide-x"
+              color="neutral"
+              variant="ghost"
+              size="sm"
+              @click="isOpen = false"
+            />
+          </UTooltip>
         </div>
 
         <div class="space-y-4">

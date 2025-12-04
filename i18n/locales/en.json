@@ -1,39 +1,105 @@
 {
   "app": {
-    "title": "TOON Viewer",
-    "description": "View and edit TOON data with live preview"
+    "title": "TOON Viewer"
   },
   "nav": {
-    "viewer": "Viewer",
-    "editor": "Editor",
-    "compare": "Compare",
-    "settings": "Settings"
+    "viewer": "Viewer & Editor",
+    "about": "About TOON"
+  },
+  "about": {
+    "title": "About TOON",
+    "hero": {
+      "title": "The Human-Readable Data Format",
+      "subtitle": "TOON is a modern, human-readable data serialization format that combines the familiarity of JSON with the readability of YAML and the efficiency of tabular data."
+    },
+    "comparison": {
+      "title": "TOON vs JSON",
+      "bytes": "bytes",
+      "savings": "~60% smaller file size with the same data"
+    },
+    "features": {
+      "title": "Key Features",
+      "humanReadable": {
+        "title": "Human Readable",
+        "description": "Clean, indentation-based syntax that's easy to read and write without special tooling."
+      },
+      "compact": {
+        "title": "Compact Format",
+        "description": "Significantly smaller file sizes compared to JSON, saving bandwidth and storage."
+      },
+      "tabular": {
+        "title": "Tabular Arrays",
+        "description": "Native support for tabular data with field headers, perfect for lists and datasets."
+      },
+      "efficient": {
+        "title": "High Performance",
+        "description": "Fast parsing and serialization with minimal memory footprint."
+      },
+      "jsonCompatible": {
+        "title": "JSON Compatible",
+        "description": "Full JSON data model support – convert between TOON and JSON losslessly."
+      },
+      "llmFriendly": {
+        "title": "LLM Friendly",
+        "description": "Optimized for AI/LLM context windows – more data with fewer tokens."
+      }
+    },
+    "useCases": {
+      "title": "Use Cases",
+      "config": {
+        "title": "Configuration Files",
+        "description": "Replace JSON/YAML configs with readable, maintainable TOON files."
+      },
+      "data": {
+        "title": "Data Storage",
+        "description": "Store structured data efficiently with excellent human readability."
+      },
+      "ai": {
+        "title": "AI & LLM Prompts",
+        "description": "Maximize context window efficiency when working with AI models."
+      },
+      "api": {
+        "title": "API Responses",
+        "description": "Reduce payload sizes while maintaining human-debuggable responses."
+      }
+    },
+    "syntax": {
+      "title": "Syntax Highlights",
+      "indentation": {
+        "title": "Indentation-Based",
+        "description": "Uses consistent 2-space indentation to define structure – no brackets needed."
+      },
+      "headers": {
+        "title": "Array Headers",
+        "description": "Define array structure with headers like 'users[3]' followed by field names for tabular data."
+      },
+      "primitives": {
+        "title": "Unquoted Primitives",
+        "description": "Numbers, booleans, and null don't need quotes – just write them directly."
+      },
+      "delimiters": {
+        "title": "Flexible Delimiters",
+        "description": "Use comma, tab, or pipe as delimiters for tabular rows."
+      }
+    },
+    "cta": {
+      "title": "Ready to Try TOON?",
+      "description": "Use the TOON Viewer to parse, explore, and edit TOON data right in your browser.",
+      "tryViewer": "Open Viewer",
+      "learnMore": "Official Documentation"
+    }
   },
   "explorer": {
     "title": "Explorer",
-    "search": "Search...",
     "noData": "No data loaded",
-    "loadFile": "Load a TOON file to get started",
-    "expandAll": "Expand all",
-    "collapseAll": "Collapse all"
+    "loadFile": "Load a TOON file to get started"
   },
   "editor": {
-    "title": "Editor",
     "placeholder": "Enter or paste TOON data here...",
-    "validate": "Validate",
-    "format": "Format",
-    "minify": "Minify",
-    "validJson": "Valid JSON",
-    "invalidJson": "Invalid JSON"
-  },
-  "preview": {
-    "title": "Preview",
-    "noData": "No preview available"
+    "format": "Format"
   },
   "actions": {
-    "import": "Import",
     "export": "Export",
-    "save": "Save",
     "saved": "Saved",
     "undo": "Undo",
     "redo": "Redo",
@@ -42,11 +108,8 @@
     "paste": "Paste",
     "clear": "Clear",
     "cancel": "Cancel",
-    "confirm": "Confirm",
     "delete": "Delete",
-    "edit": "Edit",
     "add": "Add",
-    "new": "New",
     "moved": "Moved"
   },
   "diff": {
@@ -76,9 +139,6 @@
   "settings": {
     "title": "Settings",
     "language": "Language",
-    "theme": "Theme",
-    "light": "Light",
-    "dark": "Dark",
     "autoSave": "Auto-save",
     "wordWrap": "Word wrap",
     "fontSize": "Font size"
@@ -96,7 +156,6 @@
   "errors": {
     "parseError": "Failed to parse JSON",
     "importError": "Failed to import file",
-    "exportError": "Failed to export file",
     "invalidData": "Invalid data format"
   },
   "success": {
@@ -110,44 +169,19 @@
   "input": {
     "title": "TOON Input",
     "subtitle": "Paste or type TOON data to parse and explore",
-    "placeholder": "# Enter TOON data here\nname: John Doe\nage: 30\nactive: true\n\naddress:\n  city: New York\n  zip: 10001",
-    "parse": "Parse & Load",
+    "placeholder": "# Enter TOON data here",
     "paste": "Paste",
     "clear": "Clear",
-    "loadExample": "Load Example",
-    "shortcut": "Ctrl+Enter to parse",
-    "success": "Success",
-    "parsed": "TOON data parsed successfully",
-    "error": "Error",
-    "emptyContent": "Please enter some TOON content",
-    "invalidToon": "Invalid TOON format",
-    "parseError": "Failed to parse TOON data",
     "pasted": "Pasted",
     "pastedDescription": "Content pasted from clipboard",
+    "error": "Error",
     "clipboardError": "Could not read from clipboard",
-    "example": "Example Loaded",
-    "exampleLoaded": "Example TOON data has been loaded",
     "aboutToon": "What is TOON?",
-    "aboutToonDescription": "TOON is a human-friendly data serialization format designed to be easy to read and write. It supports objects, arrays, tables, and primitive types.",
     "learnMore": "Learn more about TOON format"
   },
   "tree": {
-    "root": "Root",
-    "empty": "Empty",
-    "items": "{count} items",
     "expandAll": "Expand All",
     "collapseAll": "Collapse All"
-  },
-  "contextMenu": {
-    "editValue": "Edit Value",
-    "addChild": "Add Child",
-    "addSibling": "Add Sibling",
-    "duplicate": "Duplicate",
-    "delete": "Delete",
-    "copyPath": "Copy Path",
-    "copyValue": "Copy Value",
-    "moveUp": "Move Up",
-    "moveDown": "Move Down"
   },
   "editModal": {
     "title": "Edit Node",
@@ -161,8 +195,9 @@
     "cancel": "Cancel",
     "keyRequired": "Key is required",
     "invalidNumber": "Invalid number format",
-    "preview": "TOON Preview",
-    "previewHint": "This is what the TOON output will look like after saving",
+    "smartForm": "Smart form based on existing items",
+    "manualEntry": "Switch to manual entry",
+    "useSmartForm": "Use smart form",
     "types": {
       "string": "String",
       "number": "Number",
@@ -171,5 +206,22 @@
       "object": "Object",
       "array": "Array"
     }
+  },
+  "hints": {
+    "swap": "Swap left and right content",
+    "clearDiff": "Clear both panels",
+    "loadCurrent": "Load current editor content",
+    "decreaseFontSize": "Decrease font size",
+    "increaseFontSize": "Increase font size",
+    "decreaseTabSize": "Decrease tab size",
+    "increaseTabSize": "Increase tab size",
+    "editNode": "Edit in modal",
+    "addChild": "Add child node",
+    "deleteNode": "Delete node",
+    "toggleBoolean": "Click to toggle",
+    "clickToEdit": "Click to edit",
+    "pasteFromClipboard": "Paste from clipboard",
+    "clearInput": "Clear input",
+    "closeBatchEdit": "Close batch edit"
   }
 }

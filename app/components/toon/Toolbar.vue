@@ -1,16 +1,9 @@
 <script setup lang="ts">
 import { encode } from '@toon-format/toon'
 
-const { t, locale, locales } = useI18n()
+const { t } = useI18n()
 const toonStore = useToonStore()
 const toast = useToast()
-
-const availableLocales = computed(() => {
-  return (locales.value as Array<{ code: string, name: string }>).map(l => ({
-    label: l.name,
-    value: l.code
-  }))
-})
 
 // Export format options
 const exportItems = [
@@ -125,10 +118,6 @@ function handleExport(format: 'toon' | 'json') {
     title: t('success.exported'),
     color: 'success'
   })
-}
-
-function setLocale(code: string) {
-  locale.value = code as typeof locale.value
 }
 </script>
 
@@ -248,20 +237,5 @@ function setLocale(code: string) {
     >
       {{ toonStore.isValid ? 'Valid TOON' : 'Invalid TOON' }}
     </UBadge>
-
-    <!-- Language selector -->
-    <UDropdownMenu
-      :items="availableLocales.map(l => ({
-        label: l.label,
-        onSelect: () => setLocale(l.value)
-      }))"
-    >
-      <UButton
-        icon="i-lucide-languages"
-        size="sm"
-        color="neutral"
-        variant="ghost"
-      />
-    </UDropdownMenu>
   </div>
 </template>

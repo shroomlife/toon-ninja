@@ -1,39 +1,105 @@
 {
   "app": {
-    "title": "TOON Betrachter",
-    "description": "TOON-Daten anzeigen und bearbeiten mit Live-Vorschau"
+    "title": "TOON Viewer & Editor"
   },
   "nav": {
-    "viewer": "Betrachter",
-    "editor": "Editor",
-    "compare": "Vergleichen",
-    "settings": "Einstellungen"
+    "viewer": "Viewer & Editor",
+    "about": "Über TOON"
+  },
+  "about": {
+    "title": "Über TOON",
+    "hero": {
+      "title": "Das menschenlesbare Datenformat",
+      "subtitle": "TOON ist ein modernes, menschenlesbares Daten-Serialisierungsformat, das die Vertrautheit von JSON mit der Lesbarkeit von YAML und der Effizienz tabellarischer Daten vereint."
+    },
+    "comparison": {
+      "title": "TOON vs JSON",
+      "bytes": "Bytes",
+      "savings": "~60% kleinere Dateigröße bei gleichen Daten"
+    },
+    "features": {
+      "title": "Hauptmerkmale",
+      "humanReadable": {
+        "title": "Menschenlesbar",
+        "description": "Saubere, einrückungsbasierte Syntax, die ohne spezielle Tools leicht zu lesen und schreiben ist."
+      },
+      "compact": {
+        "title": "Kompaktes Format",
+        "description": "Deutlich kleinere Dateigrößen im Vergleich zu JSON – spart Bandbreite und Speicher."
+      },
+      "tabular": {
+        "title": "Tabellarische Arrays",
+        "description": "Native Unterstützung für tabellarische Daten mit Feldüberschriften – perfekt für Listen und Datensätze."
+      },
+      "efficient": {
+        "title": "Hohe Leistung",
+        "description": "Schnelles Parsen und Serialisieren mit minimalem Speicherbedarf."
+      },
+      "jsonCompatible": {
+        "title": "JSON-kompatibel",
+        "description": "Volle Unterstützung des JSON-Datenmodells – verlustfreie Konvertierung zwischen TOON und JSON."
+      },
+      "llmFriendly": {
+        "title": "LLM-freundlich",
+        "description": "Optimiert für KI/LLM-Kontextfenster – mehr Daten mit weniger Tokens."
+      }
+    },
+    "useCases": {
+      "title": "Anwendungsfälle",
+      "config": {
+        "title": "Konfigurationsdateien",
+        "description": "Ersetze JSON/YAML-Configs durch lesbare, wartbare TOON-Dateien."
+      },
+      "data": {
+        "title": "Datenspeicherung",
+        "description": "Speichere strukturierte Daten effizient mit ausgezeichneter Lesbarkeit."
+      },
+      "ai": {
+        "title": "KI & LLM-Prompts",
+        "description": "Maximiere die Effizienz des Kontextfensters bei der Arbeit mit KI-Modellen."
+      },
+      "api": {
+        "title": "API-Antworten",
+        "description": "Reduziere Payload-Größen und behalte dabei debugbare Antworten."
+      }
+    },
+    "syntax": {
+      "title": "Syntax-Highlights",
+      "indentation": {
+        "title": "Einrückungsbasiert",
+        "description": "Verwendet konsistente 2-Leerzeichen-Einrückung zur Strukturdefinition – keine Klammern nötig."
+      },
+      "headers": {
+        "title": "Array-Header",
+        "description": "Definiere Array-Strukturen mit Headern wie 'users[3]' gefolgt von Feldnamen für tabellarische Daten."
+      },
+      "primitives": {
+        "title": "Unquotierte Primitive",
+        "description": "Zahlen, Booleans und null brauchen keine Anführungszeichen – einfach direkt schreiben."
+      },
+      "delimiters": {
+        "title": "Flexible Trennzeichen",
+        "description": "Verwende Komma, Tab oder Pipe als Trennzeichen für tabellarische Zeilen."
+      }
+    },
+    "cta": {
+      "title": "Bereit TOON auszuprobieren?",
+      "description": "Nutze den TOON Viewer zum Parsen, Erkunden und Bearbeiten von TOON-Daten direkt im Browser.",
+      "tryViewer": "Viewer öffnen",
+      "learnMore": "Offizielle Dokumentation"
+    }
   },
   "explorer": {
     "title": "Explorer",
-    "search": "Suchen...",
-    "noData": "Keine Daten geladen",
-    "loadFile": "Laden Sie eine TOON-Datei, um zu beginnen",
-    "expandAll": "Alle erweitern",
-    "collapseAll": "Alle einklappen"
+    "noData": "Keine Daten",
+    "loadFile": "Gib JSON oder TOON String ein, um zu starten"
   },
   "editor": {
-    "title": "Editor",
     "placeholder": "TOON-Daten hier eingeben oder einfügen...",
-    "validate": "Validieren",
-    "format": "Formatieren",
-    "minify": "Minimieren",
-    "validJson": "Gültiges JSON",
-    "invalidJson": "Ungültiges JSON"
-  },
-  "preview": {
-    "title": "Vorschau",
-    "noData": "Keine Vorschau verfügbar"
+    "format": "Formatieren"
   },
   "actions": {
-    "import": "Importieren",
     "export": "Exportieren",
-    "save": "Speichern",
     "saved": "Gespeichert",
     "undo": "Rückgängig",
     "redo": "Wiederholen",
@@ -42,11 +108,8 @@
     "paste": "Einfügen",
     "clear": "Löschen",
     "cancel": "Abbrechen",
-    "confirm": "Bestätigen",
     "delete": "Löschen",
-    "edit": "Bearbeiten",
     "add": "Hinzufügen",
-    "new": "Neu",
     "moved": "Verschoben"
   },
   "diff": {
@@ -76,9 +139,6 @@
   "settings": {
     "title": "Einstellungen",
     "language": "Sprache",
-    "theme": "Design",
-    "light": "Hell",
-    "dark": "Dunkel",
     "autoSave": "Automatisch speichern",
     "wordWrap": "Zeilenumbruch",
     "fontSize": "Schriftgröße"
@@ -96,7 +156,6 @@
   "errors": {
     "parseError": "JSON konnte nicht geparst werden",
     "importError": "Datei konnte nicht importiert werden",
-    "exportError": "Datei konnte nicht exportiert werden",
     "invalidData": "Ungültiges Datenformat"
   },
   "success": {
@@ -110,44 +169,19 @@
   "input": {
     "title": "TOON Eingabe",
     "subtitle": "TOON-Daten einfügen oder eingeben zum Parsen und Erkunden",
-    "placeholder": "# TOON-Daten hier eingeben\nname: Max Mustermann\nage: 30\nactive: true\n\naddress:\n  city: Berlin\n  zip: 10115",
-    "parse": "Parsen & Laden",
+    "placeholder": "# TOON-Daten hier eingeben",
     "paste": "Einfügen",
     "clear": "Leeren",
-    "loadExample": "Beispiel laden",
-    "shortcut": "Strg+Enter zum Parsen",
-    "success": "Erfolg",
-    "parsed": "TOON-Daten erfolgreich geparst",
-    "error": "Fehler",
-    "emptyContent": "Bitte TOON-Inhalt eingeben",
-    "invalidToon": "Ungültiges TOON-Format",
-    "parseError": "TOON-Daten konnten nicht geparst werden",
     "pasted": "Eingefügt",
     "pastedDescription": "Inhalt aus Zwischenablage eingefügt",
+    "error": "Fehler",
     "clipboardError": "Konnte nicht aus der Zwischenablage lesen",
-    "example": "Beispiel geladen",
-    "exampleLoaded": "Beispiel TOON-Daten wurden geladen",
     "aboutToon": "Was ist TOON?",
-    "aboutToonDescription": "TOON ist ein benutzerfreundliches Daten-Serialisierungsformat, das einfach zu lesen und zu schreiben ist. Es unterstützt Objekte, Arrays, Tabellen und primitive Typen.",
     "learnMore": "Mehr über das TOON-Format erfahren"
   },
   "tree": {
-    "root": "Wurzel",
-    "empty": "Leer",
-    "items": "{count} Elemente",
     "expandAll": "Alle erweitern",
     "collapseAll": "Alle einklappen"
-  },
-  "contextMenu": {
-    "editValue": "Wert bearbeiten",
-    "addChild": "Kind hinzufügen",
-    "addSibling": "Geschwister hinzufügen",
-    "duplicate": "Duplizieren",
-    "delete": "Löschen",
-    "copyPath": "Pfad kopieren",
-    "copyValue": "Wert kopieren",
-    "moveUp": "Nach oben",
-    "moveDown": "Nach unten"
   },
   "editModal": {
     "title": "Knoten bearbeiten",
@@ -161,8 +195,9 @@
     "cancel": "Abbrechen",
     "keyRequired": "Schlüssel ist erforderlich",
     "invalidNumber": "Ungültiges Zahlenformat",
-    "preview": "TOON Vorschau",
-    "previewHint": "So wird die TOON-Ausgabe nach dem Speichern aussehen",
+    "smartForm": "Smartes Formular basierend auf bestehenden Elementen",
+    "manualEntry": "Zur manuellen Eingabe wechseln",
+    "useSmartForm": "Smartes Formular verwenden",
     "types": {
       "string": "Zeichenkette",
       "number": "Zahl",
@@ -171,5 +206,22 @@
       "object": "Objekt",
       "array": "Array"
     }
+  },
+  "hints": {
+    "swap": "Links und rechts tauschen",
+    "clearDiff": "Beide Panels leeren",
+    "loadCurrent": "Aktuellen Editor-Inhalt laden",
+    "decreaseFontSize": "Schriftgröße verringern",
+    "increaseFontSize": "Schriftgröße erhöhen",
+    "decreaseTabSize": "Tab-Größe verringern",
+    "increaseTabSize": "Tab-Größe erhöhen",
+    "editNode": "Im Modal bearbeiten",
+    "addChild": "Kind-Knoten hinzufügen",
+    "deleteNode": "Knoten löschen",
+    "toggleBoolean": "Klicken zum Umschalten",
+    "clickToEdit": "Klicken zum Bearbeiten",
+    "pasteFromClipboard": "Aus Zwischenablage einfügen",
+    "clearInput": "Eingabe leeren",
+    "closeBatchEdit": "Stapelbearbeitung schließen"
   }
 }

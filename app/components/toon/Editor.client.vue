@@ -58,7 +58,7 @@ const initEditor = () => {
     console.log('Creating Monaco editor...', editorContainer.value)
 
     editor = monaco.editor.create(editorContainer.value, {
-      value: props.modelValue || '# Enter TOON content here',
+      value: props.modelValue || '',
       language: 'plaintext',
       theme: theme,
       readOnly: props.readOnly,

@@ -1,16 +1,42 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
-const { t } = useI18n()
+const { t, locale, locales, setLocale } = useI18n()
 
 const open = ref(false)
 const settingsOpen = ref(false)
 const shortcutsOpen = ref(false)
 
+// Language options for selector with circle-flags icons
+const languageOptions = computed(() =>
+  locales.value.map((l) => {
+    const code = typeof l === 'string' ? l : l.code
+    return {
+      label: typeof l === 'string' ? l : l.name || l.code,
+      value: code,
+      icon: `i-circle-flags-${code}`
+    }
+  })
+)
+
+const selectedLanguage = computed({
+  get: () => locale.value,
+  set: (val: string) => {
+    setLocale(val)
+  }
+})
+
 const links = computed<NavigationMenuItem[][]>(() => [[{
   label: t('nav.viewer'),
   icon: 'i-lucide-eye',
   to: '/',
+  onSelect: () => {
+    open.value = false
+  }
+}], [{
+  label: t('nav.about'),
+  icon: 'i-lucide-info',
+  to: '/about',
   onSelect: () => {
     open.value = false
   }
@@ -57,13 +83,42 @@ const links = computed<NavigationMenuItem[][]>(() => [[{
           popover
         />
 
-        <UNavigationMenu
-          :collapsed="collapsed"
-          :items="links[1]"
-          orientation="vertical"
-          tooltip
-          class="mt-auto"
-        />
+        <div class="mt-auto space-y-2">
+          <!-- About TOON Link -->
+          <UNavigationMenu
+            :collapsed="collapsed"
+            :items="links[1]"
+            orientation="vertical"
+            tooltip
+          />
+
+          <USeparator />
+
+          <!-- Language Selector -->
+          <div class="px-2">
+            <USelectMenu
+              v-model="selectedLanguage"
+              :items="languageOptions"
+              value-key="value"
+              class="w-full"
+              size="sm"
+            >
+              <template #leading="{ modelValue }">
+                <UIcon
+                  :name="`i-circle-flags-${modelValue}`"
+                  class="w-4 h-4"
+                />
+              </template>
+            </USelectMenu>
+          </div>
+
+          <UNavigationMenu
+            :collapsed="collapsed"
+            :items="links[2]"
+            orientation="vertical"
+            tooltip
+          />
+        </div>
       </template>
     </UDashboardSidebar>
 

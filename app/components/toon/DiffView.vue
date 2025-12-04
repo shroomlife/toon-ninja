@@ -60,24 +60,28 @@ function clearAll() {
         <UBadge color="error" variant="subtle" size="sm">
           -{{ stats.deletions }} {{ t('diff.deletions') }}
         </UBadge>
-        <UButton
-          icon="i-lucide-arrow-left-right"
-          size="xs"
-          color="neutral"
-          variant="ghost"
-          @click="swapContents"
-        >
-          Swap
-        </UButton>
-        <UButton
-          icon="i-lucide-trash-2"
-          size="xs"
-          color="neutral"
-          variant="ghost"
-          @click="clearAll"
-        >
-          Clear
-        </UButton>
+        <UTooltip :text="t('hints.swap')">
+          <UButton
+            icon="i-lucide-arrow-left-right"
+            size="xs"
+            color="neutral"
+            variant="ghost"
+            @click="swapContents"
+          >
+            Swap
+          </UButton>
+        </UTooltip>
+        <UTooltip :text="t('hints.clearDiff')">
+          <UButton
+            icon="i-lucide-trash-2"
+            size="xs"
+            color="neutral"
+            variant="ghost"
+            @click="clearAll"
+          >
+            Clear
+          </UButton>
+        </UTooltip>
       </div>
     </div>
 
@@ -87,15 +91,17 @@ function clearAll() {
       <div class="flex-1 flex flex-col border-r border-default min-h-0">
         <div class="flex items-center justify-between px-3 py-2 border-b border-default bg-neutral-50 dark:bg-neutral-800/50">
           <span class="text-sm font-medium">{{ t('diff.original') }}</span>
-          <UButton
-            size="xs"
-            color="neutral"
-            variant="ghost"
-            :disabled="!toonStore.formattedContent"
-            @click="loadCurrentAsLeft"
-          >
-            Load current
-          </UButton>
+          <UTooltip :text="t('hints.loadCurrent')">
+            <UButton
+              size="xs"
+              color="neutral"
+              variant="ghost"
+              :disabled="!toonStore.formattedContent"
+              @click="loadCurrentAsLeft"
+            >
+              Load current
+            </UButton>
+          </UTooltip>
         </div>
         <div class="flex-1 overflow-auto p-2">
           <UTextarea
@@ -112,15 +118,17 @@ function clearAll() {
       <div class="flex-1 flex flex-col min-h-0">
         <div class="flex items-center justify-between px-3 py-2 border-b border-default bg-neutral-50 dark:bg-neutral-800/50">
           <span class="text-sm font-medium">{{ t('diff.modified') }}</span>
-          <UButton
-            size="xs"
-            color="neutral"
-            variant="ghost"
-            :disabled="!toonStore.formattedContent"
-            @click="loadCurrentAsRight"
-          >
-            Load current
-          </UButton>
+          <UTooltip :text="t('hints.loadCurrent')">
+            <UButton
+              size="xs"
+              color="neutral"
+              variant="ghost"
+              :disabled="!toonStore.formattedContent"
+              @click="loadCurrentAsRight"
+            >
+              Load current
+            </UButton>
+          </UTooltip>
         </div>
         <div class="flex-1 overflow-auto p-2">
           <UTextarea

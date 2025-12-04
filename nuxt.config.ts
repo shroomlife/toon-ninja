@@ -75,16 +75,18 @@ export default defineNuxtConfig({
       }
     }
   },
-
-  // === Internationalization ===
-  // @nuxtjs/i18n v10+: lazy loading is automatic when `file` is specified
-  // restructureDir defaults to 'i18n', langDir is relative to it
   i18n: {
+    defaultLocale: 'de',
     locales: [
-      { code: 'en', name: 'English', file: 'en.json' },
-      { code: 'de', name: 'Deutsch', file: 'de.json' }
+      { code: 'de', name: 'Deutsch', file: 'de.json' },
+      { code: 'en', name: 'English', file: 'en.json' }
     ],
-    defaultLocale: 'en',
-    strategy: 'no_prefix'
+    strategy: 'no_prefix',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'app/i18n',
+      fallbackLocale: 'de'
+    },
+    langDir: 'locales'
   }
 })

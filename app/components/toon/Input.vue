@@ -50,26 +50,29 @@ const clearInput = () => {
       </div>
 
       <div class="flex items-center gap-2">
-        <UButton
-          variant="ghost"
-          color="neutral"
-          icon="i-lucide-clipboard"
-          size="sm"
-          @click="pasteFromClipboard"
-        >
-          {{ t('input.paste') }}
-        </UButton>
+        <UTooltip :text="t('hints.pasteFromClipboard')">
+          <UButton
+            variant="ghost"
+            color="neutral"
+            icon="i-lucide-clipboard"
+            size="sm"
+            @click="pasteFromClipboard"
+          >
+            {{ t('input.paste') }}
+          </UButton>
+        </UTooltip>
 
-        <UButton
-          v-if="inputContent"
-          variant="ghost"
-          color="neutral"
-          icon="i-lucide-x"
-          size="sm"
-          @click="clearInput"
-        >
-          {{ t('input.clear') }}
-        </UButton>
+        <UTooltip v-if="inputContent" :text="t('hints.clearInput')">
+          <UButton
+            variant="ghost"
+            color="neutral"
+            icon="i-lucide-x"
+            size="sm"
+            @click="clearInput"
+          >
+            {{ t('input.clear') }}
+          </UButton>
+        </UTooltip>
       </div>
     </div>
 
