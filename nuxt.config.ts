@@ -20,10 +20,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
-      meta: [
-        { name: 'theme-color', content: '#000000' }
-      ],
+      viewport: 'width=device-width, initial-scale=1, maximum-scale=2',
       link: [
         { rel: 'canonical', href: 'https://toon.ninja' },
         {
