@@ -73,11 +73,11 @@
       },
       "problem": {
         "title": "El Problema del JSON",
-        "description": "JSON es verboso. Comillas, corchetes, dos puntos – todo consume tokens sin agregar significado. Cada llamada API cuesta más de lo necesario."
+        "description": "JSON es verboso. Comillas, corchetes, dos puntos - todo consume tokens sin agregar significado. Cada llamada API cuesta más de lo necesario."
       },
       "solution": {
         "title": "La Solución",
-        "description": "TOON NINJA convierte tu JSON al formato TOON – mismos datos, 30-60% menos tokens. Sin pérdida de datos, compatibilidad total.",
+        "description": "TOON NINJA convierte tu JSON al formato TOON - mismos datos, 30-60% menos tokens. Sin pérdida de datos, compatibilidad total.",
         "learnMore": "Aprende más sobre el formato TOON"
       },
       "savings": {
@@ -188,11 +188,11 @@
       },
       "compact": {
         "title": "Formato Compacto",
-        "description": "Tamaños de archivo significativamente menores comparados con JSON – ahorra ancho de banda y almacenamiento."
+        "description": "Tamaños de archivo significativamente menores comparados con JSON - ahorra ancho de banda y almacenamiento."
       },
       "tabular": {
         "title": "Arrays Tabulares",
-        "description": "Soporte nativo para datos tabulares con encabezados de campo – perfecto para listas y registros."
+        "description": "Soporte nativo para datos tabulares con encabezados de campo - perfecto para listas y registros."
       },
       "efficient": {
         "title": "Alto Rendimiento",
@@ -200,11 +200,11 @@
       },
       "jsonCompatible": {
         "title": "Compatible con JSON",
-        "description": "Soporte total del modelo de datos JSON – conversión sin pérdidas entre TOON y JSON."
+        "description": "Soporte total del modelo de datos JSON - conversión sin pérdidas entre TOON y JSON."
       },
       "llmFriendly": {
         "title": "Amigable con LLM",
-        "description": "Optimizado para ventanas de contexto de IA/LLM – más datos con menos tokens."
+        "description": "Optimizado para ventanas de contexto de IA/LLM - más datos con menos tokens."
       }
     },
     "useCases": {
@@ -230,7 +230,7 @@
       "title": "Aspectos de la Sintaxis",
       "indentation": {
         "title": "Basada en Indentación",
-        "description": "Usa indentación consistente de 2 espacios para definición de estructura – sin necesidad de corchetes."
+        "description": "Usa indentación consistente de 2 espacios para definición de estructura - sin necesidad de corchetes."
       },
       "headers": {
         "title": "Encabezados de Array",
@@ -238,7 +238,7 @@
       },
       "primitives": {
         "title": "Primitivos Sin Comillas",
-        "description": "Números, booleanos y null no necesitan comillas – solo escríbelos directamente."
+        "description": "Números, booleanos y null no necesitan comillas - solo escríbelos directamente."
       },
       "delimiters": {
         "title": "Delimitadores Flexibles",

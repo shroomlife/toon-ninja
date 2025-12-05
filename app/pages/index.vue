@@ -2,18 +2,18 @@
 const { t } = useI18n()
 const toonStore = useToonStore()
 
-// SEO Meta Tags
+// SEO Meta Tags - static values for SSR hydration compatibility
 useSeoMeta({
-  title: () => t('seo.home.title'),
-  description: () => t('seo.home.description'),
-  ogTitle: () => t('seo.home.title'),
-  ogDescription: () => t('seo.home.description'),
+  title: 'TOON NINJA - Free Online TOON Editor & JSON Converter',
+  description: 'TOON NINJA is a free online editor for TOON format. Convert JSON to TOON, reduce LLM token costs by 30-60%, validate and format with live preview.',
+  ogTitle: 'TOON NINJA - Free Online TOON Editor & JSON Converter',
+  ogDescription: 'TOON NINJA is a free online editor for TOON format. Convert JSON to TOON, reduce LLM token costs by 30-60%, validate and format with live preview.',
   ogType: 'website',
   ogSiteName: 'TOON NINJA',
   ogUrl: 'https://toon.ninja',
   twitterCard: 'summary_large_image',
-  twitterTitle: () => t('seo.home.title'),
-  twitterDescription: () => t('seo.home.description')
+  twitterTitle: 'TOON NINJA - Free Online TOON Editor & JSON Converter',
+  twitterDescription: 'TOON NINJA is a free online editor for TOON format. Convert JSON to TOON, reduce LLM token costs by 30-60%, validate and format with live preview.'
 })
 
 // Schema.org JSON-LD

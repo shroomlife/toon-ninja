@@ -73,11 +73,11 @@
       },
       "problem": {
         "title": "Le problème du JSON",
-        "description": "JSON est verbeux. Guillemets, crochets, deux-points – tout consomme des tokens sans ajouter de sens. Chaque appel API coûte plus que nécessaire."
+        "description": "JSON est verbeux. Guillemets, crochets, deux-points - tout consomme des tokens sans ajouter de sens. Chaque appel API coûte plus que nécessaire."
       },
       "solution": {
         "title": "La solution",
-        "description": "TOON NINJA convertit votre JSON en format TOON – mêmes données, 30-60% de tokens en moins. Aucune perte de données, compatibilité totale.",
+        "description": "TOON NINJA convertit votre JSON en format TOON - mêmes données, 30-60% de tokens en moins. Aucune perte de données, compatibilité totale.",
         "learnMore": "En savoir plus sur le format TOON"
       },
       "savings": {
@@ -188,11 +188,11 @@
       },
       "compact": {
         "title": "Format compact",
-        "description": "Tailles de fichiers significativement réduites par rapport à JSON – économise bande passante et stockage."
+        "description": "Tailles de fichiers significativement réduites par rapport à JSON - économise bande passante et stockage."
       },
       "tabular": {
         "title": "Tableaux tabulaires",
-        "description": "Support natif des données tabulaires avec en-têtes de champs – parfait pour listes et enregistrements."
+        "description": "Support natif des données tabulaires avec en-têtes de champs - parfait pour listes et enregistrements."
       },
       "efficient": {
         "title": "Haute performance",
@@ -200,11 +200,11 @@
       },
       "jsonCompatible": {
         "title": "Compatible JSON",
-        "description": "Support complet du modèle de données JSON – conversion sans perte entre TOON et JSON."
+        "description": "Support complet du modèle de données JSON - conversion sans perte entre TOON et JSON."
       },
       "llmFriendly": {
         "title": "Adapté aux LLM",
-        "description": "Optimisé pour les fenêtres de contexte IA/LLM – plus de données avec moins de tokens."
+        "description": "Optimisé pour les fenêtres de contexte IA/LLM - plus de données avec moins de tokens."
       }
     },
     "useCases": {
@@ -230,7 +230,7 @@
       "title": "Points forts de la syntaxe",
       "indentation": {
         "title": "Basée sur l'indentation",
-        "description": "Utilise une indentation cohérente de 2 espaces pour la définition de structure – pas besoin de crochets."
+        "description": "Utilise une indentation cohérente de 2 espaces pour la définition de structure - pas besoin de crochets."
       },
       "headers": {
         "title": "En-têtes de tableaux",
@@ -238,7 +238,7 @@
       },
       "primitives": {
         "title": "Primitifs sans guillemets",
-        "description": "Les nombres, booléens et null n'ont pas besoin de guillemets – écrivez-les directement."
+        "description": "Les nombres, booléens et null n'ont pas besoin de guillemets - écrivez-les directement."
       },
       "delimiters": {
         "title": "Délimiteurs flexibles",

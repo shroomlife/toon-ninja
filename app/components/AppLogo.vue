@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { size } = defineProps({
+const props = defineProps({
   size: {
     type: Number as PropType<number>,
     default: 32
@@ -7,11 +7,11 @@ const { size } = defineProps({
 })
 
 const computedWidth = computed(() => {
-  return size
+  return props.size
 })
 
 const computedHeight = computed(() => {
-  return (size / 425) * 548
+  return (props.size / 425) * 548
 })
 </script>
 

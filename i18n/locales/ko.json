@@ -73,11 +73,11 @@
       },
       "problem": {
         "title": "JSON의 문제점",
-        "description": "JSON은 장황합니다. 따옴표, 괄호, 콜론 – 모두 의미를 추가하지 않으면서 토큰을 소비합니다. 모든 API 호출이 필요 이상으로 비용이 듭니다."
+        "description": "JSON은 장황합니다. 따옴표, 괄호, 콜론 - 모두 의미를 추가하지 않으면서 토큰을 소비합니다. 모든 API 호출이 필요 이상으로 비용이 듭니다."
       },
       "solution": {
         "title": "해결책",
-        "description": "TOON NINJA는 JSON을 TOON 형식으로 변환합니다 – 같은 데이터, 30-60% 적은 토큰. 데이터 손실 없음, 완전한 호환성.",
+        "description": "TOON NINJA는 JSON을 TOON 형식으로 변환합니다 - 같은 데이터, 30-60% 적은 토큰. 데이터 손실 없음, 완전한 호환성.",
         "learnMore": "TOON 형식에 대해 더 알아보기"
       },
       "savings": {
@@ -188,11 +188,11 @@
       },
       "compact": {
         "title": "컴팩트한 형식",
-        "description": "JSON에 비해 상당히 작은 파일 크기 – 대역폭과 스토리지 절약."
+        "description": "JSON에 비해 상당히 작은 파일 크기 - 대역폭과 스토리지 절약."
       },
       "tabular": {
         "title": "테이블 배열",
-        "description": "필드 헤더가 있는 테이블 데이터의 네이티브 지원 – 목록과 레코드에 완벽."
+        "description": "필드 헤더가 있는 테이블 데이터의 네이티브 지원 - 목록과 레코드에 완벽."
       },
       "efficient": {
         "title": "고성능",
@@ -200,11 +200,11 @@
       },
       "jsonCompatible": {
         "title": "JSON 호환",
-        "description": "JSON 데이터 모델 완전 지원 – TOON과 JSON 간 무손실 변환."
+        "description": "JSON 데이터 모델 완전 지원 - TOON과 JSON 간 무손실 변환."
       },
       "llmFriendly": {
         "title": "LLM 친화적",
-        "description": "AI/LLM 컨텍스트 윈도우에 최적화 – 더 적은 토큰으로 더 많은 데이터."
+        "description": "AI/LLM 컨텍스트 윈도우에 최적화 - 더 적은 토큰으로 더 많은 데이터."
       }
     },
     "useCases": {
@@ -230,7 +230,7 @@
       "title": "구문 하이라이트",
       "indentation": {
         "title": "들여쓰기 기반",
-        "description": "구조 정의에 일관된 2칸 들여쓰기 사용 – 괄호 불필요."
+        "description": "구조 정의에 일관된 2칸 들여쓰기 사용 - 괄호 불필요."
       },
       "headers": {
         "title": "배열 헤더",
@@ -238,7 +238,7 @@
       },
       "primitives": {
         "title": "따옴표 없는 기본형",
-        "description": "숫자, 불리언 및 null은 따옴표가 필요 없습니다 – 그냥 직접 작성하세요."
+        "description": "숫자, 불리언 및 null은 따옴표가 필요 없습니다 - 그냥 직접 작성하세요."
       },
       "delimiters": {
         "title": "유연한 구분자",

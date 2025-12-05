@@ -73,11 +73,11 @@
       },
       "problem": {
         "title": "Problem z JSON",
-        "description": "JSON jest rozwlekły. Cudzysłowy, nawiasy, dwukropki – wszystko zużywa tokeny bez dodawania znaczenia. Każde wywołanie API kosztuje więcej niż potrzeba."
+        "description": "JSON jest rozwlekły. Cudzysłowy, nawiasy, dwukropki - wszystko zużywa tokeny bez dodawania znaczenia. Każde wywołanie API kosztuje więcej niż potrzeba."
       },
       "solution": {
         "title": "Rozwiązanie",
-        "description": "TOON NINJA konwertuje JSON na format TOON – te same dane, 30-60% mniej tokenów. Bez utraty danych, pełna kompatybilność.",
+        "description": "TOON NINJA konwertuje JSON na format TOON - te same dane, 30-60% mniej tokenów. Bez utraty danych, pełna kompatybilność.",
         "learnMore": "Dowiedz się więcej o formacie TOON"
       },
       "savings": {
@@ -188,11 +188,11 @@
       },
       "compact": {
         "title": "Kompaktowy format",
-        "description": "Znacznie mniejsze rozmiary plików w porównaniu z JSON – oszczędność przepustowości i miejsca."
+        "description": "Znacznie mniejsze rozmiary plików w porównaniu z JSON - oszczędność przepustowości i miejsca."
       },
       "tabular": {
         "title": "Tablice tabelaryczne",
-        "description": "Natywne wsparcie dla danych tabelarycznych z nagłówkami pól – idealne dla list i rekordów."
+        "description": "Natywne wsparcie dla danych tabelarycznych z nagłówkami pól - idealne dla list i rekordów."
       },
       "efficient": {
         "title": "Wysoka wydajność",
@@ -200,11 +200,11 @@
       },
       "jsonCompatible": {
         "title": "Kompatybilny z JSON",
-        "description": "Pełne wsparcie modelu danych JSON – bezstratna konwersja między TOON i JSON."
+        "description": "Pełne wsparcie modelu danych JSON - bezstratna konwersja między TOON i JSON."
       },
       "llmFriendly": {
         "title": "Przyjazny dla LLM",
-        "description": "Zoptymalizowany dla okien kontekstowych AI/LLM – więcej danych przy mniejszej liczbie tokenów."
+        "description": "Zoptymalizowany dla okien kontekstowych AI/LLM - więcej danych przy mniejszej liczbie tokenów."
       }
     },
     "useCases": {
@@ -230,7 +230,7 @@
       "title": "Cechy składni",
       "indentation": {
         "title": "Oparta na wcięciach",
-        "description": "Używa spójnych 2-spacjowych wcięć do definiowania struktury – bez potrzeby nawiasów."
+        "description": "Używa spójnych 2-spacjowych wcięć do definiowania struktury - bez potrzeby nawiasów."
       },
       "headers": {
         "title": "Nagłówki tablic",
@@ -238,7 +238,7 @@
       },
       "primitives": {
         "title": "Prymitywy bez cudzysłowów",
-        "description": "Liczby, wartości logiczne i null nie potrzebują cudzysłowów – po prostu napisz bezpośrednio."
+        "description": "Liczby, wartości logiczne i null nie potrzebują cudzysłowów - po prostu napisz bezpośrednio."
       },
       "delimiters": {
         "title": "Elastyczne separatory",

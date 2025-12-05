@@ -12,27 +12,27 @@
   },
   "seo": {
     "home": {
-      "title": "TOON NINJA – Free Online TOON Editor & JSON Converter",
+      "title": "TOON NINJA - Free Online TOON Editor & JSON Converter",
       "description": "TOON NINJA is a free online editor for TOON format. Convert JSON to TOON, reduce LLM token costs by 30-60%, validate and format with live preview."
     },
     "about": {
-      "title": "About TOON Format – Token-Oriented Object Notation",
+      "title": "About TOON Format - Token-Oriented Object Notation",
       "description": "Learn about TOON, a compact data format that saves 30-60% tokens compared to JSON. Perfect for LLM applications and AI prompts."
     },
     "convert": {
-      "title": "JSON to TOON Converter – TOON NINJA",
+      "title": "JSON to TOON Converter - TOON NINJA",
       "description": "Convert JSON to TOON format instantly with TOON NINJA. Reduce your LLM token count by 30-60%. Free online converter, no signup."
     },
     "tokenOptimization": {
-      "title": "Reduce LLM Token Costs – TOON NINJA",
+      "title": "Reduce LLM Token Costs - TOON NINJA",
       "description": "Cut OpenAI and Anthropic API costs by 30-60%. TOON NINJA converts your JSON to token-efficient TOON format for ChatGPT, Claude and other LLMs."
     },
     "features": {
-      "title": "TOON NINJA Features – Editor, Validator, Converter",
+      "title": "TOON NINJA Features - Editor, Validator, Converter",
       "description": "TOON NINJA features: Monaco editor with syntax highlighting, JSON to TOON conversion, live validation, diff comparison, and batch editing. Free, no signup."
     },
     "compare": {
-      "title": "TOON vs JSON – Format Comparison for AI Applications",
+      "title": "TOON vs JSON - Format Comparison for AI Applications",
       "description": "TOON vs JSON compared: token efficiency, readability, use cases. See why TOON saves 30-60% tokens for LLM applications while staying JSON-compatible."
     }
   },
@@ -50,7 +50,7 @@
         },
         "step2": {
           "title": "Convert",
-          "description": "Click convert – instant transformation."
+          "description": "Click convert - instant transformation."
         },
         "step3": {
           "title": "Copy TOON",
@@ -73,11 +73,11 @@
       },
       "problem": {
         "title": "The JSON Problem",
-        "description": "JSON is verbose. Quotes, brackets, colons – all consuming tokens without adding meaning. Every API call costs more than it should."
+        "description": "JSON is verbose. Quotes, brackets, colons - all consuming tokens without adding meaning. Every API call costs more than it should."
       },
       "solution": {
         "title": "The Solution",
-        "description": "TOON NINJA converts your JSON to TOON format – same data, 30-60% fewer tokens. No data loss, full compatibility.",
+        "description": "TOON NINJA converts your JSON to TOON format - same data, 30-60% fewer tokens. No data loss, full compatibility.",
         "learnMore": "Learn more about TOON format"
       },
       "savings": {
@@ -200,11 +200,11 @@
       },
       "jsonCompatible": {
         "title": "JSON Compatible",
-        "description": "Full JSON data model support – convert between TOON and JSON losslessly."
+        "description": "Full JSON data model support - convert between TOON and JSON losslessly."
       },
       "llmFriendly": {
         "title": "LLM Friendly",
-        "description": "Optimized for AI/LLM context windows – more data with fewer tokens."
+        "description": "Optimized for AI/LLM context windows - more data with fewer tokens."
       }
     },
     "useCases": {
@@ -230,7 +230,7 @@
       "title": "Syntax Highlights",
       "indentation": {
         "title": "Indentation-Based",
-        "description": "Uses consistent 2-space indentation to define structure – no brackets needed."
+        "description": "Uses consistent 2-space indentation to define structure - no brackets needed."
       },
       "headers": {
         "title": "Array Headers",
@@ -238,7 +238,7 @@
       },
       "primitives": {
         "title": "Unquoted Primitives",
-        "description": "Numbers, booleans, and null don't need quotes – just write them directly."
+        "description": "Numbers, booleans, and null don't need quotes - just write them directly."
       },
       "delimiters": {
         "title": "Flexible Delimiters",

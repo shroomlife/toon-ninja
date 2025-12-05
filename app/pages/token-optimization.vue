@@ -1,18 +1,18 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-// SEO Meta Tags
+// SEO Meta Tags - static values for SSR hydration compatibility
 useSeoMeta({
-  title: () => t('seo.tokenOptimization.title'),
-  description: () => t('seo.tokenOptimization.description'),
-  ogTitle: () => t('seo.tokenOptimization.title'),
-  ogDescription: () => t('seo.tokenOptimization.description'),
+  title: 'Reduce LLM Token Costs - TOON NINJA',
+  description: 'Cut OpenAI and Anthropic API costs by 30-60%. TOON NINJA converts your JSON to token-efficient TOON format for ChatGPT, Claude and other LLMs.',
+  ogTitle: 'Reduce LLM Token Costs - TOON NINJA',
+  ogDescription: 'Cut OpenAI and Anthropic API costs by 30-60%. TOON NINJA converts your JSON to token-efficient TOON format for ChatGPT, Claude and other LLMs.',
   ogType: 'website',
   ogSiteName: 'TOON NINJA',
   ogUrl: 'https://toon.ninja/token-optimization',
   twitterCard: 'summary_large_image',
-  twitterTitle: () => t('seo.tokenOptimization.title'),
-  twitterDescription: () => t('seo.tokenOptimization.description')
+  twitterTitle: 'Reduce LLM Token Costs - TOON NINJA',
+  twitterDescription: 'Cut OpenAI and Anthropic API costs by 30-60%. TOON NINJA converts your JSON to token-efficient TOON format for ChatGPT, Claude and other LLMs.'
 })
 </script>
 

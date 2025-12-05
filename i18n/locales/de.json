@@ -73,11 +73,11 @@
       },
       "problem": {
         "title": "Das JSON-Problem",
-        "description": "JSON ist ausführlich. Anführungszeichen, Klammern, Doppelpunkte – alles verbraucht Tokens ohne Bedeutung hinzuzufügen. Jeder API-Aufruf kostet mehr als nötig."
+        "description": "JSON ist ausführlich. Anführungszeichen, Klammern, Doppelpunkte - alles verbraucht Tokens ohne Bedeutung hinzuzufügen. Jeder API-Aufruf kostet mehr als nötig."
       },
       "solution": {
         "title": "Die Lösung",
-        "description": "TOON NINJA konvertiert dein JSON ins TOON-Format – gleiche Daten, 30-60% weniger Tokens. Kein Datenverlust, volle Kompatibilität.",
+        "description": "TOON NINJA konvertiert dein JSON ins TOON-Format - gleiche Daten, 30-60% weniger Tokens. Kein Datenverlust, volle Kompatibilität.",
         "learnMore": "Mehr über das TOON-Format erfahren"
       },
       "savings": {
@@ -188,11 +188,11 @@
       },
       "compact": {
         "title": "Kompaktes Format",
-        "description": "Deutlich kleinere Dateigrößen im Vergleich zu JSON – spart Bandbreite und Speicher."
+        "description": "Deutlich kleinere Dateigrößen im Vergleich zu JSON - spart Bandbreite und Speicher."
       },
       "tabular": {
         "title": "Tabellarische Arrays",
-        "description": "Native Unterstützung für tabellarische Daten mit Feldüberschriften – perfekt für Listen und Datensätze."
+        "description": "Native Unterstützung für tabellarische Daten mit Feldüberschriften - perfekt für Listen und Datensätze."
       },
       "efficient": {
         "title": "Hohe Leistung",
@@ -200,11 +200,11 @@
       },
       "jsonCompatible": {
         "title": "JSON-kompatibel",
-        "description": "Volle Unterstützung des JSON-Datenmodells – verlustfreie Konvertierung zwischen TOON und JSON."
+        "description": "Volle Unterstützung des JSON-Datenmodells - verlustfreie Konvertierung zwischen TOON und JSON."
       },
       "llmFriendly": {
         "title": "LLM-freundlich",
-        "description": "Optimiert für KI/LLM-Kontextfenster – mehr Daten mit weniger Tokens."
+        "description": "Optimiert für KI/LLM-Kontextfenster - mehr Daten mit weniger Tokens."
       }
     },
     "useCases": {
@@ -230,7 +230,7 @@
       "title": "Syntax-Highlights",
       "indentation": {
         "title": "Einrückungsbasiert",
-        "description": "Verwendet konsistente 2-Leerzeichen-Einrückung zur Strukturdefinition – keine Klammern nötig."
+        "description": "Verwendet konsistente 2-Leerzeichen-Einrückung zur Strukturdefinition - keine Klammern nötig."
       },
       "headers": {
         "title": "Array-Header",
@@ -238,7 +238,7 @@
       },
       "primitives": {
         "title": "Unquotierte Primitive",
-        "description": "Zahlen, Booleans und null brauchen keine Anführungszeichen – einfach direkt schreiben."
+        "description": "Zahlen, Booleans und null brauchen keine Anführungszeichen - einfach direkt schreiben."
       },
       "delimiters": {
         "title": "Flexible Trennzeichen",

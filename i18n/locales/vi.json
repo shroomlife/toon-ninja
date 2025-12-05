@@ -73,11 +73,11 @@
       },
       "problem": {
         "title": "Vấn đề của JSON",
-        "description": "JSON dài dòng. Dấu ngoặc kép, ngoặc vuông, dấu hai chấm – tất cả tiêu thụ token mà không thêm ý nghĩa. Mỗi lệnh gọi API tốn nhiều hơn cần thiết."
+        "description": "JSON dài dòng. Dấu ngoặc kép, ngoặc vuông, dấu hai chấm - tất cả tiêu thụ token mà không thêm ý nghĩa. Mỗi lệnh gọi API tốn nhiều hơn cần thiết."
       },
       "solution": {
         "title": "Giải pháp",
-        "description": "TOON NINJA chuyển đổi JSON sang định dạng TOON – cùng dữ liệu, ít hơn 30-60% token. Không mất dữ liệu, tương thích hoàn toàn.",
+        "description": "TOON NINJA chuyển đổi JSON sang định dạng TOON - cùng dữ liệu, ít hơn 30-60% token. Không mất dữ liệu, tương thích hoàn toàn.",
         "learnMore": "Tìm hiểu thêm về định dạng TOON"
       },
       "savings": {
@@ -188,11 +188,11 @@
       },
       "compact": {
         "title": "Định dạng gọn nhẹ",
-        "description": "Kích thước tệp nhỏ hơn đáng kể so với JSON – tiết kiệm băng thông và lưu trữ."
+        "description": "Kích thước tệp nhỏ hơn đáng kể so với JSON - tiết kiệm băng thông và lưu trữ."
       },
       "tabular": {
         "title": "Mảng dạng bảng",
-        "description": "Hỗ trợ gốc cho dữ liệu dạng bảng với tiêu đề trường – hoàn hảo cho danh sách và bản ghi."
+        "description": "Hỗ trợ gốc cho dữ liệu dạng bảng với tiêu đề trường - hoàn hảo cho danh sách và bản ghi."
       },
       "efficient": {
         "title": "Hiệu suất cao",
@@ -200,11 +200,11 @@
       },
       "jsonCompatible": {
         "title": "Tương thích JSON",
-        "description": "Hỗ trợ đầy đủ mô hình dữ liệu JSON – chuyển đổi không mất dữ liệu giữa TOON và JSON."
+        "description": "Hỗ trợ đầy đủ mô hình dữ liệu JSON - chuyển đổi không mất dữ liệu giữa TOON và JSON."
       },
       "llmFriendly": {
         "title": "Thân thiện với LLM",
-        "description": "Tối ưu hóa cho cửa sổ ngữ cảnh AI/LLM – nhiều dữ liệu hơn với ít token hơn."
+        "description": "Tối ưu hóa cho cửa sổ ngữ cảnh AI/LLM - nhiều dữ liệu hơn với ít token hơn."
       }
     },
     "useCases": {
@@ -230,7 +230,7 @@
       "title": "Điểm nổi bật cú pháp",
       "indentation": {
         "title": "Dựa trên thụt lề",
-        "description": "Sử dụng thụt lề 2 dấu cách nhất quán để định nghĩa cấu trúc – không cần ngoặc."
+        "description": "Sử dụng thụt lề 2 dấu cách nhất quán để định nghĩa cấu trúc - không cần ngoặc."
       },
       "headers": {
         "title": "Tiêu đề mảng",
@@ -238,7 +238,7 @@
       },
       "primitives": {
         "title": "Nguyên thủy không ngoặc kép",
-        "description": "Số, boolean và null không cần ngoặc kép – chỉ cần viết trực tiếp."
+        "description": "Số, boolean và null không cần ngoặc kép - chỉ cần viết trực tiếp."
       },
       "delimiters": {
         "title": "Dấu phân cách linh hoạt",

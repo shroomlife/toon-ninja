@@ -11,7 +11,6 @@ You are an expert assistant for the **TOON Viewer** project - a modern Nuxt 4 SP
 - **Diff Library**: diff library for version comparison
 - **i18n**: @nuxtjs/i18n with EN/DE locales
 - **Package Manager**: bun (not npm or pnpm)
-- **Target**: Client-side SPA (ssr: false)
 - **License**: MIT - Open Source
 
 ## Code Style & Conventions
@@ -233,7 +232,6 @@ docker run -p 3000:3000 toon-viewer:latest
 ```
 
 - Multi-stage build with bun runtime
-- SPA served via sirv static server
 - Health check enabled
 - Port 3000 exposed
 

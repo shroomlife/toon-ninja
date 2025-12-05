@@ -1,18 +1,18 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-// SEO Meta Tags
+// SEO Meta Tags - static values for SSR hydration compatibility
 useSeoMeta({
-  title: () => t('seo.convert.title'),
-  description: () => t('seo.convert.description'),
-  ogTitle: () => t('seo.convert.title'),
-  ogDescription: () => t('seo.convert.description'),
+  title: 'JSON to TOON Converter - TOON NINJA',
+  description: 'Convert JSON to TOON format instantly with TOON NINJA. Reduce your LLM token count by 30-60%. Free online converter, no signup.',
+  ogTitle: 'JSON to TOON Converter - TOON NINJA',
+  ogDescription: 'Convert JSON to TOON format instantly with TOON NINJA. Reduce your LLM token count by 30-60%. Free online converter, no signup.',
   ogType: 'website',
   ogSiteName: 'TOON NINJA',
   ogUrl: 'https://toon.ninja/convert',
   twitterCard: 'summary_large_image',
-  twitterTitle: () => t('seo.convert.title'),
-  twitterDescription: () => t('seo.convert.description')
+  twitterTitle: 'JSON to TOON Converter - TOON NINJA',
+  twitterDescription: 'Convert JSON to TOON format instantly with TOON NINJA. Reduce your LLM token count by 30-60%. Free online converter, no signup.'
 })
 
 const steps = computed(() => [

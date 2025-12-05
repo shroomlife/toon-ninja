@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n'
   ],
 
-  // === SPA Mode Configuration ===
+  // === SSR Mode Configuration ===
   ssr: true,
 
   // === Development Tools ===
@@ -35,48 +35,13 @@ export default defineNuxtConfig({
   // === Styling ===
   css: ['~/assets/css/main.css'],
 
-  // === Runtime Config ===
-  runtimeConfig: {
-    public: {
-      appName: 'TOON Viewer',
-      appVersion: '1.0.0'
-    }
-  },
-
-  // === Build Optimization ===
-  build: {
-    transpile: ['monaco-editor']
-  },
-
   // === Compatibility ===
   compatibilityDate: '2024-12-04',
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-      routes: ['/', '/about', '/convert', '/token-optimization', '/features', '/compare']
-    }
-  },
-
-  // === Vite Configuration ===
-  vite: {
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            monaco: ['monaco-editor']
-          }
-        }
-      }
-    }
-  },
 
   // === ESLint Configuration ===
   eslint: {
     config: {
-      stylistic: {
-        commaDangle: 'never',
-        braceStyle: '1tbs'
-      }
+      stylistic: true
     }
   },
   i18n: {
@@ -99,8 +64,11 @@ export default defineNuxtConfig({
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'app/i18n',
-      fallbackLocale: 'en'
+      fallbackLocale: 'en',
+      alwaysRedirect: false,
+      redirectOn: 'no prefix'
     },
+    skipSettingLocaleOnNavigate: true,
     langDir: 'locales'
   }
 })

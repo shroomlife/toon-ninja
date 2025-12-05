@@ -73,11 +73,11 @@
       },
       "problem": {
         "title": "O Problema do JSON",
-        "description": "JSON é verboso. Aspas, colchetes, dois-pontos – tudo consome tokens sem adicionar significado. Cada chamada de API custa mais do que o necessário."
+        "description": "JSON é verboso. Aspas, colchetes, dois-pontos - tudo consome tokens sem adicionar significado. Cada chamada de API custa mais do que o necessário."
       },
       "solution": {
         "title": "A Solução",
-        "description": "TOON NINJA converte seu JSON para o formato TOON – mesmos dados, 30-60% menos tokens. Sem perda de dados, compatibilidade total.",
+        "description": "TOON NINJA converte seu JSON para o formato TOON - mesmos dados, 30-60% menos tokens. Sem perda de dados, compatibilidade total.",
         "learnMore": "Saiba mais sobre o formato TOON"
       },
       "savings": {
@@ -188,11 +188,11 @@
       },
       "compact": {
         "title": "Formato Compacto",
-        "description": "Tamanhos de arquivo significativamente menores comparados ao JSON – economiza banda e armazenamento."
+        "description": "Tamanhos de arquivo significativamente menores comparados ao JSON - economiza banda e armazenamento."
       },
       "tabular": {
         "title": "Arrays Tabulares",
-        "description": "Suporte nativo para dados tabulares com cabeçalhos de campo – perfeito para listas e registros."
+        "description": "Suporte nativo para dados tabulares com cabeçalhos de campo - perfeito para listas e registros."
       },
       "efficient": {
         "title": "Alto Desempenho",
@@ -200,11 +200,11 @@
       },
       "jsonCompatible": {
         "title": "Compatível com JSON",
-        "description": "Suporte total ao modelo de dados JSON – conversão sem perdas entre TOON e JSON."
+        "description": "Suporte total ao modelo de dados JSON - conversão sem perdas entre TOON e JSON."
       },
       "llmFriendly": {
         "title": "Amigável para LLM",
-        "description": "Otimizado para janelas de contexto de IA/LLM – mais dados com menos tokens."
+        "description": "Otimizado para janelas de contexto de IA/LLM - mais dados com menos tokens."
       }
     },
     "useCases": {
@@ -230,7 +230,7 @@
       "title": "Destaques da Sintaxe",
       "indentation": {
         "title": "Baseada em Indentação",
-        "description": "Usa indentação consistente de 2 espaços para definição de estrutura – sem necessidade de colchetes."
+        "description": "Usa indentação consistente de 2 espaços para definição de estrutura - sem necessidade de colchetes."
       },
       "headers": {
         "title": "Cabeçalhos de Array",
@@ -238,7 +238,7 @@
       },
       "primitives": {
         "title": "Primitivos Sem Aspas",
-        "description": "Números, booleanos e null não precisam de aspas – basta escrever diretamente."
+        "description": "Números, booleanos e null não precisam de aspas - basta escrever diretamente."
       },
       "delimiters": {
         "title": "Delimitadores Flexíveis",

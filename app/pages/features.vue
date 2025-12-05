@@ -1,18 +1,18 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-// SEO Meta Tags
+// SEO Meta Tags - static values for SSR hydration compatibility
 useSeoMeta({
-  title: () => t('seo.features.title'),
-  description: () => t('seo.features.description'),
-  ogTitle: () => t('seo.features.title'),
-  ogDescription: () => t('seo.features.description'),
+  title: 'TOON NINJA Features - Editor, Validator, Converter',
+  description: 'TOON NINJA features: Monaco editor with syntax highlighting, JSON to TOON conversion, live validation, diff comparison, and batch editing. Free, no signup.',
+  ogTitle: 'TOON NINJA Features - Editor, Validator, Converter',
+  ogDescription: 'TOON NINJA features: Monaco editor with syntax highlighting, JSON to TOON conversion, live validation, diff comparison, and batch editing. Free, no signup.',
   ogType: 'website',
   ogSiteName: 'TOON NINJA',
   ogUrl: 'https://toon.ninja/features',
   twitterCard: 'summary_large_image',
-  twitterTitle: () => t('seo.features.title'),
-  twitterDescription: () => t('seo.features.description')
+  twitterTitle: 'TOON NINJA Features - Editor, Validator, Converter',
+  twitterDescription: 'TOON NINJA features: Monaco editor with syntax highlighting, JSON to TOON conversion, live validation, diff comparison, and batch editing. Free, no signup.'
 })
 
 const features = computed(() => [

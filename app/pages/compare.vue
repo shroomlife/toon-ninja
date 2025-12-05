@@ -1,18 +1,18 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-// SEO Meta Tags
+// SEO Meta Tags - static values for SSR hydration compatibility
 useSeoMeta({
-  title: () => t('seo.compare.title'),
-  description: () => t('seo.compare.description'),
-  ogTitle: () => t('seo.compare.title'),
-  ogDescription: () => t('seo.compare.description'),
+  title: 'TOON vs JSON - Format Comparison for AI Applications',
+  description: 'TOON vs JSON compared: token efficiency, readability, use cases. See why TOON saves 30-60% tokens for LLM applications while staying JSON-compatible.',
+  ogTitle: 'TOON vs JSON - Format Comparison for AI Applications',
+  ogDescription: 'TOON vs JSON compared: token efficiency, readability, use cases. See why TOON saves 30-60% tokens for LLM applications while staying JSON-compatible.',
   ogType: 'website',
   ogSiteName: 'TOON NINJA',
   ogUrl: 'https://toon.ninja/compare',
   twitterCard: 'summary_large_image',
-  twitterTitle: () => t('seo.compare.title'),
-  twitterDescription: () => t('seo.compare.description')
+  twitterTitle: 'TOON vs JSON - Format Comparison for AI Applications',
+  twitterDescription: 'TOON vs JSON compared: token efficiency, readability, use cases. See why TOON saves 30-60% tokens for LLM applications while staying JSON-compatible.'
 })
 
 const comparisonRows = computed(() => [
