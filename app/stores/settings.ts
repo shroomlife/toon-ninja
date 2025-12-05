@@ -8,7 +8,7 @@ export const useSettingsStore = defineStore('settings', {
     autoSaveInterval: 30000, // 30 seconds
     showLineNumbers: true,
     showMinimap: false,
-    tabSize: 2
+    tabSize: 2,
   }),
 
   actions: {
@@ -34,6 +34,6 @@ export const useSettingsStore = defineStore('settings', {
 
     setTabSize(size: number) {
       this.tabSize = Math.max(2, Math.min(8, size))
-    }
-  }
+    },
+  },
 })

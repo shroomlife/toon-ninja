@@ -52,7 +52,7 @@ async function processFile(file: File) {
     toast.add({
       title: t('errors.invalidData'),
       description: 'Please upload a .json or .toon file',
-      color: 'error'
+      color: 'error',
     })
     return
   }
@@ -62,12 +62,13 @@ async function processFile(file: File) {
     toonStore.setContent(content)
     toast.add({
       title: t('success.imported'),
-      color: 'success'
+      color: 'success',
     })
-  } catch {
+  }
+  catch {
     toast.add({
       title: t('errors.importError'),
-      color: 'error'
+      color: 'error',
     })
   }
 }
@@ -79,7 +80,7 @@ async function processFile(file: File) {
     :class="[
       isDragOver
         ? 'border-primary bg-primary/5'
-        : 'border-default hover:border-primary/50'
+        : 'border-default hover:border-primary/50',
     ]"
     @dragover="handleDragOver"
     @dragleave="handleDragLeave"

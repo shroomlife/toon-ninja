@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@vueuse/nuxt',
     '@pinia/nuxt',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
   ],
 
   // === SSR Mode Configuration ===
@@ -13,7 +13,7 @@ export default defineNuxtConfig({
 
   // === Development Tools ===
   devtools: {
-    enabled: true
+    enabled: true,
   },
 
   // === App Configuration ===
@@ -26,10 +26,10 @@ export default defineNuxtConfig({
         {
           rel: 'icon',
           type: 'image/x-icon',
-          href: '/favicon.ico'
-        }
-      ]
-    }
+          href: '/favicon.ico',
+        },
+      ],
+    },
   },
 
   // === Styling ===
@@ -41,8 +41,8 @@ export default defineNuxtConfig({
   // === ESLint Configuration ===
   eslint: {
     config: {
-      stylistic: true
-    }
+      stylistic: true,
+    },
   },
   i18n: {
     defaultLocale: 'en',
@@ -58,7 +58,7 @@ export default defineNuxtConfig({
       { code: 'pt', name: 'Português', file: 'pt.json' },
       { code: 'ru', name: 'Русский', file: 'ru.json' },
       { code: 'vi', name: 'Tiếng Việt', file: 'vi.json' },
-      { code: 'zh', name: '中文', file: 'zh.json' }
+      { code: 'zh', name: '中文', file: 'zh.json' },
     ],
     strategy: 'no_prefix',
     detectBrowserLanguage: {
@@ -66,9 +66,9 @@ export default defineNuxtConfig({
       cookieKey: 'app/i18n',
       fallbackLocale: 'en',
       alwaysRedirect: false,
-      redirectOn: 'no prefix'
+      redirectOn: 'no prefix',
     },
     skipSettingLocaleOnNavigate: true,
-    langDir: 'locales'
-  }
+    langDir: 'locales',
+  },
 })

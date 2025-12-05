@@ -8,7 +8,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  readOnly: false
+  readOnly: false,
 })
 
 const emit = defineEmits<{
@@ -36,7 +36,8 @@ function tryConvertJsonToToon(content: string): string | null {
   try {
     const parsed = JSON.parse(trimmed)
     return encode(parsed, { indent: 2 })
-  } catch {
+  }
+  catch {
     return null
   }
 }
@@ -64,7 +65,7 @@ const initEditor = () => {
       wordWrap: settingsStore.wordWrap ? 'on' : 'off',
       lineNumbers: settingsStore.showLineNumbers ? 'on' : 'off',
       minimap: { enabled: settingsStore.showMinimap },
-      automaticLayout: true
+      automaticLayout: true,
     })
 
     editor.onDidChangeModelContent(() => {
@@ -87,11 +88,12 @@ const initEditor = () => {
         emit('update:modelValue', toonContent)
         toast.add({
           title: t('success.jsonConverted'),
-          color: 'success'
+          color: 'success',
         })
       }
     })
-  } catch (e) {
+  }
+  catch (e) {
     console.error('Error creating Monaco editor:', e)
   }
 }

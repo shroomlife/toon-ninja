@@ -28,7 +28,7 @@ const loadExample = () => {
     title: t('explorer.loadExample'),
     description: t('explorer.exampleLoaded'),
     color: 'success',
-    icon: 'i-lucide-file-code'
+    icon: 'i-lucide-file-code',
   })
 }
 
@@ -55,7 +55,8 @@ const toggleExpand = (item: ToonTreeItem) => {
   const idx = expandedKeys.value.indexOf(item.id)
   if (idx >= 0) {
     expandedKeys.value.splice(idx, 1)
-  } else {
+  }
+  else {
     expandedKeys.value.push(item.id)
   }
 }
@@ -85,7 +86,7 @@ const handleAddRoot = () => {
     label: 'root',
     type: Array.isArray(toonStore.parsedData) ? 'array' : 'object',
     path: [],
-    value: toonStore.parsedData
+    value: toonStore.parsedData,
   }
   selectedItem.value = rootItem
   editMode.value = 'addChild'
@@ -99,7 +100,7 @@ const handleDelete = (item: ToonTreeItem) => {
     title: t('actions.delete'),
     description: item.label,
     color: 'success',
-    icon: 'i-lucide-trash-2'
+    icon: 'i-lucide-trash-2',
   })
 }
 
@@ -112,7 +113,7 @@ const handleToggleBoolean = (item: ToonTreeItem) => {
     title: item.label,
     description: `→ ${newValue}`,
     color: 'success',
-    icon: 'i-lucide-toggle-left'
+    icon: 'i-lucide-toggle-left',
   })
 }
 
@@ -129,7 +130,7 @@ const handleSaveInlineEdit = (item: ToonTreeItem, value: unknown) => {
     title: item.label,
     description: t('actions.saved'),
     color: 'success',
-    icon: 'i-lucide-check'
+    icon: 'i-lucide-check',
   })
 }
 
@@ -171,7 +172,7 @@ const handleDrop = (targetItem: ToonTreeItem) => {
     title: t('actions.moved') || 'Moved',
     description: `${draggedItem.value.label} → ${targetItem.label}`,
     color: 'success',
-    icon: 'i-lucide-move'
+    icon: 'i-lucide-move',
   })
 
   // Reset drag state

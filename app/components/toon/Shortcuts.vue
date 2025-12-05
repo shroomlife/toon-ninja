@@ -12,7 +12,7 @@ const shortcuts = [
   { keys: ['Ctrl', 'Shift', 'F'], action: 'shortcuts.format' },
   { keys: ['Ctrl', 'F'], action: 'shortcuts.search' },
   { keys: ['Ctrl', 'O'], action: 'shortcuts.import' },
-  { keys: ['Ctrl', 'Shift', 'S'], action: 'shortcuts.export' }
+  { keys: ['Ctrl', 'Shift', 'S'], action: 'shortcuts.export' },
 ]
 </script>
 

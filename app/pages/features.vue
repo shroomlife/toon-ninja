@@ -12,50 +12,50 @@ useSeoMeta({
   ogUrl: 'https://toon.ninja/features',
   twitterCard: 'summary_large_image',
   twitterTitle: 'TOON NINJA Features - Editor, Validator, Converter',
-  twitterDescription: 'TOON NINJA features: Monaco editor with syntax highlighting, JSON to TOON conversion, live validation, diff comparison, and batch editing. Free, no signup.'
+  twitterDescription: 'TOON NINJA features: Monaco editor with syntax highlighting, JSON to TOON conversion, live validation, diff comparison, and batch editing. Free, no signup.',
 })
 
 const features = computed(() => [
   {
     icon: 'i-lucide-code-2',
     title: t('pages.features.list.monaco.title'),
-    description: t('pages.features.list.monaco.description')
+    description: t('pages.features.list.monaco.description'),
   },
   {
     icon: 'i-lucide-arrow-right-left',
     title: t('pages.features.list.conversion.title'),
-    description: t('pages.features.list.conversion.description')
+    description: t('pages.features.list.conversion.description'),
   },
   {
     icon: 'i-lucide-shield-check',
     title: t('pages.features.list.validation.title'),
-    description: t('pages.features.list.validation.description')
+    description: t('pages.features.list.validation.description'),
   },
   {
     icon: 'i-lucide-git-compare',
     title: t('pages.features.list.diff.title'),
-    description: t('pages.features.list.diff.description')
+    description: t('pages.features.list.diff.description'),
   },
   {
     icon: 'i-lucide-layers',
     title: t('pages.features.list.batch.title'),
-    description: t('pages.features.list.batch.description')
+    description: t('pages.features.list.batch.description'),
   },
   {
     icon: 'i-lucide-keyboard',
     title: t('pages.features.list.shortcuts.title'),
-    description: t('pages.features.list.shortcuts.description')
+    description: t('pages.features.list.shortcuts.description'),
   },
   {
     icon: 'i-lucide-moon',
     title: t('pages.features.list.darkMode.title'),
-    description: t('pages.features.list.darkMode.description')
+    description: t('pages.features.list.darkMode.description'),
   },
   {
     icon: 'i-lucide-user-x',
     title: t('pages.features.list.noAccount.title'),
-    description: t('pages.features.list.noAccount.description')
-  }
+    description: t('pages.features.list.noAccount.description'),
+  },
 ])
 </script>
 

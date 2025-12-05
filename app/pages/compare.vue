@@ -12,7 +12,7 @@ useSeoMeta({
   ogUrl: 'https://toon.ninja/compare',
   twitterCard: 'summary_large_image',
   twitterTitle: 'TOON vs JSON - Format Comparison for AI Applications',
-  twitterDescription: 'TOON vs JSON compared: token efficiency, readability, use cases. See why TOON saves 30-60% tokens for LLM applications while staying JSON-compatible.'
+  twitterDescription: 'TOON vs JSON compared: token efficiency, readability, use cases. See why TOON saves 30-60% tokens for LLM applications while staying JSON-compatible.',
 })
 
 const comparisonRows = computed(() => [
@@ -20,32 +20,32 @@ const comparisonRows = computed(() => [
     criterion: t('pages.compare.table.tokenEfficiency'),
     toon: t('pages.compare.table.tokenToon'),
     json: t('pages.compare.table.tokenJson'),
-    toonWins: true
+    toonWins: true,
   },
   {
     criterion: t('pages.compare.table.readability'),
     toon: t('pages.compare.table.readabilityToon'),
     json: t('pages.compare.table.readabilityJson'),
-    toonWins: true
+    toonWins: true,
   },
   {
     criterion: t('pages.compare.table.ecosystem'),
     toon: t('pages.compare.table.ecosystemToon'),
     json: t('pages.compare.table.ecosystemJson'),
-    toonWins: false
+    toonWins: false,
   },
   {
     criterion: t('pages.compare.table.learningCurve'),
     toon: t('pages.compare.table.learningToon'),
     json: t('pages.compare.table.learningJson'),
-    toonWins: null
+    toonWins: null,
   },
   {
     criterion: t('pages.compare.table.bestFor'),
     toon: t('pages.compare.table.bestForToon'),
     json: t('pages.compare.table.bestForJson'),
-    toonWins: null
-  }
+    toonWins: null,
+  },
 ])
 </script>
 

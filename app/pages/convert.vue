@@ -12,32 +12,32 @@ useSeoMeta({
   ogUrl: 'https://toon.ninja/convert',
   twitterCard: 'summary_large_image',
   twitterTitle: 'JSON to TOON Converter - TOON NINJA',
-  twitterDescription: 'Convert JSON to TOON format instantly with TOON NINJA. Reduce your LLM token count by 30-60%. Free online converter, no signup.'
+  twitterDescription: 'Convert JSON to TOON format instantly with TOON NINJA. Reduce your LLM token count by 30-60%. Free online converter, no signup.',
 })
 
 const steps = computed(() => [
   {
     icon: 'i-lucide-clipboard-paste',
     title: t('pages.convert.howItWorks.step1.title'),
-    description: t('pages.convert.howItWorks.step1.description')
+    description: t('pages.convert.howItWorks.step1.description'),
   },
   {
     icon: 'i-lucide-refresh-cw',
     title: t('pages.convert.howItWorks.step2.title'),
-    description: t('pages.convert.howItWorks.step2.description')
+    description: t('pages.convert.howItWorks.step2.description'),
   },
   {
     icon: 'i-lucide-copy',
     title: t('pages.convert.howItWorks.step3.title'),
-    description: t('pages.convert.howItWorks.step3.description')
-  }
+    description: t('pages.convert.howItWorks.step3.description'),
+  },
 ])
 
 const benefits = computed(() => [
   { icon: 'i-lucide-trending-down', text: t('pages.convert.benefits.tokenReduction') },
   { icon: 'i-lucide-minimize-2', text: t('pages.convert.benefits.smallerPayload') },
   { icon: 'i-lucide-eye', text: t('pages.convert.benefits.humanReadable') },
-  { icon: 'i-lucide-check-circle', text: t('pages.convert.benefits.jsonCompatible') }
+  { icon: 'i-lucide-check-circle', text: t('pages.convert.benefits.jsonCompatible') },
 ])
 </script>
 

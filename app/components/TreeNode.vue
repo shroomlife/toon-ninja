@@ -123,7 +123,8 @@ const handleKeydown = (e: KeyboardEvent) => {
   if (e.key === 'Enter') {
     e.preventDefault()
     saveEdit()
-  } else if (e.key === 'Escape') {
+  }
+  else if (e.key === 'Escape') {
     e.preventDefault()
     cancelEdit()
   }
@@ -179,9 +180,11 @@ const handleDragOver = (e: DragEvent) => {
   let position: 'before' | 'after' | 'inside' = 'after'
   if (y < height * 0.25) {
     position = 'before'
-  } else if (y > height * 0.75 || !canAddChild.value) {
+  }
+  else if (y > height * 0.75 || !canAddChild.value) {
     position = 'after'
-  } else {
+  }
+  else {
     position = 'inside'
   }
 
@@ -208,7 +211,7 @@ const handleDrop = (e: DragEvent) => {
       :class="{
         'bg-primary-50 dark:bg-primary-900/20 border-t-2 border-primary': isDragOver && dragPosition === 'before',
         'bg-primary-50 dark:bg-primary-900/20 border-b-2 border-primary': isDragOver && dragPosition === 'after',
-        'bg-primary-100 dark:bg-primary-900/40 ring-2 ring-primary ring-inset': isDragOver && dragPosition === 'inside'
+        'bg-primary-100 dark:bg-primary-900/40 ring-2 ring-primary ring-inset': isDragOver && dragPosition === 'inside',
       }"
       :style="{ paddingLeft: `${level * 16 + 4}px` }"
       draggable="true"
@@ -264,7 +267,7 @@ const handleDrop = (e: DragEvent) => {
             class="text-xs truncate max-w-32 cursor-pointer hover:underline"
             :class="[
               getTypeColor(item.type),
-              item.type === 'boolean' ? 'hover:opacity-70' : ''
+              item.type === 'boolean' ? 'hover:opacity-70' : '',
             ]"
             @click="handleValueClick"
           >

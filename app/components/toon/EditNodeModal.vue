@@ -43,13 +43,13 @@ const typeOptions = [
   { label: t('editModal.types.boolean'), value: 'boolean', icon: 'i-lucide-toggle-left' },
   { label: t('editModal.types.null'), value: 'null', icon: 'i-lucide-circle-slash' },
   { label: t('editModal.types.object'), value: 'object', icon: 'i-lucide-braces' },
-  { label: t('editModal.types.array'), value: 'array', icon: 'i-lucide-list' }
+  { label: t('editModal.types.array'), value: 'array', icon: 'i-lucide-list' },
 ]
 
 // Boolean options
 const booleanOptions = [
   { label: 'true', value: 'true' },
-  { label: 'false', value: 'false' }
+  { label: 'false', value: 'false' },
 ]
 
 // Detect type from value
@@ -80,10 +80,11 @@ const analyzeStructure = (): SmartField[] => {
         const existing = fieldMap.get(prop.label)
         if (existing) {
           existing.examples.push(prop.value)
-        } else {
+        }
+        else {
           fieldMap.set(prop.label, {
             type: detectType(prop.value),
-            examples: [prop.value]
+            examples: [prop.value],
           })
         }
       }
@@ -100,7 +101,7 @@ const analyzeStructure = (): SmartField[] => {
       value: data.type === 'boolean' ? 'false' : '',
       example: example !== undefined && example !== null
         ? String(example).substring(0, 30)
-        : undefined
+        : undefined,
     })
   }
 
@@ -120,7 +121,7 @@ const buildFieldsFromObject = (): SmartField[] => {
         ? (child.value ? 'true' : 'false')
         : child.type === 'null'
           ? ''
-          : String(child.value ?? '')
+          : String(child.value ?? ''),
     })
   }
   return fields
@@ -136,31 +137,37 @@ watchEffect(() => {
       formValue.value = ''
       useSmartForm.value = false
       smartFields.value = []
-    } else if (props.item.type === 'boolean') {
+    }
+    else if (props.item.type === 'boolean') {
       formValue.value = props.item.value ? 'true' : 'false'
       useSmartForm.value = false
       smartFields.value = []
-    } else if (props.item.type === 'object') {
+    }
+    else if (props.item.type === 'object') {
       // Use smart form for editing objects
       formValue.value = ''
       const fields = buildFieldsFromObject()
       if (fields.length > 0) {
         useSmartForm.value = true
         smartFields.value = fields
-      } else {
+      }
+      else {
         useSmartForm.value = false
         smartFields.value = []
       }
-    } else if (props.item.type === 'array') {
+    }
+    else if (props.item.type === 'array') {
       formValue.value = ''
       useSmartForm.value = false
       smartFields.value = []
-    } else {
+    }
+    else {
       formValue.value = String(props.item.value ?? '')
       useSmartForm.value = false
       smartFields.value = []
     }
-  } else {
+  }
+  else {
     // Adding new node - check for smart form
     formKey.value = ''
     formValue.value = ''
@@ -170,7 +177,8 @@ watchEffect(() => {
     if (detected.length > 0) {
       useSmartForm.value = true
       smartFields.value = detected
-    } else {
+    }
+    else {
       useSmartForm.value = false
       smartFields.value = []
     }
@@ -308,21 +316,25 @@ const handleSave = () => {
       if (props.mode === 'edit') {
         // Edit existing object - replace with updated values
         toonStore.editNode(props.item.path, obj, showKeyInput.value ? formKey.value.trim() : undefined)
-      } else {
+      }
+      else {
         // Add new object to array
         toonStore.addNode(props.item.path, obj)
       }
-    } else {
+    }
+    else {
       const value = parseValue()
       const key = showKeyInput.value ? formKey.value.trim() : undefined
 
       if (props.mode === 'edit') {
         // Edit existing node
         toonStore.editNode(props.item.path, value, key)
-      } else if (props.mode === 'addChild') {
+      }
+      else if (props.mode === 'addChild') {
         // Add child to current node
         toonStore.addNode(props.item.path, value, key)
-      } else {
+      }
+      else {
         // Add sibling (add to parent)
         const parentPath = props.item.path.slice(0, -1)
         toonStore.addNode(parentPath, value, key)
@@ -332,17 +344,18 @@ const handleSave = () => {
     toast.add({
       title: t('success.saved'),
       color: 'success',
-      icon: 'i-lucide-check-circle'
+      icon: 'i-lucide-check-circle',
     })
 
     open.value = false
     emit('close')
-  } catch (e) {
+  }
+  catch (e) {
     toast.add({
       title: t('errors.invalidData'),
       description: e instanceof Error ? e.message : String(e),
       color: 'error',
-      icon: 'i-lucide-alert-circle'
+      icon: 'i-lucide-alert-circle',
     })
   }
 }

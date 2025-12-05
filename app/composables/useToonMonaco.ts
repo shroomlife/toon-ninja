@@ -25,7 +25,7 @@ export const useToonMonaco = () => {
       id: 'toon',
       extensions: ['.toon'],
       aliases: ['TOON', 'toon'],
-      mimetypes: ['text/toon']
+      mimetypes: ['text/toon'],
     })
 
     // Monarch tokenizer for syntax highlighting
@@ -67,37 +67,37 @@ export const useToonMonaco = () => {
           [/[,\t|]/, 'delimiter.separator'],
 
           // Unquoted string values (catch-all for values after colon)
-          [/[^\s,\t|][^,\t|\n]*/, 'string.unquoted']
-        ]
-      }
+          [/[^\s,\t|][^,\t|\n]*/, 'string.unquoted'],
+        ],
+      },
     })
 
     // Language configuration
     monaco.languages.setLanguageConfiguration('toon', {
       comments: {
-        lineComment: '#'
+        lineComment: '#',
       },
       brackets: [
         ['{', '}'],
-        ['[', ']']
+        ['[', ']'],
       ],
       autoClosingPairs: [
         { open: '{', close: '}' },
         { open: '[', close: ']' },
-        { open: '"', close: '"' }
+        { open: '"', close: '"' },
       ],
       surroundingPairs: [
         { open: '"', close: '"' },
         { open: '{', close: '}' },
-        { open: '[', close: ']' }
+        { open: '[', close: ']' },
       ],
       folding: {
-        offSide: true // Indentation-based folding like Python/YAML
+        offSide: true, // Indentation-based folding like Python/YAML
       },
       indentationRules: {
         increaseIndentPattern: /:\s*$/,
-        decreaseIndentPattern: /^\s*$/
-      }
+        decreaseIndentPattern: /^\s*$/,
+      },
     })
 
     // Define custom theme tokens
@@ -117,9 +117,9 @@ export const useToonMonaco = () => {
         { token: 'delimiter.colon', foreground: 'D4D4D4' },
         { token: 'delimiter.separator', foreground: '808080' },
         { token: 'delimiter.list', foreground: 'C586C0' },
-        { token: 'comment', foreground: '6A9955', fontStyle: 'italic' }
+        { token: 'comment', foreground: '6A9955', fontStyle: 'italic' },
       ],
-      colors: {}
+      colors: {},
     })
 
     monaco.editor.defineTheme('toon-light', {
@@ -138,9 +138,9 @@ export const useToonMonaco = () => {
         { token: 'delimiter.colon', foreground: '000000' },
         { token: 'delimiter.separator', foreground: '808080' },
         { token: 'delimiter.list', foreground: 'AF00DB' },
-        { token: 'comment', foreground: '008000', fontStyle: 'italic' }
+        { token: 'comment', foreground: '008000', fontStyle: 'italic' },
       ],
-      colors: {}
+      colors: {},
     })
   }
 
@@ -148,7 +148,7 @@ export const useToonMonaco = () => {
   const validateContent = (
     monaco: typeof Monaco,
     editor: Monaco.editor.IStandaloneCodeEditor,
-    debounceMs = 300
+    debounceMs = 300,
   ) => {
     const model = editor.getModel()
     if (!model) return
@@ -175,7 +175,7 @@ export const useToonMonaco = () => {
             startLineNumber: error.line,
             startColumn: error.column,
             endLineNumber: error.line,
-            endColumn: model.getLineLength(error.line) + 1
+            endColumn: model.getLineLength(error.line) + 1,
           })
         })
       }
@@ -201,7 +201,7 @@ export const useToonMonaco = () => {
             startLineNumber: lineNumber,
             startColumn: 1,
             endLineNumber: lineNumber,
-            endColumn: leadingSpaces + 1
+            endColumn: leadingSpaces + 1,
           })
         }
 
@@ -214,7 +214,7 @@ export const useToonMonaco = () => {
             startLineNumber: lineNumber,
             startColumn: leadingSpaces + 1,
             endLineNumber: lineNumber,
-            endColumn: line.length + 1
+            endColumn: line.length + 1,
           })
         }
 
@@ -231,7 +231,7 @@ export const useToonMonaco = () => {
               startLineNumber: lineNumber,
               startColumn: leadingSpaces + 1,
               endLineNumber: lineNumber,
-              endColumn: leadingSpaces + colonIndex + 1
+              endColumn: leadingSpaces + colonIndex + 1,
             })
           }
         }
@@ -263,7 +263,7 @@ export const useToonMonaco = () => {
       suggestOnTriggerCharacters: false,
       quickSuggestions: false,
       formatOnPaste: false,
-      formatOnType: false
+      formatOnType: false,
     }
   }
 
@@ -279,6 +279,6 @@ export const useToonMonaco = () => {
     registerToonLanguage,
     validateContent,
     getEditorOptions,
-    dispose
+    dispose,
   }
 }

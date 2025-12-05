@@ -10,13 +10,13 @@ const exportItems = [
   [{
     label: 'TOON (.toon)',
     icon: 'i-lucide-file-code',
-    onSelect: () => handleExport('toon')
+    onSelect: () => handleExport('toon'),
   }],
   [{
     label: 'JSON (.json)',
     icon: 'i-lucide-file-json',
-    onSelect: () => handleExport('json')
-  }]
+    onSelect: () => handleExport('json'),
+  }],
 ]
 
 function handleUndo() {
@@ -40,7 +40,7 @@ function handleCopy() {
     navigator.clipboard.writeText(toonStore.rawContent)
     toast.add({
       title: t('success.copied'),
-      color: 'success'
+      color: 'success',
     })
   }
 }
@@ -51,7 +51,7 @@ function handleCopyAsJson() {
     navigator.clipboard.writeText(jsonContent)
     toast.add({
       title: t('success.copiedAsJson'),
-      color: 'success'
+      color: 'success',
     })
   }
 }
@@ -69,20 +69,22 @@ async function handlePaste() {
         toonStore.setContent(toonContent)
         toast.add({
           title: t('success.jsonConverted'),
-          color: 'success'
+          color: 'success',
         })
         return
-      } catch {
+      }
+      catch {
         // Not valid JSON, continue with raw paste
       }
     }
 
     // Paste as-is (already TOON or plain text)
     toonStore.setContent(text)
-  } catch {
+  }
+  catch {
     toast.add({
       title: t('errors.parseError'),
-      color: 'error'
+      color: 'error',
     })
   }
 }
@@ -98,7 +100,8 @@ function handleExport(format: 'toon' | 'json') {
     content = JSON.stringify(toonStore.parsedData, null, 2)
     extension = 'json'
     mimeType = 'application/json'
-  } else {
+  }
+  else {
     content = encode(toonStore.parsedData, { indent: 2 })
     extension = 'toon'
     mimeType = 'text/plain'
@@ -116,7 +119,7 @@ function handleExport(format: 'toon' | 'json') {
 
   toast.add({
     title: t('success.exported'),
-    color: 'success'
+    color: 'success',
   })
 }
 </script>

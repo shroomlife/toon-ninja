@@ -19,56 +19,56 @@ const features = computed(() => [
   {
     icon: 'i-lucide-file-text',
     title: t('about.features.humanReadable.title'),
-    description: t('about.features.humanReadable.description')
+    description: t('about.features.humanReadable.description'),
   },
   {
     icon: 'i-lucide-minimize-2',
     title: t('about.features.compact.title'),
-    description: t('about.features.compact.description')
+    description: t('about.features.compact.description'),
   },
   {
     icon: 'i-lucide-table',
     title: t('about.features.tabular.title'),
-    description: t('about.features.tabular.description')
+    description: t('about.features.tabular.description'),
   },
   {
     icon: 'i-lucide-zap',
     title: t('about.features.efficient.title'),
-    description: t('about.features.efficient.description')
+    description: t('about.features.efficient.description'),
   },
   {
     icon: 'i-lucide-check-circle',
     title: t('about.features.jsonCompatible.title'),
-    description: t('about.features.jsonCompatible.description')
+    description: t('about.features.jsonCompatible.description'),
   },
   {
     icon: 'i-lucide-brain',
     title: t('about.features.llmFriendly.title'),
-    description: t('about.features.llmFriendly.description')
-  }
+    description: t('about.features.llmFriendly.description'),
+  },
 ])
 
 const useCases = computed(() => [
   {
     icon: 'i-lucide-settings',
     title: t('about.useCases.config.title'),
-    description: t('about.useCases.config.description')
+    description: t('about.useCases.config.description'),
   },
   {
     icon: 'i-lucide-database',
     title: t('about.useCases.data.title'),
-    description: t('about.useCases.data.description')
+    description: t('about.useCases.data.description'),
   },
   {
     icon: 'i-lucide-bot',
     title: t('about.useCases.ai.title'),
-    description: t('about.useCases.ai.description')
+    description: t('about.useCases.ai.description'),
   },
   {
     icon: 'i-lucide-code',
     title: t('about.useCases.api.title'),
-    description: t('about.useCases.api.description')
-  }
+    description: t('about.useCases.api.description'),
+  },
 ])
 </script>
 

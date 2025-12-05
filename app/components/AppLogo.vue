@@ -2,8 +2,8 @@
 const props = defineProps({
   size: {
     type: Number as PropType<number>,
-    default: 32
-  }
+    default: 32,
+  },
 })
 
 const computedWidth = computed(() => {

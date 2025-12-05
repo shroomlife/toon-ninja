@@ -26,7 +26,8 @@ function countMatches() {
 
     const matches = toonStore.rawContent.match(regex)
     matchCount.value = matches ? matches.length : 0
-  } catch {
+  }
+  catch {
     matchCount.value = 0
   }
 }
@@ -40,7 +41,7 @@ function replaceAll() {
     toast.add({
       title: t('success.saved'),
       description: `Replaced ${count} occurrences`,
-      color: 'success'
+      color: 'success',
     })
     matchCount.value = 0
     findText.value = ''

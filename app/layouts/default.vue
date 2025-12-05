@@ -14,16 +14,16 @@ const languageOptions = computed(() =>
     return {
       label: typeof l === 'string' ? l : l.name || l.code,
       value: code,
-      icon: `i-circle-flags-${code}`
+      icon: `i-circle-flags-${code}`,
     }
-  })
+  }),
 )
 
 const selectedLanguage = computed({
   get: () => locale.value,
   set: (val: string) => {
     setLocale(val)
-  }
+  },
 })
 
 const links = computed<NavigationMenuItem[][]>(() => [[{
@@ -32,56 +32,56 @@ const links = computed<NavigationMenuItem[][]>(() => [[{
   to: '/',
   onSelect: () => {
     open.value = false
-  }
+  },
 }], [{
   label: t('nav.about'),
   icon: 'i-lucide-info',
   to: '/about',
   onSelect: () => {
     open.value = false
-  }
+  },
 }, {
   label: t('nav.convert'),
   icon: 'i-lucide-arrow-right-left',
   to: '/convert',
   onSelect: () => {
     open.value = false
-  }
+  },
 }, {
   label: t('nav.tokenOptimization'),
   icon: 'i-lucide-piggy-bank',
   to: '/token-optimization',
   onSelect: () => {
     open.value = false
-  }
+  },
 }, {
   label: t('nav.features'),
   icon: 'i-lucide-zap',
   to: '/features',
   onSelect: () => {
     open.value = false
-  }
+  },
 }, {
   label: t('nav.compare'),
   icon: 'i-lucide-scale',
   to: '/compare',
   onSelect: () => {
     open.value = false
-  }
+  },
 }], [{
   label: t('settings.title'),
   icon: 'i-lucide-settings',
   onSelect: () => {
     settingsOpen.value = true
     open.value = false
-  }
+  },
 }, {
   label: t('shortcuts.title'),
   icon: 'i-lucide-keyboard',
   onSelect: () => {
     shortcutsOpen.value = true
     open.value = false
-  }
+  },
 }]])
 </script>
 

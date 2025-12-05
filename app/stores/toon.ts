@@ -44,7 +44,7 @@ export const useToonStore = defineStore('toon', {
     searchResults: [] as string[],
     compareContent: '' as string,
     isDirty: false,
-    isLoading: false
+    isLoading: false,
   }),
 
   getters: {
@@ -62,10 +62,11 @@ export const useToonStore = defineStore('toon', {
       if (!state.parsedData) return state.rawContent
       try {
         return encode(state.parsedData, { indent: 2 })
-      } catch {
+      }
+      catch {
         return state.rawContent
       }
-    }
+    },
   },
 
   actions: {
@@ -94,7 +95,8 @@ export const useToonStore = defineStore('toon', {
         this.parsedData = decode(this.rawContent, { strict: true })
         this.isValid = true
         this.errorMessage = ''
-      } catch (e) {
+      }
+      catch (e) {
         this.isValid = false
         const errorMsg = e instanceof Error ? e.message : 'Invalid TOON'
         this.errorMessage = errorMsg
@@ -106,7 +108,7 @@ export const useToonStore = defineStore('toon', {
         this.errors.push({
           line: lineMatch?.[1] ? parseInt(lineMatch[1], 10) : 1,
           column: colMatch?.[1] ? parseInt(colMatch[1], 10) : 1,
-          message: errorMsg
+          message: errorMsg,
         })
 
         this.parsedData = null
@@ -121,12 +123,13 @@ export const useToonStore = defineStore('toon', {
 
       this.history.push({
         content,
-        timestamp: Date.now()
+        timestamp: Date.now(),
       })
 
       if (this.history.length > this.maxHistory) {
         this.history.shift()
-      } else {
+      }
+      else {
         this.historyIndex++
       }
     },
@@ -159,7 +162,8 @@ export const useToonStore = defineStore('toon', {
         try {
           const formatted = encode(this.parsedData, { indent: 2 })
           this.setContent(formatted)
-        } catch (e) {
+        }
+        catch (e) {
           console.error('Format error:', e)
         }
       }
@@ -171,18 +175,22 @@ export const useToonStore = defineStore('toon', {
         // Create new root object/array
         if (key) {
           this.parsedData = { [key]: value }
-        } else if (Array.isArray(value)) {
+        }
+        else if (Array.isArray(value)) {
           this.parsedData = [value]
-        } else {
+        }
+        else {
           this.parsedData = value
         }
-      } else {
+      }
+      else {
         const newData = JSON.parse(JSON.stringify(this.parsedData))
         const parent = path.length > 0 ? getNestedValue(newData, path) : newData
 
         if (Array.isArray(parent)) {
           parent.push(value)
-        } else if (parent && typeof parent === 'object') {
+        }
+        else if (parent && typeof parent === 'object') {
           if (key) {
             (parent as Record<string, unknown>)[key] = value
           }
@@ -215,11 +223,13 @@ export const useToonStore = defineStore('toon', {
             const { [oldKey]: _, ...rest } = obj
             Object.keys(obj).forEach(k => Reflect.deleteProperty(obj, k))
             Object.assign(obj, rest)
-          } else {
+          }
+          else {
             obj[oldKey] = newValue
           }
         }
-      } else {
+      }
+      else {
         setNestedValue(newData, path, newValue)
       }
 
@@ -250,7 +260,8 @@ export const useToonStore = defineStore('toon', {
         const index = parseInt(key, 10)
         const value = JSON.parse(JSON.stringify(parent[index]))
         parent.splice(index + 1, 0, value)
-      } else if (parent && typeof parent === 'object') {
+      }
+      else if (parent && typeof parent === 'object') {
         const obj = parent as Record<string, unknown>
         const value = JSON.parse(JSON.stringify(obj[key]))
         let newKey = `${key}_copy`
@@ -282,11 +293,13 @@ export const useToonStore = defineStore('toon', {
         const target = getNestedValue(newData, toPath)
         if (Array.isArray(target)) {
           target.push(value)
-        } else if (target && typeof target === 'object') {
+        }
+        else if (target && typeof target === 'object') {
           const key = fromPath[fromPath.length - 1]!
           ;(target as Record<string, unknown>)[key] = value
         }
-      } else {
+      }
+      else {
         const parentPath = toPath.slice(0, -1)
         const parent = parentPath.length > 0
           ? getNestedValue(newData, parentPath)
@@ -314,7 +327,8 @@ export const useToonStore = defineStore('toon', {
           this.errorMessage = ''
           this.errors = []
           this.addToHistory(content)
-        } catch (e) {
+        }
+        catch (e) {
           console.error('Encode error:', e)
         }
       }
@@ -325,7 +339,8 @@ export const useToonStore = defineStore('toon', {
       const index = this.expandedKeys.indexOf(key)
       if (index > -1) {
         this.expandedKeys.splice(index, 1)
-      } else {
+      }
+      else {
         this.expandedKeys.push(key)
       }
     },
@@ -382,7 +397,8 @@ export const useToonStore = defineStore('toon', {
       let regex: RegExp
       try {
         regex = useRegex ? new RegExp(find, flags) : new RegExp(escapeRegex(find), flags)
-      } catch {
+      }
+      catch {
         return 0
       }
 
@@ -399,8 +415,8 @@ export const useToonStore = defineStore('toon', {
 
     getNodeByPath(path: string[]): unknown {
       return getNestedValue(this.parsedData, path)
-    }
-  }
+    },
+  },
 })
 
 // === Helper Functions ===
@@ -415,7 +431,7 @@ function buildTreeItems(data: unknown, path: string[]): ToonTreeItem[] {
       icon: 'i-lucide-circle-slash',
       value: null,
       type: 'null',
-      path
+      path,
     }]
   }
 
@@ -436,10 +452,11 @@ function buildTreeItems(data: unknown, path: string[]): ToonTreeItem[] {
         isArrayItem: true,
         arrayIndex: index,
         defaultExpanded: false,
-        children: hasChildren ? buildTreeItems(item, itemPath) : undefined
+        children: hasChildren ? buildTreeItems(item, itemPath) : undefined,
       })
     })
-  } else if (typeof data === 'object') {
+  }
+  else if (typeof data === 'object') {
     Object.entries(data as Record<string, unknown>).forEach(([key, value]) => {
       const itemPath = [...path, key]
       const id = itemPath.join('.')
@@ -454,7 +471,7 @@ function buildTreeItems(data: unknown, path: string[]): ToonTreeItem[] {
         type,
         path: itemPath,
         defaultExpanded: false,
-        children: hasChildren ? buildTreeItems(value, itemPath) : undefined
+        children: hasChildren ? buildTreeItems(value, itemPath) : undefined,
       })
     })
   }
@@ -496,7 +513,8 @@ function collectAllKeys(data: unknown, path: string[]): string[] {
       keys.push(itemPath.join('.'))
       keys.push(...collectAllKeys(item, itemPath))
     })
-  } else {
+  }
+  else {
     Object.entries(data as Record<string, unknown>).forEach(([key, value]) => {
       const itemPath = [...path, key]
       keys.push(itemPath.join('.'))
@@ -518,7 +536,8 @@ function findMatches(data: unknown, query: string, path: string[]): string[] {
       const itemPath = [...path, String(index)]
       results.push(...findMatches(item, query, itemPath))
     })
-  } else if (typeof data === 'object') {
+  }
+  else if (typeof data === 'object') {
     Object.entries(data as Record<string, unknown>).forEach(([key, value]) => {
       const itemPath = [...path, key]
       if (key.toLowerCase().includes(lowerQuery)) {
@@ -526,7 +545,8 @@ function findMatches(data: unknown, query: string, path: string[]): string[] {
       }
       results.push(...findMatches(value, query, itemPath))
     })
-  } else {
+  }
+  else {
     if (String(data).toLowerCase().includes(lowerQuery)) {
       results.push(path.join('.'))
     }
@@ -543,7 +563,8 @@ function getNestedValue(obj: unknown, path: string[]): unknown {
     if (current === null || typeof current !== 'object') return undefined
     if (Array.isArray(current)) {
       current = current[parseInt(key!, 10)]
-    } else {
+    }
+    else {
       current = (current as Record<string, unknown>)[key!]
     }
   }
@@ -559,7 +580,8 @@ function setNestedValue(obj: unknown, path: string[], value: unknown): void {
     if (current === null || typeof current !== 'object') return
     if (Array.isArray(current)) {
       current = current[parseInt(key, 10)]
-    } else {
+    }
+    else {
       current = (current as Record<string, unknown>)[key]
     }
   }
@@ -567,7 +589,8 @@ function setNestedValue(obj: unknown, path: string[], value: unknown): void {
   const lastKey = path[path.length - 1]!
   if (Array.isArray(current)) {
     current[parseInt(lastKey, 10)] = value
-  } else if (current && typeof current === 'object') {
+  }
+  else if (current && typeof current === 'object') {
     (current as Record<string, unknown>)[lastKey] = value
   }
 }
@@ -581,7 +604,8 @@ function deleteNestedValue(obj: unknown, path: string[]): void {
     if (current === null || typeof current !== 'object') return
     if (Array.isArray(current)) {
       current = current[parseInt(key, 10)]
-    } else {
+    }
+    else {
       current = (current as Record<string, unknown>)[key]
     }
   }
@@ -589,7 +613,8 @@ function deleteNestedValue(obj: unknown, path: string[]): void {
   const lastKey = path[path.length - 1]!
   if (Array.isArray(current)) {
     current.splice(parseInt(lastKey, 10), 1)
-  } else if (current && typeof current === 'object') {
+  }
+  else if (current && typeof current === 'object') {
     Reflect.deleteProperty(current as Record<string, unknown>, lastKey)
   }
 }

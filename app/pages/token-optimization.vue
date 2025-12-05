@@ -12,7 +12,7 @@ useSeoMeta({
   ogUrl: 'https://toon.ninja/token-optimization',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Reduce LLM Token Costs - TOON NINJA',
-  twitterDescription: 'Cut OpenAI and Anthropic API costs by 30-60%. TOON NINJA converts your JSON to token-efficient TOON format for ChatGPT, Claude and other LLMs.'
+  twitterDescription: 'Cut OpenAI and Anthropic API costs by 30-60%. TOON NINJA converts your JSON to token-efficient TOON format for ChatGPT, Claude and other LLMs.',
 })
 </script>
 

@@ -13,7 +13,7 @@ useSeoMeta({
   ogUrl: 'https://toon.ninja',
   twitterCard: 'summary_large_image',
   twitterTitle: 'TOON NINJA - Free Online TOON Editor & JSON Converter',
-  twitterDescription: 'TOON NINJA is a free online editor for TOON format. Convert JSON to TOON, reduce LLM token costs by 30-60%, validate and format with live preview.'
+  twitterDescription: 'TOON NINJA is a free online editor for TOON format. Convert JSON to TOON, reduce LLM token costs by 30-60%, validate and format with live preview.',
 })
 
 // Schema.org JSON-LD
@@ -30,15 +30,15 @@ useHead({
       'offers': {
         '@type': 'Offer',
         'price': '0',
-        'priceCurrency': 'USD'
+        'priceCurrency': 'USD',
       },
       'url': 'https://toon.ninja',
       'author': {
         '@type': 'Organization',
-        'name': 'TOON NINJA'
-      }
-    })
-  }]
+        'name': 'TOON NINJA',
+      },
+    }),
+  }],
 })
 
 // Keyboard shortcuts

@@ -9,7 +9,7 @@ const _useDashboard = () => {
   defineShortcuts({
     'g-h': () => router.push('/'),
     'g-c': () => router.push('/compare'),
-    '?': () => isShortcutsOpen.value = !isShortcutsOpen.value
+    '?': () => isShortcutsOpen.value = !isShortcutsOpen.value,
   })
 
   watch(() => route.fullPath, () => {
@@ -19,7 +19,7 @@ const _useDashboard = () => {
 
   return {
     isSettingsOpen,
-    isShortcutsOpen
+    isShortcutsOpen,
   }
 }
 

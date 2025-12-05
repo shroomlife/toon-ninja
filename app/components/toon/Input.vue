@@ -6,7 +6,7 @@ const toast = useToast()
 // Sync with store
 const inputContent = computed({
   get: () => toonStore.rawContent,
-  set: (value: string) => toonStore.setContent(value, false)
+  set: (value: string) => toonStore.setContent(value, false),
 })
 
 const pasteFromClipboard = async () => {
@@ -18,15 +18,16 @@ const pasteFromClipboard = async () => {
         title: t('input.pasted'),
         description: t('input.pastedDescription'),
         color: 'info',
-        icon: 'i-lucide-clipboard-check'
+        icon: 'i-lucide-clipboard-check',
       })
     }
-  } catch {
+  }
+  catch {
     toast.add({
       title: t('input.error'),
       description: t('input.clipboardError'),
       color: 'error',
-      icon: 'i-lucide-alert-circle'
+      icon: 'i-lucide-alert-circle',
     })
   }
 }

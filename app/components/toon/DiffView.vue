@@ -154,7 +154,7 @@ function clearAll() {
           :class="[
             part.added ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200'
             : part.removed ? 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200'
-              : 'text-neutral-600 dark:text-neutral-400'
+              : 'text-neutral-600 dark:text-neutral-400',
           ]"
           class="whitespace-pre-wrap"
         >
