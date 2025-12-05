@@ -16,31 +16,6 @@ useSeoMeta({
   twitterDescription: 'TOON NINJA is a free online editor for TOON format. Convert JSON to TOON, reduce LLM token costs by 30-60%, validate and format with live preview.',
 })
 
-// Schema.org JSON-LD
-useHead({
-  script: [{
-    type: 'application/ld+json',
-    innerHTML: JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'SoftwareApplication',
-      'name': 'TOON NINJA',
-      'description': 'Free online editor for TOON format. Convert JSON to TOON, reduce LLM token costs by 30-60%, validate and format with live preview.',
-      'applicationCategory': 'DeveloperApplication',
-      'operatingSystem': 'Web Browser',
-      'offers': {
-        '@type': 'Offer',
-        'price': '0',
-        'priceCurrency': 'USD',
-      },
-      'url': 'https://toon.ninja',
-      'author': {
-        '@type': 'Organization',
-        'name': 'TOON NINJA',
-      },
-    }),
-  }],
-})
-
 // Keyboard shortcuts
 const keys = useMagicKeys()
 const ctrlZ = computed(() => keys['Ctrl+z']?.value ?? false)

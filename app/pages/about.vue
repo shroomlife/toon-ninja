@@ -1,6 +1,20 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
+// SEO Meta Tags - static values for SSR hydration compatibility
+useSeoMeta({
+  title: 'About TOON Format - Token-Oriented Object Notation',
+  description: 'Learn about TOON, a compact data format that saves 30-60% tokens compared to JSON. Perfect for LLM applications and AI prompts.',
+  ogTitle: 'About TOON Format - Token-Oriented Object Notation',
+  ogDescription: 'Learn about TOON, a compact data format that saves 30-60% tokens compared to JSON. Perfect for LLM applications and AI prompts.',
+  ogType: 'website',
+  ogSiteName: 'TOON NINJA',
+  ogUrl: 'https://toon.ninja/about',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'About TOON Format - Token-Oriented Object Notation',
+  twitterDescription: 'Learn about TOON, a compact data format that saves 30-60% tokens compared to JSON. Perfect for LLM applications and AI prompts.',
+})
+
 // TOON example code
 const toonExample = `users[3]{name, age, active}:
   Alice, 30, true
