@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import * as monaco from 'monaco-editor'
 import { encode } from '@toon-format/toon'
+import { useI18n } from '#imports'
 
 interface Props {
   modelValue: string

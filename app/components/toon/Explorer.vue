@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ToonTreeItem } from '~/stores/toon'
+import { useI18n } from '#imports'
 
 const { t } = useI18n()
 const toonStore = useToonStore()

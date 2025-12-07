@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useI18n } from '#imports'
+
 const { t } = useI18n()
 
 // SEO Meta Tags - static values for SSR hydration compatibility

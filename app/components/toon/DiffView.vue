@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { diffLines, type Change } from 'diff'
+import { useI18n } from '#imports'
 
 const { t } = useI18n()
 const toonStore = useToonStore()

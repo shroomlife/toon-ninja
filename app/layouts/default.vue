@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
+import { useI18n } from '#imports'
 
 const { t, locale, locales, setLocale } = useI18n()
 
