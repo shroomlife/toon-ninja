@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { diffLines, type Change } from 'diff'
-import { useI18n } from '#imports'
+import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 const toonStore = useToonStore()

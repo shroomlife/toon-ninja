@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
-import { useI18n } from '#imports'
+import { useI18n } from 'vue-i18n'
 
 const { t, locale, locales, setLocale } = useI18n()
 
